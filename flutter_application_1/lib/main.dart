@@ -54,6 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BottomNavigationBar Sample'),
+        backgroundColor: Color(0xff4A3BBF),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -74,7 +75,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color(0xff4A3BBF),
         onTap: _onItemTapped,
       ),
     );
