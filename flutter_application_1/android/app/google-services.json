@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "600394502211",
+    "project_id": "oo-design",
+    "storage_bucket": "oo-design.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600394502211:android:fb711387907ec3d473c4f6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600394502211-dacomk2oigaaud7000mah62omg5fsrqt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAg_4kADp7XLZkB300xgBhUl5YFIBO71Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600394502211-dacomk2oigaaud7000mah62omg5fsrqt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "600394502211-th3165ppb5jfnhlpsj36vfka3bi90oqs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
