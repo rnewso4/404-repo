@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class DataServices {
   static final DataServices _dataServices = DataServices._internal();
 
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   factory DataServices() {
     return _dataServices;
   }
@@ -11,14 +13,41 @@ class DataServices {
 
   // these functions will be asyncronous once we get firebase implemented
 
-  // returns data from firebase at specified path
-  Map<String, dynamic> getDataAtPath(String path) {
-    return new Map<String, dynamic>();
+  // returns data from firebase at specified document path
+  Future<Map<String, dynamic>> getDataAtPath(DocumentReference path) {
+    return path.get().then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        return documentSnapshot.data();
+      } else {
+        print('Document does not exist on the database');
+        return Map<String, dynamic>();
+      }
+    });
   }
 
-  //updates data in firebase at specified path
-  updateDataAtPath(String path, Map<String, dynamic> data) {}
+  //Adds data in firebase at specified collection path
+  Future<void> addDataAtPath(
+      CollectionReference path, Map<String, dynamic> data) {
+    return path
+        .add(data)
+        .then((value) => print("Data successfully added"))
+        .catchError((error) => print("Failed to add data: $error"));
+  }
 
-  //deletes data in firebase at specified path
-  deleteDataAtPath(String path, Map<String, dynamic> data) {}
+  //updates data in firebase at specified document path
+  Future<void> updateDataAtPath(
+      DocumentReference path, Map<String, dynamic> data) {
+    return path
+        .update(data)
+        .then((value) => print("Data successfully updated"))
+        .catchError((error) => print("Failed to update data: $error"));
+  }
+
+  //deletes data in firebase at specified document path
+  Future<void> deleteDataAtPath(DocumentReference path) {
+    return path
+        .delete()
+        .then((value) => print("Data successfully deleted"))
+        .catchError((error) => print("Failed to delete data: $error"));
+  }
 }
