@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 // Import the firebase_core plugin
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_application_1/DataServices.dart';
 
 void main() => runApp(MyApp());
 
