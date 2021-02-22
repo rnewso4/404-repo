@@ -7,6 +7,19 @@ abstract class Account {
     _description = description;
   }
 
-  String getName();
-  String getDescription();
+  String getName() {
+    return _name;
+  }
+
+  void changeName(String name) {
+    _name = name;
+  }
+
+  String getDescription() {
+    return _description;
+  }
+
+  void changeDescription(String description) {
+    _description = description;
+  }
 }

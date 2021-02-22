@@ -4,8 +4,9 @@ import 'User.dart';
 class Group extends Account {
   User _owner;
 
-  Group(String name, String description) : super(name, description) {
-    this._owner = new User("default", "defualt");
+  Group(String name, String description, User owner)
+      : super(name, description) {
+    _owner = owner;
   }
 
   //adds member to group in firebase
