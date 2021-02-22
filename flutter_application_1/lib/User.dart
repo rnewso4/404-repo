@@ -1,21 +1,8 @@
 import 'Account.dart';
 import 'Group.dart';
 
-class User implements Account {
-  String _name;
-  String _description;
-
-  User(String name, String description) {}
-
-  @override
-  String getDescription() {
-    return _description;
-  }
-
-  @override
-  String getName() {
-    return _name;
-  }
+class User extends Account {
+  User(String name, String description) : super(name, description) {}
 
   //Will add user to list of members in group as well as add group to the list of user memberships
   addMembership(Group group) {}

@@ -1,25 +1,11 @@
 import 'Account.dart';
 import 'User.dart';
 
-class Group implements Account {
-  String _name;
-  String _description;
+class Group extends Account {
   User _owner;
 
-  Group(String name, String description) {
-    this._name = name;
-    this._description = description;
+  Group(String name, String description) : super(name, description) {
     this._owner = new User("default", "defualt");
-  }
-
-  @override
-  String getDescription() {
-    return _description;
-  }
-
-  @override
-  String getName() {
-    return _name;
   }
 
   //adds member to group in firebase
