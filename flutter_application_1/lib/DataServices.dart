@@ -11,8 +11,6 @@ class DataServices {
 
   DataServices._internal();
 
-  // these functions will be asyncronous once we get firebase implemented
-
   // returns data from firebase at specified document path
   Future<Map<String, dynamic>> getDataAtPath(DocumentReference path) {
     return path.get().then((DocumentSnapshot documentSnapshot) {
