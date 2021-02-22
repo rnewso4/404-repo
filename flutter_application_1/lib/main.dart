@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'screens/login2.dart';
+import 'screens/newevent.dart';
+import 'screens/userAccounts.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +30,7 @@ class App extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
             title: "title",
-            home: MyStatefulWidget(),
+            home: UserAccounts(),
           );
         }
 
