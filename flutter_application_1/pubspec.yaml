@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    # add the dependency for google maps
+  google_maps_flutter: ^1.0.3
     # Add the dependency for the Firebase Core Flutter SDK
   firebase_core: "^0.7.0"
   firebase_auth: "^0.20.0+1"
