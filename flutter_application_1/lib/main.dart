@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/maps.dart';
 import 'screens/login2.dart';
 import 'screens/newevent.dart';
 import 'screens/userAccounts.dart';
@@ -31,7 +32,7 @@ class App extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
             title: "title",
-            home: UserAccounts(),
+            home: Mapss(),
           );
         }
 
