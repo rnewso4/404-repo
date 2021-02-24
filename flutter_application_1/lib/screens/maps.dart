@@ -10,13 +10,9 @@ class _MapsState extends State<Mapss> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: LatLng(30.4133, -91.1800),
-          zoom: 15
-          )
-        )
+      appBar: AppBar(), 
+          
+        
     );
   }
   }

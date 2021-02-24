@@ -2,7 +2,7 @@ import 'Account.dart';
 import 'Group.dart';
 
 class User extends Account {
-  User(String name, String description) : super(name, description) {}
+  User(String name, String description) : super(name, description) ;
 
   //Will add user to list of members in group as well as add group to the list of user memberships
   addMembership(Group group) {}
