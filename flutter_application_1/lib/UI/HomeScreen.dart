@@ -21,7 +21,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           )
         ),
         Container(
-          padding: EdgeInsets.only(left: 60, right: 30),
+          padding: EdgeInsets.only(left: 60, right: 30, top: 50),
           child: Align(
             alignment: Alignment.topCenter,
               child: TextField(
@@ -39,7 +39,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           )
         ),
         Container(
-          height: 650,
+          height: 700,
           padding: EdgeInsets.only(right: 10),
           child: Align(
             alignment: Alignment.bottomRight,
@@ -53,7 +53,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         )
       ],
     ),
-    Container(),
+    Container(
+      color: Colors.amber,
+    ),
     Container()
   ];
 
@@ -66,9 +68,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-        backgroundColor: Color(0xff4A3BBF),
+        //title: const Text('The Quad'),
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -80,8 +85,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.event),
+            label: 'Events',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box),
@@ -89,7 +94,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xff4A3BBF),
+        selectedItemColor: Color(0xff853DD9),
         onTap: _onItemTapped,
       ),
     );

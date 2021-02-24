@@ -82,7 +82,7 @@ class _Login2State extends State<Login2> {
                           height: 45,
                           child: GestureDetector(
                               onTap: () {
-                                Navigator.of(context).pushNamed('/main');
+                                Navigator.of(context).pushNamed('/HomeScreen');
                               },
                               child: Material(
                                   borderRadius: BorderRadius.circular(20),

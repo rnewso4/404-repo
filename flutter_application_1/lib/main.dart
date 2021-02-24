@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ui/maps.dart';
 import 'UI/login2.dart';
 import 'UI/newevent.dart';
 import 'UI/login2.dart';
@@ -31,8 +30,11 @@ class App extends StatelessWidget {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
+            routes: <String, WidgetBuilder> {
+              '/HomeScreen': (BuildContext context) => new MyStatefulWidget()
+            },
             title: "title",
-            home: MyStatefulWidget(),
+            home: Login2(),
           );
         }
 
