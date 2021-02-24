@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/login2.dart';
 import 'screens/newevent.dart';
 import 'screens/userAccounts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
