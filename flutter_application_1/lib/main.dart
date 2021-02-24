@@ -3,8 +3,7 @@ import 'package:flutter_application_1/ui/maps.dart';
 import 'UI/login2.dart';
 import 'UI/newevent.dart';
 import 'UI/login2.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'UI/Home.dart';
+import 'UI/HomeScreen.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
@@ -33,7 +32,7 @@ class App extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
             title: "title",
-            home: Mapss(),
+            home: MyStatefulWidget(),
           );
         }
 
