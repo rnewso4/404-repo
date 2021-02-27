@@ -21,23 +21,35 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           )
         ),
         Container(
-          padding: EdgeInsets.only(left: 60, right: 30, top: 50),
-          child: Align(
-            alignment: Alignment.topCenter,
-              child: TextField(
-                decoration: new InputDecoration(
-                  border: new OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(10.0),
+          height: 30,
+          margin: EdgeInsets.only(left: 60, right: 30, top: 50),
+          decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.black,
                   ),
+                  borderRadius: BorderRadius.all(Radius.circular(360)),
                 ),
-                filled: true,
-                hintStyle: new TextStyle(color: Colors.grey[800]),
-                hintText: "Type in your text",
-                fillColor: Colors.white70),
-              ),
-          )
-        ),
+              child: GestureDetector(
+                onTap: () {},
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(left: 10, top: 9),
+                        child: Text(
+                          'Q',
+                          style: TextStyle(
+                            fontFamily: 'bts',
+                            color: Color(0xff853DD9),
+                            fontSize: 9
+                          ),
+                        ),
+                      ),
+                      Text('   Search here')
+                    ],
+                ),
+              )
+          ),
         Container(
           height: 700,
           padding: EdgeInsets.only(right: 10),
