@@ -28,18 +28,22 @@ class Event {
     this._id; //get next id from firebase
     this._participants = [];
     //if the organizor is a user add them to participants else (organizor is a group) do nothing
+    saveEvent();
   }
 
-  //adds participant to event in firebase
   addParticipitant(User user) {
     this._participants.add(user);
+    saveEvent();
+  }
+
+  removeParticipant(User user) {
+    this._participants.remove(user);
   }
 
   Account getOrganizer() {
     return this._organizer;
   }
 
-  //returns a list of participants from firebase
   List<User> getParticipants() {
     return this._participants;
   }
@@ -48,7 +52,19 @@ class Event {
     return this._about;
   }
 
-  //save event to firebase
+  double getLat() {
+    return this._lat;
+  }
+
+  int getID() {
+    return this._id;
+  }
+
+  double getLng() {
+    return this._lng;
+  }
+
+  //TODO: save event to firebase
   saveEvent() {
     //firebase path imp
     //DataServices().addDataAtPath();
