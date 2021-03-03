@@ -8,7 +8,7 @@ class Report {
   Report(String title, String issue) {
     this._title = title;
     this._issue = issue;
-    this._reporter = new User("default", "default");
+    this._reporter = new User("default", "default", "default", "default");
   }
 
   String getTitle() {

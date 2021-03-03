@@ -1,8 +1,10 @@
+import 'dart:collection';
 import 'Account.dart';
 import 'User.dart';
 
 class Group extends Account {
   User _owner;
+  List<User> _members;
 
   Group(String name, String description, User owner)
       : super(name, description) {
@@ -10,11 +12,17 @@ class Group extends Account {
   }
 
   //adds member to group in firebase
-  addMember(User user) {}
+  addMember(User user) {
+    _members.add(user);
+  }
+
+  removeMember(User user) {
+    _members.remove(user);
+  }
 
   //returns list of members from firebase
   List<User> getMembers() {
-    return new List<User>();
+    return _members.toList();
   }
 
   //saves group in firebase
