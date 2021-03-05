@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 class Login2 extends StatefulWidget {
   @override
@@ -17,25 +18,29 @@ class _Login2State extends State<Login2> {
               children: <Widget>[
                 Container(
                     child: Stack(children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(140, 210, 0, 0),
-                    child: Text(
-                      'THE',
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontFamily: 'bts',
-                        color: Color(0xff853DD9),
+                  Center(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 210),
+                      child: Text(
+                        'THE',
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontFamily: 'bts',
+                          color: Color(0xff853DD9),
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(110, 300, 0, 0),
-                    child: Text(
-                      'QUAD',
-                      style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: 'bts',
-                          color: Color(0xff853DD9)),
+                  Center(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 300),
+                      child: Text(
+                        'QUAD',
+                        style: TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'bts',
+                            color: Color(0xff853DD9)),
+                      ),
                     ),
                   ),
                 ])),
@@ -82,7 +87,7 @@ class _Login2State extends State<Login2> {
                           height: 45,
                           child: GestureDetector(
                               onTap: () {
-                                Navigator.of(context).pushNamed('/HomeScreen');
+                                Navigator.of(context).pushNamed(routes.HomeRoute);
                               },
                               child: Material(
                                   borderRadius: BorderRadius.circular(20),

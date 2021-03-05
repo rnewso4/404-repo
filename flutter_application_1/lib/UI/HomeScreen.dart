@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/services/locator.dart';
-import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import 'package:flutter_application_1/UI/Search.dart';
+import 'package:flutter_application_1/UI/maps.dart';
+import 'package:flutter_application_1/UI/userAccounts.dart';
+
 
 /// This is the stateful widget that the main application instantiates.
 class MyStatefulWidget extends StatefulWidget {
@@ -13,69 +13,11 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  //final NavigationService _navigationService = locator<NavigationService>();
-
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
-    Stack(
-      children: <Widget>[
-        GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: LatLng(30.4133, -91.1800),
-          zoom: 15
-          )
-        ),
-        Container(
-          height: 30,
-          margin: EdgeInsets.only(left: 60, right: 30, top: 50),
-          decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(360)),
-                ),
-              child: GestureDetector(
-                onTap: () {
-                //  Get.
-                },
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(left: 10, top: 9),
-                        child: Text(
-                          'Q',
-                          style: TextStyle(
-                            fontFamily: 'bts',
-                            color: Color(0xff853DD9),
-                            fontSize: 9
-                          ),
-                        ),
-                      ),
-                      Text('   Search here')
-                    ],
-                ),
-              )
-          ),
-        Container(
-          height: 700,
-          padding: EdgeInsets.only(right: 10),
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              child: Icon(Icons.add, size: 50),
-              backgroundColor: Colors.white,
-              foregroundColor: Color(0xff853DD9),
-              onPressed: () {},
-            ),
-          ),
-        )
-      ],
-    ),
-    Container(
-      color: Colors.amber,
-    ),
-    Container()
+    MapsPage(),
+    SeacrhPage(),
+    UserAccounts()
   ];
 
   void _onItemTapped(int index) {
@@ -87,13 +29,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        //title: const Text('The Quad'),
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      ),
+      //extendBodyBehindAppBar: true,
+      //appBar: AppBar(
+        ////title: const Text('The Quad'),
+       // iconTheme: IconThemeData(color: Colors.black),
+        //elevation: 0.0,
+        //backgroundColor: Colors.transparent,
+      //),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

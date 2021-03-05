@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/UI/userAccounts.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
-import 'UI/login2.dart';
-import 'UI/newevent.dart';
-import 'UI/login2.dart';
-import 'UI/HomeScreen.dart';
+import 'package:flutter_application_1/services/route_generator.dart';
+import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import 'package:flutter_application_1/UI/loading.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
 
 void main() {
+  setupLocator();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
 }
@@ -33,19 +32,17 @@ class App extends StatelessWidget {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
-            routes: <String, WidgetBuilder> {
-              '/HomeScreen': (BuildContext context) => new MyStatefulWidget()
-            },
             title: "title",
-            home: Login2(),
-            //navigatorKey: locator<NavigationService>().navigatorKey,
+            onGenerateRoute: RouteGenerator.generateRoute,
+            initialRoute: routes.LoginRoute,
+            navigatorKey: locator<NavigationService>().navigatorKey,
           );
         }
 
         // TODO: create a loading screen while the app waits to connect to firebase
         return MaterialApp(
           title: "title",
-          home: MyStatefulWidget(),
+          home: LoadingPage(),
         );
       },
     );
