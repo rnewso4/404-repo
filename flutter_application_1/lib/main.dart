@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/userAccounts.dart';
+import 'package:flutter_application_1/services/locator.dart';
+import 'package:flutter_application_1/services/navigation_service.dart';
 import 'UI/login2.dart';
 import 'UI/newevent.dart';
 import 'UI/login2.dart';
@@ -36,6 +38,7 @@ class App extends StatelessWidget {
             },
             title: "title",
             home: Login2(),
+            //navigatorKey: locator<NavigationService>().navigatorKey,
           );
         }
 

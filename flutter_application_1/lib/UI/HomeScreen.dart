@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/services/locator.dart';
+import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 /// This is the stateful widget that the main application instantiates.
 class MyStatefulWidget extends StatefulWidget {
@@ -10,6 +13,8 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  //final NavigationService _navigationService = locator<NavigationService>();
+
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
     Stack(
@@ -31,7 +36,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   borderRadius: BorderRadius.all(Radius.circular(360)),
                 ),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                //  Get.
+                },
                   child: Row(
                     children: <Widget>[
                       Container(
