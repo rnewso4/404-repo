@@ -23,6 +23,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => SeacrhPage());
       case routes.MapsRoute:
         return MaterialPageRoute(builder: (context) => SeacrhPage());
+      case routes.userAccountsRoute:
+        return MaterialPageRoute(builder: (context) => UserAccounts());
     }
   }
 }

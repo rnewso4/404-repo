@@ -17,8 +17,14 @@ class _NewEventState extends State<NewEvent> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFCECECE),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios), 
+          onPressed: () {_navigationService.goBack();} 
+          )
+        ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

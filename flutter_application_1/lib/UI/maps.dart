@@ -24,20 +24,6 @@ class _MapsPageState extends State<MapsPage> {
           zoom: 15
           )
         ),
-        //-------------------PAGE 1--------------------------------
-        Container(
-          height: 700,
-          padding: EdgeInsets.only(right: 10),
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              child: Icon(Icons.add, size: 50),
-              backgroundColor: Colors.white,
-              foregroundColor: Color(0xff853DD9),
-              onPressed: () {_navigationService.navigateTo(routes.NewEventRoute);},
-            ),
-          ),
-        ),
         SizedBox(
           //width: double.infinity,
           //height: 200,
@@ -73,6 +59,22 @@ class _MapsPageState extends State<MapsPage> {
                   )
               ),
         ),
+         Align(
+           alignment: Alignment.bottomRight,
+           child: Container(
+            height: 700,
+            padding: EdgeInsets.only(right: 10, bottom: 10),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                child: Icon(Icons.add, size: 50),
+                backgroundColor: Colors.white,
+                foregroundColor: Color(0xff853DD9),
+                onPressed: () {_navigationService.navigateTo(routes.NewEventRoute);},
+              ),
+            ),
+        ),
+         )
       ],
     ),
     );
