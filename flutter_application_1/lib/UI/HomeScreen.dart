@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/UI/Search.dart';
+import 'package:flutter_application_1/UI/Events.dart';
 import 'package:flutter_application_1/UI/maps.dart';
 import 'package:flutter_application_1/UI/userAccounts.dart';
 
@@ -16,7 +16,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
     MapsPage(),
-    SeacrhPage(),
+    EventsPage(),
     UserAccounts()
   ];
 
@@ -29,13 +29,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //extendBodyBehindAppBar: true,
-      //appBar: AppBar(
-        ////title: const Text('The Quad'),
-       // iconTheme: IconThemeData(color: Colors.black),
-        //elevation: 0.0,
-        //backgroundColor: Colors.transparent,
-      //),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

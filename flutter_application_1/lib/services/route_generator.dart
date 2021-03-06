@@ -6,7 +6,7 @@ import 'route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/userAccounts.dart';
 import 'package:flutter_application_1/UI/newevent.dart';
 import 'package:flutter_application_1/UI/loading.dart';
-import 'package:flutter_application_1/UI/Search.dart';
+import 'package:flutter_application_1/UI/Events.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,6 +25,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => SeacrhPage());
       case routes.userAccountsRoute:
         return MaterialPageRoute(builder: (context) => UserAccounts());
+      case routes.eventsRoute:
+        return MaterialPageRoute(builder: (context) => EventsPage());
     }
   }
 }
