@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/HomeScreen.dart';
+import 'package:flutter_application_1/UI/Register.dart';
 import 'package:flutter_application_1/UI/Search.dart';
 import 'package:flutter_application_1/UI/login2.dart';
 import 'route_paths.dart' as routes;
@@ -27,6 +28,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => UserAccounts());
       case routes.eventsRoute:
         return MaterialPageRoute(builder: (context) => EventsPage());
+      case routes.register:
+        return MaterialPageRoute(builder: (context) => RegisterPage());
     }
   }
 }

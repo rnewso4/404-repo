@@ -5,16 +5,16 @@ import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 final NavigationService _navigationService = locator<NavigationService>();
 
-class NewEvent extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _NewEventState createState() => new _NewEventState();
+  _RegisterPageState createState() => new _RegisterPageState();
 }
 
-class _NewEventState extends State<NewEvent> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+     resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFCECECE),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -28,15 +28,19 @@ class _NewEventState extends State<NewEvent> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            textfields('Title'),
+            textfields("Email"),
             SizedBox(height: 30),
-            textfields('Location'),
+            textfields("Password"),
             SizedBox(height: 30),
-            textfields('Account Type'),
+            textfields("Name"),
             SizedBox(height: 30),
-            textfields('Description'),
+            textfields("Description"),
+            SizedBox(height: 30),
+            textfields("Year"),
+            SizedBox(height: 30),
+            textfields("Major"),
             Container(
-              height: 450,
+              height: 200,
               padding: EdgeInsets.only(right: 10),
               child: Align(
                 alignment: Alignment.bottomRight,
@@ -71,9 +75,8 @@ class _NewEventState extends State<NewEvent> {
     );
   }
 }
-
-textfields(String name) {
-  return Padding(
+ textfields(String name) {
+   return Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: TextField(
                   decoration: InputDecoration(
@@ -81,9 +84,8 @@ textfields(String name) {
                       labelStyle: TextStyle(
                         color: Color(0xff404040),
                         fontWeight: FontWeight.bold,
-                        //fontSize: 30
                       ),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xff404040))))),
             );
-}
+ }

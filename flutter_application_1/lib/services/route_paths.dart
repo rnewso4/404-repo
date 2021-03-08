@@ -6,3 +6,4 @@ const String SearchRoute = 'Search';
 const String MapsRoute = 'Maps';
 const String userAccountsRoute = 'userAccounts'; //only needed for testing
 const String eventsRoute = 'events'; //only used for testing
+const String register = 'register';

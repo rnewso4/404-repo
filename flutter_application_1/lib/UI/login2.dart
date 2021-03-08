@@ -114,6 +114,7 @@ class _Login2State extends State<Login2> {
                           children: <Widget>[
                             Text('Don\'t have an accont? '),
                             InkWell(
+                              onTap: () {Navigator.of(context).pushNamed(routes.register);},
                               child: Text(
                                 'Register',
                                 style: TextStyle(
