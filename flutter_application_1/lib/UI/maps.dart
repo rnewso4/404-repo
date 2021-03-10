@@ -21,7 +21,7 @@ class _MapsPageState extends State<MapsPage> {
         children: <Widget>[
           GoogleMap(
             initialCameraPosition:
-                CameraPosition(target: LatLng(30.4133, -91.1800), zoom: 15),
+                CameraPosition(target: LatLng(30.4126, -91.1771), zoom: 16),
             markers: Set.from(myMarker),
             onTap: _handleTap,
           ),
