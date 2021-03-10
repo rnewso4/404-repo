@@ -4,7 +4,7 @@ import 'Account.dart';
 import 'User.dart';
 
 class Event {
-  int _id;
+  String _id;
   Account _organizer;
   String _about;
   double _lat;
@@ -64,9 +64,11 @@ class Event {
     return this._lng;
   }
 
-  //TODO: save event to firebase
-  saveEvent() {
-    //firebase path imp
-    //DataServices().addDataAtPath();
+  Future<void> createEvent() {
+    return DataServices().saveEvent(this).then((doc) => {this._id = doc.id});
+  }
+
+  Map<String, dynamic> getMap() {
+    return {"organizer": _organizer, "about": _about, "lat": _lat, "lng": _lng};
   }
 }

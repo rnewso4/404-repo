@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'Event.dart';
 import 'User.dart';
 
 class DataServices {
@@ -53,5 +54,10 @@ class DataServices {
   Future<DocumentReference> saveUser(User user) {
     CollectionReference path = firestore.collection("users");
     return _addDataAtPath(path, user.getMap());
+  }
+
+  Future<DocumentReference> saveEvent(Event event) {
+    CollectionReference path = firestore.collection("events");
+    return _addDataAtPath(path, event.getMap());
   }
 }
