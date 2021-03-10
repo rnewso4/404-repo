@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'Event.dart';
+import 'User.dart';
+
 class DataServices {
   static final DataServices _dataServices = DataServices._internal();
 
@@ -12,7 +15,7 @@ class DataServices {
   DataServices._internal();
 
   // returns data from firebase at specified document path
-  Future<Map<String, dynamic>> getDataAtPath(DocumentReference path) {
+  Future<Map<String, dynamic>> _getDataAtPath(DocumentReference path) {
     return path.get().then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
         return documentSnapshot.data();
@@ -24,16 +27,15 @@ class DataServices {
   }
 
   //Adds data in firebase at specified collection path
-  Future<void> addDataAtPath(
+  Future<DocumentReference> _addDataAtPath(
       CollectionReference path, Map<String, dynamic> data) {
-    return path
-        .add(data)
-        .then((value) => print("Data successfully added"))
-        .catchError((error) => print("Failed to add data: $error"));
+    return path.add(data).then((value) {
+      return value;
+    });
   }
 
   //updates data in firebase at specified document path
-  Future<void> updateDataAtPath(
+  Future<void> _updateDataAtPath(
       DocumentReference path, Map<String, dynamic> data) {
     return path
         .update(data)
@@ -42,10 +44,20 @@ class DataServices {
   }
 
   //deletes data in firebase at specified document path
-  Future<void> deleteDataAtPath(DocumentReference path) {
+  Future<void> _deleteDataAtPath(DocumentReference path) {
     return path
         .delete()
         .then((value) => print("Data successfully deleted"))
         .catchError((error) => print("Failed to delete data: $error"));
+  }
+
+  Future<DocumentReference> saveUser(User user) {
+    CollectionReference path = firestore.collection("users");
+    return _addDataAtPath(path, user.getMap());
+  }
+
+  Future<DocumentReference> saveEvent(Event event) {
+    CollectionReference path = firestore.collection("events");
+    return _addDataAtPath(path, event.getMap());
   }
 }

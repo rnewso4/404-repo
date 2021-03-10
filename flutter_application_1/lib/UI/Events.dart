@@ -14,6 +14,7 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: double.infinity,
         margin: EdgeInsets.only(top:100),
@@ -45,7 +46,7 @@ class _EventsPageState extends State<EventsPage> {
                     ),
                     )
                   ),
-                  Container(
+                /*  Container(
                     height: 20,
                     width: 70,
                     margin: EdgeInsets.only(top: 60, left: 100),
@@ -53,11 +54,80 @@ class _EventsPageState extends State<EventsPage> {
                       color: Colors.white,
                     ),
                     child: Center(child: Text("Today"))
-                  )
+                  ) */
               ],
-            )
+            ),
+            Expanded(
+              child: ListView( 
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: <Widget>[
+                SizedBox(height: 30),
+                events(),
+                SizedBox(height: 30),
+                events(),
+                SizedBox(height: 30),
+                events(),
+                SizedBox(height: 30),
+                events(),
+                SizedBox(height: 30),
+                ],),
+            ),
           ],),
       ),
     );
   }
+}
+
+events() {
+  return Container(
+      height: 150,
+      width: 10,
+      margin: EdgeInsets.only(left: 15, right: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.white
+      ),
+      child: Column(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              padding: EdgeInsets.only(left: 20, top: 20),
+              child: Text(
+                'Event',
+                style: TextStyle(
+                  fontSize: 30,
+                )
+                ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              padding: EdgeInsets.only(top: 10),
+              child: Text('text')
+              )
+          ),
+          Container(
+            height: 66,
+            padding: EdgeInsets.only(bottom: 10, left: 15),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                children: <Widget>[
+                  Text('User Name                                                 '),
+                  InkWell(
+                      child: Text('Report',
+                      style: TextStyle(
+                          color: Color(0xff853DD9),
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline))),
+                ],
+              ),
+            ),
+          )
+        ],
+        ),
+    );
 }

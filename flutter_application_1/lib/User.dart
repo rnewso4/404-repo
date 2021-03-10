@@ -1,7 +1,10 @@
+import 'package:flutter_application_1/DataServices.dart';
+
 import 'Account.dart';
 import 'Group.dart';
 
 class User extends Account {
+<<<<<<< HEAD
   String _year;
   String _major;
   User(String name, String description, String email, String password,
@@ -9,6 +12,16 @@ class User extends Account {
       : super(name, description, email, password) {
     _year = grade;
     _major = degree;
+=======
+  String year;
+  String major;
+  String id;
+  DataServices dataServices;
+  User(String name, String description, String grade, String degree)
+      : super(name, description) {
+    year = grade;
+    major = degree;
+>>>>>>> f876ced729d97597149d323502832a163d3e2d3c
   }
 
   getYear() {
@@ -36,5 +49,16 @@ class User extends Account {
   }
 
   //Will save user in firebase database and firebase authentication
-  saveUser() {}
+  Future<void> createUser() {
+    return DataServices().saveUser(this).then((doc) => {this.id = doc.id});
+  }
+
+  Map<String, dynamic> getMap() {
+    return {
+      "name": super.getName(),
+      "description": super.getDescription(),
+      "year": year,
+      "major": major
+    };
+  }
 }

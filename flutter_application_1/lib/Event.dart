@@ -4,7 +4,7 @@ import 'Account.dart';
 import 'User.dart';
 
 class Event {
-  int _id;
+  String _id;
   Account _organizer;
   String _about;
   double _lat;
@@ -28,12 +28,11 @@ class Event {
     this._id; //get next id from firebase
     this._participants = [];
     //if the organizor is a user add them to participants else (organizor is a group) do nothing
-    saveEvent();
+    createEvent();
   }
 
   addParticipitant(User user) {
     this._participants.add(user);
-    saveEvent();
   }
 
   removeParticipant(User user) {
@@ -56,7 +55,7 @@ class Event {
     return this._lat;
   }
 
-  int getID() {
+  String getID() {
     return this._id;
   }
 
@@ -64,9 +63,11 @@ class Event {
     return this._lng;
   }
 
-  //TODO: save event to firebase
-  saveEvent() {
-    //firebase path imp
-    //DataServices().addDataAtPath();
+  Future<void> createEvent() {
+    return DataServices().saveEvent(this).then((doc) => {this._id = doc.id});
+  }
+
+  Map<String, dynamic> getMap() {
+    return {"organizer": _organizer, "about": _about, "lat": _lat, "lng": _lng};
   }
 }
