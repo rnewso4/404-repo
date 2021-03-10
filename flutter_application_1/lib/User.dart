@@ -42,7 +42,7 @@ class User extends Account {
     return DataServices().saveUser(this);
   }
 
-  Map<String, dynamic> getPath() {
+  Map<String, dynamic> getMap() {
     return {
       "name": super.getName(),
       "description": super.getDescription(),
