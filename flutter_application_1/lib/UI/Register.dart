@@ -14,17 +14,17 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFCECECE),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios), 
-          onPressed: () {_navigationService.goBack();} 
-          )
-        ),
+          iconTheme: IconThemeData(color: Colors.black),
+          elevation: 0.0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                _navigationService.goBack();
+              })),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -75,17 +75,18 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
- textfields(String name) {
-   return Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: TextField(
-                  decoration: InputDecoration(
-                      labelText: name,
-                      labelStyle: TextStyle(
-                        color: Color(0xff404040),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff404040))))),
-            );
- }
+
+textfields(String name) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 20, right: 20),
+    child: TextField(
+        decoration: InputDecoration(
+            labelText: name,
+            labelStyle: TextStyle(
+              color: Color(0xff404040),
+              fontWeight: FontWeight.bold,
+            ),
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Color(0xff404040))))),
+  );
+}

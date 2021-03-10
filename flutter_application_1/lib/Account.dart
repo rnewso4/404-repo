@@ -1,10 +1,14 @@
 abstract class Account {
   String _name;
   String _description;
+  String _email;
+  String _password;
 
-  Account(String name, String description) {
+  Account(String name, String description, String email, String password) {
     _name = name;
     _description = description;
+    _email = email;
+    _password = password;
   }
 
   String getName() {
