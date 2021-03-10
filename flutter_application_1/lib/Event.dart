@@ -28,12 +28,11 @@ class Event {
     this._id; //get next id from firebase
     this._participants = [];
     //if the organizor is a user add them to participants else (organizor is a group) do nothing
-    saveEvent();
+    createEvent();
   }
 
   addParticipitant(User user) {
     this._participants.add(user);
-    saveEvent();
   }
 
   removeParticipant(User user) {
@@ -56,7 +55,7 @@ class Event {
     return this._lat;
   }
 
-  int getID() {
+  String getID() {
     return this._id;
   }
 
