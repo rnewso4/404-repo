@@ -21,7 +21,7 @@ class _Login2State extends State<Login2> {
               children: <Widget>[
                 Center(
                   child: Container(
-                    padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical*20),
+                    padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical*20),
                     child: Text(
                       'THE', 
                       style: TextStyle(
@@ -34,7 +34,7 @@ class _Login2State extends State<Login2> {
                 ),
                  Center(
                    child: Container(
-                    padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical*30),
+                    padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical*30),
                     child: Text(
                       'QUAD', 
                       style: TextStyle(
@@ -49,7 +49,7 @@ class _Login2State extends State<Login2> {
             )
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(SizeConfig.blockSizeHorizaontal*7, SizeConfig.blockSizeVertical*5, SizeConfig.blockSizeHorizaontal*7, 0),
+            padding: EdgeInsets.fromLTRB(SizeConfig.blockSizeHorizaontal*7, SizeConfig.safeBlockVertical*5, SizeConfig.blockSizeHorizaontal*7, 0),
             child: Column(
               children: <Widget>[
                 TextField(
@@ -66,7 +66,7 @@ class _Login2State extends State<Login2> {
                     )
                   )
                 ),
-                SizedBox(height: SizeConfig.blockSizeVertical*3),
+                SizedBox(height: SizeConfig.safeBlockVertical*3),
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -97,9 +97,9 @@ class _Login2State extends State<Login2> {
                     )
                   ),
                 ),
-                SizedBox(height: SizeConfig.blockSizeVertical*4),
+                SizedBox(height: SizeConfig.safeBlockVertical*4),
                 Container(
-                  height: SizeConfig.blockSizeVertical*5,
+                  height: SizeConfig.safeBlockVertical*5,
                   child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushNamed(routes.HomeRoute);
@@ -127,7 +127,7 @@ class _Login2State extends State<Login2> {
           ),
        //R SizedBox(height: SizeConfig.blockSizeVertical*24),
         Container(
-          height: SizeConfig.blockSizeVertical*24,
+          height: SizeConfig.safeBlockVertical*20,
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Row(

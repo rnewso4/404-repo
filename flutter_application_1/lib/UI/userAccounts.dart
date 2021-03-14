@@ -86,7 +86,7 @@ class _UserAccountsState extends State<UserAccounts> {
                   ],
                 ),
               ),
-            SizedBox(height: SizeConfig.blockSizeVertical*13),
+            SizedBox(height: SizeConfig.blockSizeVertical*11),
             Container(
               padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*5),
               child: Text('Group Activities', style: TextStyle(
@@ -95,7 +95,7 @@ class _UserAccountsState extends State<UserAccounts> {
             ), 
             SizedBox(height: SizeConfig.blockSizeVertical*5),
             Container(
-              height: SizeConfig.blockSizeVertical*13,
+              height: SizeConfig.blockSizeVertical*15,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -113,7 +113,7 @@ class _UserAccountsState extends State<UserAccounts> {
 
 boxes() {
   return Container(
-                height: SizeConfig.blockSizeVertical*52,
+                height: SizeConfig.blockSizeVertical*54,
                 width: SizeConfig.blockSizeHorizaontal*48,
                 margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*6),
                 decoration: BoxDecoration(
