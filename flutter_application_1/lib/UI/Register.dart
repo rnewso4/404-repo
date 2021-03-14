@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 final NavigationService _navigationService = locator<NavigationService>();
+final myController1 = TextEditingController();
+final myController2 = TextEditingController();
+final myController3 = TextEditingController();
+final myController4 = TextEditingController();
+final myController5 = TextEditingController();
+final myController6 = TextEditingController();
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -13,8 +19,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFCECECE),
       appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.black),
@@ -28,25 +34,25 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            textfields("Email"),
-            SizedBox(height: 30),
-            textfields("Password"),
-            SizedBox(height: 30),
-            textfields("Name"),
-            SizedBox(height: 30),
-            textfields("Description"),
-            SizedBox(height: 30),
-            textfields("Year"),
-            SizedBox(height: 30),
-            textfields("Major"),
+            textfields("Email", myController1),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            textfields("Password", myController2),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            textfields("Name", myController3),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            textfields("Description", myController4),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            textfields("Year", myController5),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            textfields("Major", myController6),
             Container(
-              height: 200,
-              padding: EdgeInsets.only(right: 10),
+              height: SizeConfig.blockSizeVertical*25,
+              padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizaontal*4),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
-                  height: 60,
-                  width: 80,
+                  height: SizeConfig.blockSizeVertical*6,
+                  width: SizeConfig.blockSizeHorizaontal*20,
                   child: GestureDetector(
                     onTap: () {
                       _navigationService.goBack();
@@ -60,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: Text(
                             'ADD',
                             style: TextStyle(
-                                fontSize: 20,
+                                fontSize: SizeConfig.blockSizeHorizaontal*5,
                                 color: Color(0xFFEBEBEB),
                                 fontWeight: FontWeight.bold),
                           ),
@@ -76,17 +82,22 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 }
 
-textfields(String name) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 20, right: 20),
-    child: TextField(
-        decoration: InputDecoration(
-            labelText: name,
-            labelStyle: TextStyle(
-              color: Color(0xff404040),
-              fontWeight: FontWeight.bold,
-            ),
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xff404040))))),
+textfields(String name, var conc) {
+  return Container(
+    height: SizeConfig.blockSizeVertical*7,
+    child: Padding(
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*4.5, right: SizeConfig.blockSizeHorizaontal*4.5),
+      child: TextField(
+        controller: conc,
+          decoration: InputDecoration(
+              labelText: name,
+              labelStyle: TextStyle(
+                color: Color(0xff404040),
+                fontWeight: FontWeight.bold,
+                fontSize: SizeConfig.blockSizeHorizaontal*4
+              ),
+              focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff404040))))),
+    ),
   );
 }

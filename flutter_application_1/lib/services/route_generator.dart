@@ -3,6 +3,7 @@ import 'package:flutter_application_1/UI/HomeScreen.dart';
 import 'package:flutter_application_1/UI/Register.dart';
 import 'package:flutter_application_1/UI/Search.dart';
 import 'package:flutter_application_1/UI/login2.dart';
+import 'package:flutter_application_1/UI/maps.dart';
 import 'route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/userAccounts.dart';
 import 'package:flutter_application_1/UI/newevent.dart';
@@ -23,7 +24,7 @@ class RouteGenerator {
       case routes.SearchRoute:
         return MaterialPageRoute(builder: (context) => SeacrhPage());
       case routes.MapsRoute:
-        return MaterialPageRoute(builder: (context) => SeacrhPage());
+        return MaterialPageRoute(builder: (context) => MapsPage());
       case routes.userAccountsRoute:
         return MaterialPageRoute(builder: (context) => UserAccounts());
       case routes.eventsRoute:

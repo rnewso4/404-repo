@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
@@ -14,8 +15,8 @@ class UserAccounts extends StatefulWidget {
 class _UserAccountsState extends State<UserAccounts> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-        //resizeToAvoidBottomInset: false,
         appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0.0,
@@ -27,82 +28,94 @@ class _UserAccountsState extends State<UserAccounts> {
           )
         ]
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Center(
-                child: Container(
-                  height: 160,
-                  margin: EdgeInsets.only(top: 50),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                    ),
-                    shape: BoxShape.circle
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: Container(
+                height: SizeConfig.blockSizeVertical*20,
+                margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical*5),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
                   ),
+                  shape: BoxShape.circle
                 ),
               ),
-              SizedBox(height: 15),
-              Container(
-                alignment: Alignment.center,
-                child: Text(
-                  'Mike The Tiger',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.6),
+            Container(
+              alignment: Alignment.center,
+              child: Text(
+                'Mike The Tiger',
+                style: TextStyle(fontSize: SizeConfig.blockSizeHorizaontal*6.7, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: SizeConfig.blockSizeVertical*3.5),
+            Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text('Year', style: TextStyle(
+                      color: Color(0xff7B7B7B),
+                      fontSize: SizeConfig.blockSizeHorizaontal*4)),
+                    Text('Major', style: TextStyle(
+                      color: Color(0xff7B7B7B),
+                      fontSize: SizeConfig.blockSizeHorizaontal*4)),
+                    Text('Points', style: TextStyle(
+                      color: Color(0xff7B7B7B),
+                      fontSize: SizeConfig.blockSizeHorizaontal*4)),
+                  ],
                 ),
               ),
-              SizedBox(height: 35),
-              Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Text('Year', style: TextStyle(color: Color(0xff7B7B7B))),
-                      Text('Major', style: TextStyle(color: Color(0xff7B7B7B))),
-                      Text('Points', style: TextStyle(color: Color(0xff7B7B7B))),
-                    ],
-                  ),
+            SizedBox(height: SizeConfig.blockSizeVertical),
+            Container(
+                padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*10, right: SizeConfig.blockSizeHorizaontal*10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Senior', style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig.blockSizeHorizaontal*3.8)),
+                    Text('Kineisiology', style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig.blockSizeHorizaontal*3.8)),
+                    Text('10,000', style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig.blockSizeHorizaontal*3.8)),
+                  ],
                 ),
-              SizedBox(height: 9),
-              Container(
-                  padding: EdgeInsets.only(left: 50, right: 50),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text('Senior', style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text('Kineisiology', style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text('10,000', style: TextStyle(fontWeight: FontWeight.bold)),
-                    ],
-                  ),
+              ),
+            SizedBox(height: SizeConfig.blockSizeVertical*13),
+            Container(
+              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*5),
+              child: Text('Group Activities', style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: SizeConfig.blockSizeHorizaontal*4)),
+            ), 
+            SizedBox(height: SizeConfig.blockSizeVertical*5),
+            Container(
+              height: SizeConfig.blockSizeVertical*13,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                      boxes(),
+                      SizedBox(width: SizeConfig.blockSizeHorizaontal*5),
+                      boxes(),
+                  ],
                 ),
-              SizedBox(height: 100),
-              Container(
-                padding: EdgeInsets.only(left: 15),
-                child: Text('Group Activities', style: TextStyle(fontWeight: FontWeight.bold)),
-              ), 
-              SizedBox(height: 50),
-              Container(
-                height: 125,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                        boxes(),
-                        SizedBox(width: 20),
-                        boxes(),
-                    ],
-                  ),
-                ),
-              //)
-            ],
-          ),
+              ),
+            //)
+          ],
         ));
   }
 }
 
 boxes() {
   return Container(
-                height: 130,
-                width: 200,
-                margin: EdgeInsets.only(left: 30),
+                height: SizeConfig.blockSizeVertical*52,
+                width: SizeConfig.blockSizeHorizaontal*48,
+                margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                   gradient: LinearGradient(
@@ -119,27 +132,29 @@ boxes() {
                     Row(
                       children: <Widget>[
                         Container(
-                          height: 50,
-                          width: 60,
-                          margin: EdgeInsets.only(top: 8, left: 5),
+                          height: SizeConfig.blockSizeHorizaontal*12,
+                          width: SizeConfig.blockSizeHorizaontal*13,
+                          margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical, left: SizeConfig.blockSizeHorizaontal*2),
                           decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.white)),
                         ),
-                        SizedBox(width: 2),
+                        SizedBox(width: SizeConfig.blockSizeHorizaontal*2),
                         Text(
                           'Athletics Team',
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.blockSizeHorizaontal*3.5
                           ),
                           )
                       ],),
-                    SizedBox(height: 30),
+                    SizedBox(height: SizeConfig.blockSizeHorizaontal*6),
                     Center(
                       child: Text(
                         '5 new notifications',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
+                          fontSize: SizeConfig.blockSizeHorizaontal*3.5
                         ),
                         )
                     )
