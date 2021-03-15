@@ -3,6 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import './size_config.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 
@@ -15,9 +16,9 @@ class _MapsPageState extends State<MapsPage> {
   List<Marker> myMarker = [];
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: Stack(
-        //clipBehavior: Clip.none,
         children: <Widget>[
           GoogleMap(
             initialCameraPosition:
@@ -26,16 +27,15 @@ class _MapsPageState extends State<MapsPage> {
             onTap: _handleTap,
           ),
           SizedBox(
-            //width: double.infinity,
-            //height: 200,
+            height: SizeConfig.blockSizeVertical*9,
             child: GestureDetector(
                 onTap: () {
                   _navigationService.navigateTo(routes.SearchRoute);
                 },
                 behavior: HitTestBehavior.translucent,
                 child: Container(
-                  height: 30,
-                  margin: EdgeInsets.only(left: 60, right: 30, top: 50),
+                  height: SizeConfig.blockSizeVertical*9,
+                  margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*14, right: SizeConfig.blockSizeHorizaontal*8, top: SizeConfig.blockSizeVertical*5.3),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -46,16 +46,17 @@ class _MapsPageState extends State<MapsPage> {
                   child: Row(
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(left: 10, top: 9),
+                        padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*2.3, top: SizeConfig.blockSizeVertical*1.5),
                         child: Text(
                           'Q',
                           style: TextStyle(
                               fontFamily: 'bts',
                               color: Color(0xff853DD9),
-                              fontSize: 9),
+                              fontSize: SizeConfig.blockSizeHorizaontal*2.7),
                         ),
                       ),
-                      Text('   Search here')
+                      Text('   Search here', 
+                      style: TextStyle(fontSize: SizeConfig.blockSizeHorizaontal*3.5),)
                     ],
                   ),
                 )),
@@ -63,12 +64,13 @@ class _MapsPageState extends State<MapsPage> {
           Align(
             alignment: Alignment.bottomRight,
             child: Container(
-              height: 700,
-              padding: EdgeInsets.only(right: 10, bottom: 10),
+              height: SizeConfig.blockSizeVertical*50,
+              padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizaontal*2.3, bottom: SizeConfig.blockSizeVertical*12),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: FloatingActionButton(
-                  child: Icon(Icons.add, size: 50),
+                  child: Icon(Icons.add, size: SizeConfig.blockSizeHorizaontal*12),
+                  elevation: 2.5,
                   backgroundColor: Colors.white,
                   foregroundColor: Color(0xff853DD9),
                   onPressed: () {

@@ -8,6 +8,8 @@ final NavigationService _navigationService = locator<NavigationService>();
 class EventsPage extends StatefulWidget {
   @override
   _EventsPageState createState() => new _EventsPageState();
+  final myController = TextEditingController();
+  
 }
 
 class _EventsPageState extends State<EventsPage> {

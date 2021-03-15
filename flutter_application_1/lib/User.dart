@@ -5,8 +5,12 @@ import 'Group.dart';
 class User extends Account {
   String _year;
   String _major;
+<<<<<<< HEAD
   String id;
   DataServices dataServices;
+=======
+  String _id;
+>>>>>>> fb31cb6b2f5f2b4597f5107e44237ae0336e067c
   User(String name, String description, String email, String password,
       String grade, String degree)
       : super(name, description, email, password) {
@@ -42,7 +46,7 @@ class User extends Account {
 
   //Will save user in firebase database and firebase authentication
   Future<void> createUser() {
-    return DataServices().saveUser(this).then((doc) => {this.id = doc.id});
+    return DataServices().saveUser(this).then((doc) => {this._id = doc.id});
   }
 
   Map<String, dynamic> getMap() {

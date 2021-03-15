@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:flutter_application_1/services/route_paths.dart' as routes;
-
 final NavigationService _navigationService = locator<NavigationService>();
+
+final myController1 = TextEditingController();
+final myController2 = TextEditingController();
+final myController3 = TextEditingController();
+final myController4 = TextEditingController();
 
 class NewEvent extends StatefulWidget {
   @override
@@ -11,10 +15,17 @@ class NewEvent extends StatefulWidget {
 }
 
 class _NewEventState extends State<NewEvent> {
+
+  //@override
+  //void dispose() {
+    // Clean up the controller when the widget is disposed.
+    //myController.dispose();
+    //super.dispose();
+ // }
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFCECECE),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -28,23 +39,24 @@ class _NewEventState extends State<NewEvent> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            textfields('Title'),
-            SizedBox(height: 30),
-            textfields('Location'),
-            SizedBox(height: 30),
-            textfields('Account Type'),
-            SizedBox(height: 30),
-            textfields('Description'),
+            Textfields('Title', myController1),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            Textfields('Location', myController2),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            Textfields('Account Type', myController3),
+            SizedBox(height: SizeConfig.blockSizeVertical*2.5),
+            Textfields('Description', myController4),
             Container(
-              height: 450,
-              padding: EdgeInsets.only(right: 10),
+              height: SizeConfig.blockSizeVertical*45,
+              padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizaontal*3),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
-                  height: 60,
-                  width: 80,
+                  height: SizeConfig.blockSizeVertical*5.5,
+                  width: SizeConfig.blockSizeHorizaontal*20,
                   child: GestureDetector(
                     onTap: () {
+                      //print(myController1.text);
                       _navigationService.goBack();
                     },
                     child: Material(
@@ -56,7 +68,7 @@ class _NewEventState extends State<NewEvent> {
                           child: Text(
                             'ADD',
                             style: TextStyle(
-                                fontSize: 20,
+                                fontSize: SizeConfig.blockSizeHorizaontal*5,
                                 color: Color(0xFFEBEBEB),
                                 fontWeight: FontWeight.bold),
                           ),
@@ -72,18 +84,22 @@ class _NewEventState extends State<NewEvent> {
   }
 }
 
-textfields(String name) {
-  return Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: TextField(
-                  decoration: InputDecoration(
-                      labelText: name,
-                      labelStyle: TextStyle(
-                        color: Color(0xff404040),
-                        fontWeight: FontWeight.bold,
-                        //fontSize: 30
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff404040))))),
+Textfields(String name, var conc) {
+  return Container(
+              height: SizeConfig.blockSizeVertical*7,
+              child: Padding(
+                padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*4.5, right: SizeConfig.blockSizeHorizaontal*4.5),
+                child: TextField(
+                  controller: conc,
+                    decoration: InputDecoration(
+                        labelText: name,
+                        labelStyle: TextStyle(
+                          color: Color(0xff404040),
+                          fontWeight: FontWeight.bold,
+                          fontSize: SizeConfig.blockSizeHorizaontal*4
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xff404040))))),
+              ),
             );
 }
