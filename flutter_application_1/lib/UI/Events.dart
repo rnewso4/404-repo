@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 final NavigationService _navigationService = locator<NavigationService>();
 
@@ -15,17 +15,19 @@ class EventsPage extends StatefulWidget {
 class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    var name = new List(9);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
         height: double.infinity,
-        margin: EdgeInsets.only(top:100),
+        margin: EdgeInsets.only(top:SizeConfig.blockSizeVertical*10),
         decoration: BoxDecoration(
           gradient: LinearGradient(
                     begin: Alignment(-1.0, -2.0),
                     end: Alignment(1.0, 2.0), 
                     colors: [
-                      Color(0xffEFE2FF),
+                      Color(0xffF7E8FF),
                       Color(0xff5410A3),
                     ]
           ),
@@ -39,41 +41,33 @@ class _EventsPageState extends State<EventsPage> {
             Row(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(top: 60, left: 20),
+                  padding: EdgeInsets.only(top: SizeConfig.blockSizeHorizaontal*10, left: SizeConfig.blockSizeHorizaontal*5),
                   child: Text('Local Events', 
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
+                    fontSize: SizeConfig.blockSizeHorizaontal*7,
                     fontWeight: FontWeight.bold
                     ),
                     )
                   ),
-                /*  Container(
-                    height: 20,
-                    width: 70,
-                    margin: EdgeInsets.only(top: 60, left: 100),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Center(child: Text("Today"))
-                  ) */
               ],
             ),
+            SizedBox(height: SizeConfig.blockSizeVertical*2),
             Expanded(
-              child: ListView( 
+              child: ListView.builder( 
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                children: <Widget>[
-                SizedBox(height: 30),
-                events(),
-                SizedBox(height: 30),
-                events(),
-                SizedBox(height: 30),
-                events(),
-                SizedBox(height: 30),
-                events(),
-                SizedBox(height: 30),
-                ],),
+                itemCount: name.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    //elevation: 0.0,
+                    shape: BeveledRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0)),
+                    margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*4, right: SizeConfig.blockSizeHorizaontal*4, bottom: SizeConfig.blockSizeVertical*3),
+                    child: events()
+                  );
+                }
+                ),
             ),
           ],),
       ),
@@ -83,53 +77,81 @@ class _EventsPageState extends State<EventsPage> {
 
 events() {
   return Container(
-      height: 150,
-      width: 10,
-      margin: EdgeInsets.only(left: 15, right: 15),
+    height: SizeConfig.blockSizeVertical*10,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: Colors.white
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
       ),
-      child: Column(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              padding: EdgeInsets.only(left: 20, top: 20),
-              child: Text(
-                'Event',
-                style: TextStyle(
-                  fontSize: 30,
-                )
-                ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: EdgeInsets.only(top: 10),
-              child: Text('text')
+          Container(
+            height: SizeConfig.blockSizeVertical*10,
+            width: SizeConfig.blockSizeHorizaontal*20,
+            padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical*2.5),
+            decoration: BoxDecoration(
+              border: Border(
+            right: BorderSide(width: SizeConfig.blockSizeHorizaontal*.3, color: Colors.black),
               )
           ),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  '7:00',
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizaontal*6,
+                    color: Color(0xff404040)
+                  ),),
+                  //SizedBox(height: SizeConfig.blockSizeVertical),
+                Text(
+                  'AM',
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizaontal*4,
+                    color: Color(0xff404040)
+                  ),),
+              ],),
+          ),
           Container(
-            height: 66,
-            padding: EdgeInsets.only(bottom: 10, left: 15),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: <Widget>[
-                  Text('User Name                                                 '),
-                  InkWell(
-                      child: Text('Report',
-                      style: TextStyle(
-                          color: Color(0xff853DD9),
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline))),
-                ],
-              ),
+            height: SizeConfig.blockSizeVertical*10,
+            width: SizeConfig.blockSizeHorizaontal*58,
+            margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal*2),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: SizeConfig.blockSizeVertical*10/3,
+                  padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical*.5),
+                  child: Text('Title',
+                  style: TextStyle(
+                      fontSize: SizeConfig.blockSizeHorizaontal*6,
+                      color: Color(0xff404040))),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    height: SizeConfig.blockSizeVertical*10/3,
+                    padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical*1.9),
+                    child: Text('Location',
+                    style: TextStyle(
+                        fontSize: SizeConfig.blockSizeHorizaontal*3,
+                        color: Color(0xff404040))),
+                  ),
+                ),
+                Container(
+                  height: SizeConfig.blockSizeVertical*10/3,
+                  padding: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical*0.5),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text('User name',
+                    style: TextStyle(
+                        fontSize: SizeConfig.blockSizeHorizaontal*3,
+                        color: Color(0xff404040))),
+                  ),
+                ),
+              ],
             ),
           )
         ],
-        ),
+      ),
     );
-}
+} 
