@@ -5,15 +5,12 @@ import 'Group.dart';
 class User extends Account {
   String _year;
   String _major;
-<<<<<<< HEAD
   String id;
   DataServices dataServices;
-=======
   String _id;
->>>>>>> fb31cb6b2f5f2b4597f5107e44237ae0336e067c
-  User(String name, String description, String email, String password,
+  User(String email, String password, String name, String description,
       String grade, String degree)
-      : super(name, description, email, password) {
+      : super(email, password, name, description) {
     _year = grade;
     _major = degree;
   }
