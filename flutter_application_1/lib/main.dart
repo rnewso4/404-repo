@@ -6,6 +6,9 @@ import 'package:flutter_application_1/services/route_generator.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/loading.dart';
 
+import 'Account.dart';
+import 'User.dart';
+
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
 
@@ -13,6 +16,11 @@ void main() {
   setupLocator();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
+}
+
+void genUser(String email, String ps, String name, String des, String year,
+    String major) {
+  var user = new User(email, ps, name, des, year, major);
 }
 
 class App extends StatelessWidget {
