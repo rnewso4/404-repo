@@ -1,27 +1,17 @@
 import 'package:flutter_application_1/DataServices.dart';
-
 import 'Account.dart';
 import 'Group.dart';
 
 class User extends Account {
-<<<<<<< HEAD
   String _year;
   String _major;
+  String id;
+  DataServices dataServices;
   User(String name, String description, String email, String password,
       String grade, String degree)
       : super(name, description, email, password) {
     _year = grade;
     _major = degree;
-=======
-  String year;
-  String major;
-  String id;
-  DataServices dataServices;
-  User(String name, String description, String grade, String degree)
-      : super(name, description) {
-    year = grade;
-    major = degree;
->>>>>>> f876ced729d97597149d323502832a163d3e2d3c
   }
 
   getYear() {
@@ -43,6 +33,8 @@ class User extends Account {
   //Will add user to list of members in group as well as add group to the list of user memberships
   addMembership(Group group) {}
 
+  savaUser() {}
+
   //will return the groups the user has membership to
   List<Group> getMembership() {
     return new List<Group>();
@@ -57,8 +49,8 @@ class User extends Account {
     return {
       "name": super.getName(),
       "description": super.getDescription(),
-      "year": year,
-      "major": major
+      "year": _year,
+      "major": _major
     };
   }
 }
