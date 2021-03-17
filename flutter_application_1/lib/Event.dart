@@ -10,6 +10,7 @@ class Event {
   String _start;
   String _end;
   String _date;
+  String _name;
   double _lat;
   double _lng;
   List<User> _participants;
@@ -42,14 +43,16 @@ class Event {
   }
 
   //test event
-  Event.test(String about, String start, String end, String date) {
+  Event.test(String name, String about, String start, String end, String date) {
+    this._name = name;
     this._about = about;
     this._start = start;
     this._end = end;
     this._date = date;
     this._id; //get next id from firebase
     this._participants = [];
-    createEvent();
+    //createEvent();
+    print("New Event Created");
   }
 
   addParticipitant(User user) {
