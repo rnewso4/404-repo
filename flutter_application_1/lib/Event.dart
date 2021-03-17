@@ -27,9 +27,11 @@ class Event {
     //this._participants ; //need to turn users id number into user obj and then add to participants (prehaps a loop)
   }
 
-  Event(Account organizer, String about, String start, String end, String date,
+  //Need to add Account orgranizer;
+  Event(String name, String about, String start, String end, String date,
       double lat, double lng) {
-    this._organizer = organizer;
+    //this._organizer = organizer;
+    this._name = name;
     this._about = about;
     this._lat = lat;
     this._lng = lng;
@@ -37,9 +39,9 @@ class Event {
     this._end = end;
     this._date = date;
     this._id; //get next id from firebase
-    this._participants = [];
-    _participants.add(organizer);
-    createEvent();
+    //this._participants = [];
+    //_participants.add(organizer);
+    //createEvent();
   }
 
   //test event

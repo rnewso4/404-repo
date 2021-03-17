@@ -24,12 +24,13 @@ void genUser(String email, String ps, String name, String des, String year,
     String major) {
   var user = new User(email, ps, name, des, year, major);
   AuthenticationServices().createAccount(user);
-  print("WE DID IT");
 }
 
-void genEvent(
-    String name, String about, String start, String end, String date) {
-  var event = new Event.test(name, about, start, end, date);
+void genEvent(String name, String about, String start, String end, String date,
+    double lat, double log) {
+  var event = new Event(name, about, start, end, date, lat, log);
+  event.createEvent();
+  print("Event Created");
 }
 
 class App extends StatelessWidget {

@@ -73,7 +73,7 @@ class _NewEventState extends State<NewEvent> {
                       var enTime = myController3.text;
                       var date = myController4.text;
 
-                      genEvent(title, des, stTime, enTime, date);
+                      genEvent(title, des, stTime, enTime, date, _lat, _lng);
 
                       _navigationService.goBack();
                     },
