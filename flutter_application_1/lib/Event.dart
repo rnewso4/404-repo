@@ -7,6 +7,9 @@ class Event {
   String _id;
   Account _organizer;
   String _about;
+  String _start;
+  String _end;
+  String _date;
   double _lat;
   double _lng;
   List<User> _participants;
@@ -17,17 +20,24 @@ class Event {
     //this._about = data. ;
     //this._lat = data. ;
     //this._lng = data. ;
+    //this._start = data. ;
+    //this._end = data. ;
+    //this._date = data. ;
     //this._participants ; //need to turn users id number into user obj and then add to participants (prehaps a loop)
   }
 
-  Event(Account organizer, String about, double lat, double lng) {
+  Event(Account organizer, String about, String start, String end, String date,
+      double lat, double lng) {
     this._organizer = organizer;
     this._about = about;
     this._lat = lat;
     this._lng = lng;
+    this._start = start;
+    this._end = end;
+    this._date = date;
     this._id; //get next id from firebase
     this._participants = [];
-    //if the organizor is a user add them to participants else (organizor is a group) do nothing
+    _participants.add(organizer);
     createEvent();
   }
 
@@ -51,12 +61,24 @@ class Event {
     return this._about;
   }
 
-  double getLat() {
-    return this._lat;
+  String getStart() {
+    return this._start;
+  }
+
+  String getEnd() {
+    return this._end;
+  }
+
+  String getDate() {
+    return this._date;
   }
 
   String getID() {
     return this._id;
+  }
+
+  double getLat() {
+    return this._lat;
   }
 
   double getLng() {
