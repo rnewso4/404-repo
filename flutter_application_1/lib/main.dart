@@ -9,6 +9,7 @@ import 'package:flutter_application_1/UI/loading.dart';
 
 import 'Account.dart';
 import 'User.dart';
+import 'AuthenticationServices.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +23,8 @@ void main() {
 void genUser(String email, String ps, String name, String des, String year,
     String major) {
   var user = new User(email, ps, name, des, year, major);
-  user.createUser();
+  AuthenticationServices().createAccount(user);
+  print("WE DID IT");
 }
 
 void genEvent(

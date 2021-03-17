@@ -51,8 +51,7 @@ class Event {
     this._date = date;
     this._id; //get next id from firebase
     this._participants = [];
-    //createEvent();
-    print("New Event Created");
+    createEvent();
   }
 
   addParticipitant(User user) {

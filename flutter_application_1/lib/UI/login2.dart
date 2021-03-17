@@ -99,6 +99,7 @@ class _Login2State extends State<Login2> {
                         onTap: () {
                           String email = myController1.text;
                           String ps = myController2.text;
+
                           Navigator.of(context).pushNamed(routes.HomeRoute);
                         },
                         child: Material(
