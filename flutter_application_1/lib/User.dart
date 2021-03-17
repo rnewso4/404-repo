@@ -8,6 +8,8 @@ class User extends Account {
   String id;
   DataServices dataServices;
   String _id;
+  int membershipNum;
+
   User(String email, String password, String name, String description,
       String grade, String degree)
       : super(email, password, name, description) {
@@ -32,13 +34,13 @@ class User extends Account {
   }
 
   //Will add user to list of members in group as well as add group to the list of user memberships
-  addMembership(Group group) {}
-
-  savaUser() {}
+  addMembership(Group group) {
+    membershipNum++;
+  }
 
   //will return the groups the user has membership to
   List<Group> getMembership() {
-    return new List<Group>();
+    //return new List<Group>();
   }
 
   //Will save user in firebase database and firebase authentication

@@ -21,6 +21,7 @@ void main() {
 void genUser(String email, String ps, String name, String des, String year,
     String major) {
   var user = new User(email, ps, name, des, year, major);
+  user.createUser();
 }
 
 class App extends StatelessWidget {
