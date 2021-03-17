@@ -23,6 +23,14 @@ abstract class Account {
     return _description;
   }
 
+  String getEmail() {
+    return _email;
+  }
+
+  String getPassword() {
+    return _password;
+  }
+
   void changeDescription(String description) {
     _description = description;
   }

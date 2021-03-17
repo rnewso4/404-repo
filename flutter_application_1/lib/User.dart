@@ -15,7 +15,7 @@ class User extends Account {
     _major = degree;
   }
 
-  getYear() {
+  String getYear() {
     return _year;
   }
 
@@ -23,7 +23,7 @@ class User extends Account {
     _year = grade;
   }
 
-  getMajor() {
+  String getMajor() {
     return _major;
   }
 
