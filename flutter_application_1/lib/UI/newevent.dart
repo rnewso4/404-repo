@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -11,6 +12,7 @@ final myController1 = TextEditingController();
 final myController2 = TextEditingController();
 final myController3 = TextEditingController();
 final myController4 = TextEditingController();
+final myController5 = TextEditingController();
 
 double _lat; //these can be moved if needed
 double _lng; //these can be moved if needed
@@ -49,11 +51,11 @@ class _NewEventState extends State<NewEvent> {
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
             Textfields('Start Time', myController2),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('End Time', myController2),
+            Textfields('End Time', myController3),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Date', myController3),
+            Textfields('Date', myController4),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Description', myController4),
+            Textfields('Description', myController5),
             Container(
               height: SizeConfig.blockSizeVertical * 45,
               padding:
@@ -65,7 +67,14 @@ class _NewEventState extends State<NewEvent> {
                   width: SizeConfig.blockSizeHorizaontal * 20,
                   child: GestureDetector(
                     onTap: () {
-                      //print(myController1.text);
+                      var title = myController1.text;
+                      var des = myController5.text;
+                      var stTime = myController2.text;
+                      var enTime = myController3.text;
+                      var date = myController4.text;
+
+                      genEvent(title, des, stTime, enTime, date);
+
                       _navigationService.goBack();
                     },
                     child: Material(

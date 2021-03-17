@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Event.dart';
 import 'package:flutter_application_1/UI/Register.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
@@ -22,6 +23,11 @@ void genUser(String email, String ps, String name, String des, String year,
     String major) {
   var user = new User(email, ps, name, des, year, major);
   user.createUser();
+}
+
+void genEvent(
+    String name, String about, String start, String end, String date) {
+  var event = new Event.test(name, about, start, end, date);
 }
 
 class App extends StatelessWidget {

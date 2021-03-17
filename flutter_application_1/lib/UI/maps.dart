@@ -117,7 +117,7 @@ class _MapsPageState extends State<MapsPage> {
           markerId: MarkerId(tappedPoint.toString()),
           position: tappedPoint,
         ));
-        //updateLatLng(tappedPoint);
+        updateLatLng(tappedPoint);
       }
     });
   }
