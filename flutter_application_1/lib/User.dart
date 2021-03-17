@@ -5,7 +5,6 @@ import 'Group.dart';
 class User extends Account {
   String _year;
   String _major;
-  String id;
   DataServices dataServices;
   String _id;
   int membershipNum;
@@ -43,9 +42,17 @@ class User extends Account {
     //return new List<Group>();
   }
 
+  void setId(String id) {
+    _id = id;
+  }
+
+  String getId() {
+    return _id;
+  }
+
   //Will save user in firebase database and firebase authentication
   Future<void> createUser() {
-    return DataServices().saveUser(this).then((doc) => {this._id = doc.id});
+    return DataServices().saveUser(this);
   }
 
   Map<String, dynamic> getMap() {
@@ -53,7 +60,8 @@ class User extends Account {
       "name": super.getName(),
       "description": super.getDescription(),
       "year": _year,
-      "major": _major
+      "major": _major,
+      "uid": _id
     };
   }
 }

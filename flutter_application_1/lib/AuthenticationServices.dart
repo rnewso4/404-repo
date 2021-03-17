@@ -21,6 +21,7 @@ class AuthenticationServices {
       auth.UserCredential userCredential =
           await authentication.createUserWithEmailAndPassword(
               email: account.getEmail(), password: account.getPassword());
+      account.setId(userCredential.user.uid);
       account.createUser();
       return userCredential;
     } on auth.FirebaseAuthException catch (e) {
