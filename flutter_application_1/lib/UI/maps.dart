@@ -109,6 +109,18 @@ class _MapsPageState extends State<MapsPage> {
     newEv = true;
   }
 
+  @override
+  void initState() {
+    super.initState();
+    // for every event to load in
+    //Event event;
+    //markers.add(Marker(
+    //markerId: MarkerId(event.getID()),
+    //onTap: () {}, //maybe giving the option to see some info about the event
+    //position: LatLng(event.getLat(), event.getLng()),
+    //));
+  }
+
   _handleTap(LatLng tappedPoint) {
     setState(() {
       if (newEv) {
