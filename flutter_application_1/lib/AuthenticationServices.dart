@@ -21,6 +21,7 @@ class AuthenticationServices {
       auth.UserCredential userCredential =
           await authentication.createUserWithEmailAndPassword(
               email: account.getEmail(), password: account.getPassword());
+      account.createUser();
       return userCredential;
     } on auth.FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -34,5 +35,16 @@ class AuthenticationServices {
   }
 
   //login user in firebase
-  loginAccount(String email, String password) {}
+  Future<dynamic> loginAccount(String email, String password) async {
+    try {
+      auth.UserCredential userCredential = await auth.FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+    } on auth.FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
 }
