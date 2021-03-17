@@ -39,7 +39,7 @@ class _NewEventState extends State<NewEvent> {
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
-                newEvFalse();
+                //newEvFalse();
                 _navigationService.goBack();
               })),
       body: SingleChildScrollView(

@@ -41,6 +41,17 @@ class Event {
     createEvent();
   }
 
+  //test event
+  Event.test(String about, String start, String end, String date) {
+    this._about = about;
+    this._start = start;
+    this._end = end;
+    this._date = date;
+    this._id; //get next id from firebase
+    this._participants = [];
+    createEvent();
+  }
+
   addParticipitant(User user) {
     this._participants.add(user);
   }
