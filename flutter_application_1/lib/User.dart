@@ -60,7 +60,8 @@ class User extends Account {
       "name": super.getName(),
       "description": super.getDescription(),
       "year": _year,
-      "major": _major
+      "major": _major,
+      "uid": _id
     };
   }
 }
