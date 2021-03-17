@@ -26,4 +26,20 @@ abstract class Account {
   void changeDescription(String description) {
     _description = description;
   }
+
+  String getEmail() {
+    return _email;
+  }
+
+  void changeEmail(String email) {
+    _email = email;
+  }
+
+  String getPassword() {
+    return _password;
+  }
+
+  void changePassword(String password) {
+    _password = password;
+  }
 }
