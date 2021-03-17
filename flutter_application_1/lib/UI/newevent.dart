@@ -102,15 +102,9 @@ class _NewEventState extends State<NewEvent> {
   }
 }
 
-updateLatLng(LatLng position) {
-  String _newLat = '0';
-  String _newLng = '0';
-  var _latNum = double.parse(_newLat);
-  var _lngNum = double.parse(_newLng);
-  assert(_latNum is double);
-  assert(_lngNum is double);
-  _lat = _latNum;
-  _lng = _lngNum;
+updateLatLng(double newLat, double newLng) {
+  _lat = newLat;
+  _lng = newLng;
 }
 
 Textfields(String name, var conc) {
