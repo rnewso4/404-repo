@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
+import 'package:flutter_application_1/Event.dart';
+import 'package:flutter_application_1/User.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
+
+String _title = 'default title';
+String _startTime = 'default start time';
+String _endTime = 'default end time';
+String _about = 'default about';
+List<User> _participants = [];
 
 class SingleEventPage extends StatefulWidget {
   @override
@@ -13,6 +21,7 @@ class SingleEventPage extends StatefulWidget {
 class _SingleEventPageState extends State<SingleEventPage> {
   @override
   Widget build(BuildContext context) {
+    //_fillData();
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Color(0xFFCECECE),
@@ -27,9 +36,24 @@ class _SingleEventPageState extends State<SingleEventPage> {
               })),
       body: SingleChildScrollView(
         child: Column(
-          children: [Text('Single event page')],
+          children: [
+            Text('Title: \n'),
+            Text(_title + '\n'),
+            Text('Time: \n'),
+            Text(_startTime + ' - ' + _endTime + '\n'),
+            Text('About: \n'),
+            Text(_about + '\n'),
+            Text('Participants: \n')
+          ],
         ),
       ),
     );
   }
+}
+
+void _fillData(Event _event) {
+  _title = Event.getTitle(_event);
+  _startTime = Event.getStart(_event);
+  _endTime = Event.getEnd(_event);
+  _about = Event.getAbout(_event);
 }

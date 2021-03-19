@@ -10,7 +10,7 @@ class Event {
   String _start;
   String _end;
   String _date;
-  String _name;
+  String _title;
   double _lat;
   double _lng;
   List<User> _participants;
@@ -28,10 +28,10 @@ class Event {
   }
 
   //Need to add Account orgranizer;
-  Event(String name, String about, String start, String end, String date,
+  Event(String title, String about, String start, String end, String date,
       double lat, double lng) {
     //this._organizer = organizer;
-    this._name = name;
+    this._title = title;
     this._about = about;
     this._lat = lat;
     this._lng = lng;
@@ -45,8 +45,9 @@ class Event {
   }
 
   //test event
-  Event.test(String name, String about, String start, String end, String date) {
-    this._name = name;
+  Event.test(
+      String title, String about, String start, String end, String date) {
+    this._title = title;
     this._about = about;
     this._start = start;
     this._end = end;
@@ -64,40 +65,44 @@ class Event {
     this._participants.remove(user);
   }
 
-  Account getOrganizer() {
-    return this._organizer;
+  static Account getOrganizer(Event _event) {
+    return _event._organizer;
   }
 
-  List<User> getParticipants() {
-    return this._participants;
+  static List<User> getParticipants(Event _event) {
+    return _event._participants;
   }
 
-  String getAbout() {
-    return this._about;
+  static String getAbout(Event _event) {
+    return _event._about;
   }
 
-  String getStart() {
-    return this._start;
+  static String getStart(Event _event) {
+    return _event._start;
   }
 
-  String getEnd() {
-    return this._end;
+  static String getEnd(Event _event) {
+    return _event._end;
   }
 
-  String getDate() {
-    return this._date;
+  static String getDate(Event _event) {
+    return _event._date;
   }
 
-  String getID() {
-    return this._id;
+  static String getID(Event _event) {
+    return _event._id;
   }
 
-  double getLat() {
-    return this._lat;
+  static double getLat(Event _event) {
+    return _event._lat;
   }
 
-  double getLng() {
-    return this._lng;
+  static double getLng(Event _event) {
+    return _event._lng;
+  }
+
+  static String getTitle(Event _event) {
+    return _event._title;
   }
 
   Future<void> createEvent() {
