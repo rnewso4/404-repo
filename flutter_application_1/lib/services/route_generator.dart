@@ -9,14 +9,17 @@ import 'package:flutter_application_1/UI/userAccounts.dart';
 import 'package:flutter_application_1/UI/newevent.dart';
 import 'package:flutter_application_1/UI/loading.dart';
 import 'package:flutter_application_1/UI/Events.dart';
+import 'package:flutter_application_1/UI/SingleEvent.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    switch(settings.name) {
+    switch (settings.name) {
       case routes.LoginRoute:
         return MaterialPageRoute(builder: (context) => Login2());
       case routes.NewEventRoute:
         return MaterialPageRoute(builder: (context) => NewEvent());
+      case routes.SingleEventRoute:
+        return MaterialPageRoute(builder: (context) => SingleEventPage());
       case routes.HomeRoute:
         return MaterialPageRoute(builder: (context) => MyStatefulWidget());
       case routes.LoadingRoute:
