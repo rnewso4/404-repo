@@ -8,12 +8,16 @@ class User extends Account {
   DataServices dataServices;
   String _id;
   int membershipNum;
+  String _email;
+  String _password;
 
   User(String email, String password, String name, String description,
       String grade, String degree)
-      : super(email, password, name, description) {
+      : super(name, description) {
     _year = grade;
     _major = degree;
+    _email = email;
+    _password = password;
   }
 
   String getYear() {
@@ -48,6 +52,22 @@ class User extends Account {
 
   String getId() {
     return _id;
+  }
+
+  String getEmail() {
+    return _email;
+  }
+
+  void changeEmail(String email) {
+    _email = email;
+  }
+
+  String getPassword() {
+    return _password;
+  }
+
+  void changePassword(String password) {
+    _password = password;
   }
 
   //Will save user in firebase database and firebase authentication
