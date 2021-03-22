@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'Event.dart';
@@ -34,6 +36,11 @@ class DataServices {
     });
   }
 
+  Future<Void> _addDataAtDocPath(
+      DocumentReference path, Map<String, dynamic> data) {
+    return path.update(data);
+  }
+
   //updates data in firebase at specified document path
   Future<void> _updateDataAtPath(
       DocumentReference path, Map<String, dynamic> data) {
@@ -51,9 +58,9 @@ class DataServices {
         .catchError((error) => print("Failed to delete data: $error"));
   }
 
-  Future<DocumentReference> saveUser(User user) {
-    CollectionReference path = firestore.collection("users");
-    return _addDataAtPath(path, user.getMap());
+  Future<void> saveUser(User user) {
+    DocumentReference path = firestore.collection("users").doc(user.getId());
+    return _addDataAtDocPath(path, user.getMap());
   }
 
   Future<DocumentReference> saveEvent(Event event) {
