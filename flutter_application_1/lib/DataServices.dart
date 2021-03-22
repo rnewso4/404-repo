@@ -60,4 +60,17 @@ class DataServices {
     CollectionReference path = firestore.collection("events");
     return _addDataAtPath(path, event.getMap());
   }
+
+  Future<List<Event>> getCurrentEvents() {
+    CollectionReference path = firestore.collection("events");
+    List<Event> events;
+    return path.get().then((snap) {
+      snap.docs.forEach((element) {
+        Event event = new Event.fromData(element.data(), element.id);
+        events.add(event);
+      });
+
+      return events;
+    });
+  }
 }
