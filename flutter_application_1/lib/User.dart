@@ -23,6 +23,8 @@ class User extends Account {
   User.fromData(Map<String, dynamic> data) : super.fromData(data) {
     _year = data["year"];
     _major = data["major"];
+    _email = data["email"];
+    _password = data["password"];
   }
 
   String getYear() {

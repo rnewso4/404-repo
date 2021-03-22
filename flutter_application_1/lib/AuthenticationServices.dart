@@ -39,7 +39,10 @@ class AuthenticationServices {
   Future<dynamic> loginAccount(String email, String password) async {
     try {
       auth.UserCredential userCredential = await auth.FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((value) {
+        return value;
+      });
     } on auth.FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
