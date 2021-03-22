@@ -119,7 +119,7 @@ class Event {
       "end": _end,
       "date": _date,
       "title": _title,
-      "particiants": _participants
+      "participants": _participants
     };
   }
 }
