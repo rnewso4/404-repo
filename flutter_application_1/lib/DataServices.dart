@@ -80,4 +80,11 @@ class DataServices {
       return events;
     });
   }
+
+  Future<User> getUser(String id) {
+    DocumentReference path = firestore.collection("users").doc(id);
+    return _getDataAtPath(path).then((data) {
+      return User.fromData(data);
+    });
+  }
 }

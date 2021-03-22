@@ -16,6 +16,11 @@ class User extends Account {
     _major = degree;
   }
 
+  User.fromData(Map<String, dynamic> data) : super.fromData(data) {
+    _year = data["year"];
+    _major = data["major"];
+  }
+
   String getYear() {
     return _year;
   }
