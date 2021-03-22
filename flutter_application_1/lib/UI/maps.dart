@@ -101,14 +101,17 @@ class _MapsPageState extends State<MapsPage> {
     );
   }
 
+  // change the marker for if a new event is being made
   void newEvFalse() {
     newEv = false;
   }
 
+  // change the marker for if a new event is being made
   void _newEvTrue() {
     newEv = true;
   }
 
+  // load in markers on map
   @override
   void initState() {
     super.initState();
@@ -121,6 +124,7 @@ class _MapsPageState extends State<MapsPage> {
     //));
   }
 
+  // what to do when the map is tapped
   _handleTap(LatLng tappedPoint) {
     setState(() {
       if (newEv) {

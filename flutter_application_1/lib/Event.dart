@@ -15,15 +15,15 @@ class Event {
   double _lng;
   List<User> _participants;
 
-  Event.fromData(Map<String, dynamic> data) {
-    //this._id = data. ;
-    //this._organizer = data. ;
-    //this._about = data. ;
-    //this._lat = data. ;
-    //this._lng = data. ;
-    //this._start = data. ;
-    //this._end = data. ;
-    //this._date = data. ;
+  Event.fromData(Map<String, dynamic> data, String id) {
+    this._id = id;
+    this._organizer = data["organizer"];
+    this._about = data["about"];
+    this._lat = data["lat"];
+    this._lng = data["lng"];
+    this._start = data["start"];
+    this._end = data["end"];
+    this._date = data["date"];
     //this._participants ; //need to turn users id number into user obj and then add to participants (prehaps a loop)
   }
 
@@ -110,6 +110,16 @@ class Event {
   }
 
   Map<String, dynamic> getMap() {
-    return {"organizer": _organizer, "about": _about, "lat": _lat, "lng": _lng};
+    return {
+      "organizer": _organizer,
+      "about": _about,
+      "lat": _lat,
+      "lng": _lng,
+      "start": _start,
+      "end": _end,
+      "date": _date,
+      "title": _title,
+      "particiants": _participants
+    };
   }
 }

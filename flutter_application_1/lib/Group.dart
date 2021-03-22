@@ -6,9 +6,8 @@ class Group extends Account {
   User _owner;
   List<User> _members;
 
-  Group(String name, String description, String email, String password,
-      User owner)
-      : super(name, description, email, password) {
+  Group(String name, String description, User owner)
+      : super(name, description) {
     _owner = owner;
   }
 

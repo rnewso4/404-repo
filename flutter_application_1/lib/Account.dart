@@ -24,10 +24,6 @@ abstract class Account {
    */
   String _description;
 
-  String _email;
-
-  String _password;
-
   /**
    * Constructor used to create an account object, not specificly a user or group account
    * 
@@ -42,11 +38,14 @@ abstract class Account {
    * @author 
    * commented by: George Adler Buras
    */
-  Account(String email, String password, String name, String description) {
+  Account(String name, String description) {
     _name = name;
     _description = description;
-    _email = email;
-    _password = password;
+  }
+
+  Account.fromData(Map<String, dynamic> data) {
+    _name = data["name"];
+    _description = data["description"];
   }
 
   /**
@@ -109,21 +108,5 @@ abstract class Account {
    */
   void changeDescription(String description) {
     _description = description;
-  }
-
-  String getEmail() {
-    return _email;
-  }
-
-  void changeEmail(String email) {
-    _email = email;
-  }
-
-  String getPassword() {
-    return _password;
-  }
-
-  void changePassword(String password) {
-    _password = password;
   }
 }
