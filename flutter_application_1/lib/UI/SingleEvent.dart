@@ -12,6 +12,7 @@ String _startTime = 'default start time';
 String _endTime = 'default end time';
 String _about = 'default about';
 List<User> _participants = [];
+Event _event;
 
 class SingleEventPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class SingleEventPage extends StatefulWidget {
 class _SingleEventPageState extends State<SingleEventPage> {
   @override
   Widget build(BuildContext context) {
-    //_fillData();
+    _fillData(_event);
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Color(0xFFCECECE),
@@ -51,6 +52,12 @@ class _SingleEventPageState extends State<SingleEventPage> {
   }
 }
 
+// Update what event will be showen when the page is displayed
+void eventToShow(Event _newEvent) {
+  _event = _newEvent;
+}
+
+// Update the data that will be displayed
 void _fillData(Event _event) {
   _title = Event.getTitle(_event);
   _startTime = Event.getStart(_event);

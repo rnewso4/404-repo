@@ -10,7 +10,6 @@ import 'package:flutter_application_1/UI/loading.dart';
 import 'Account.dart';
 import 'User.dart';
 import 'AuthenticationServices.dart';
-import 'Event.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
@@ -31,6 +30,7 @@ void genEvent(String name, String about, String start, String end, String date,
     double lat, double log) {
   var event = new Event(name, about, start, end, date, lat, log);
   event.createEvent();
+  print("Event Created");
 }
 
 class App extends StatelessWidget {

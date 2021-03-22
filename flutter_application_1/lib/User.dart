@@ -20,6 +20,11 @@ class User extends Account {
     _password = password;
   }
 
+  User.fromData(Map<String, dynamic> data) : super.fromData(data) {
+    _year = data["year"];
+    _major = data["major"];
+  }
+
   String getYear() {
     return _year;
   }

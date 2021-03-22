@@ -7,6 +7,13 @@ abstract class Account {
     _description = description;
   }
 
+  Account.fromData(Map<String, dynamic> data) {
+    _name = data["name"];
+    _description = data["description"];
+    _email = data["email"];
+    _password = data["password"];
+  }
+
   String getName() {
     return _name;
   }
