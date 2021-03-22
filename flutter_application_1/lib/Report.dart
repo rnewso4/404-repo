@@ -1,5 +1,6 @@
 import 'User.dart';
 
+//Specifies types of possible reports, organized from most important to least
 enum Category {
   criminalActivity,
   suspiciousActivity,
@@ -13,7 +14,7 @@ class Report {
   String _issue;
   User _reporter;
 
-  // Specific catagory of report, used to sort by in Firebase
+  //Specific catagory of report, used to sort by in Firebase
   var _category;
 
   Report(String title, String issue, var category) {
