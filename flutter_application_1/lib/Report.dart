@@ -1,6 +1,9 @@
 import 'User.dart';
 
-//Specifies types of possible reports, organized from most important to least
+/**
+ * Specifies types of possible reports, organized from most important to least
+ * @author George Adler Buras
+ */
 enum Category {
   criminalActivity,
   suspiciousActivity,

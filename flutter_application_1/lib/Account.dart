@@ -9,18 +9,12 @@ abstract class Account {
   /**
    * Name associated with the account (User name or Group name); 
    * private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
    */
   String _name;
 
-  /** 
+  /**
    * Description of the account: Any additional information a user or group wants
    * to include to make them unique; private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
    */
   String _description;
 
@@ -36,7 +30,6 @@ abstract class Account {
    *    description   [String]  a description of the account
    * 
    * @author 
-   * commented by: George Adler Buras
    */
   Account(String name, String description) {
     _name = name;
@@ -54,7 +47,6 @@ abstract class Account {
    *    data  [Map]   The raw account data from Firebase
    * 
    * @author Dylan Wichman
-   * commented by: George Adler Buras
    */
   Account.fromData(Map<String, dynamic> data) {
     _name = data["name"];
@@ -69,7 +61,6 @@ abstract class Account {
    * return type: String
    * 
    * @author
-   * commented by: George Adler Buras
    */
   String getName() {
     return _name;
@@ -86,7 +77,6 @@ abstract class Account {
    *    name  [String]  the new name that will be associated with the account
    * 
    * @author
-   * commented by: George Adler Buras
    */
   void changeName(String name) {
     _name = name;
@@ -100,7 +90,6 @@ abstract class Account {
    * return type: String
    * 
    * @author
-   * commented by: George Adler Buras
    */
   String getDescription() {
     return _description;
@@ -117,7 +106,6 @@ abstract class Account {
    *    description   [String]    the new description of the account
    * 
    * @author
-   * commented by: George Adler Buras
    */
   void changeDescription(String description) {
     _description = description;

@@ -2,31 +2,64 @@ import 'package:flutter_application_1/DataServices.dart';
 import 'Account.dart';
 import 'Group.dart';
 
+/**
+ * Specifies the possible years that one can be in school
+ * _year needs to be changed to a var to implement this, need to check that won't
+ * break anything
+ * 
+ * @author George Adler Buras
+ */
+enum SchoolYear { freshman, sophomore, junior, senior, graduate, other }
+
+/**
+ * This class is used to represent users; it extends accounts
+ * 
+ * @author
+ * commented by: George Adler Buras
+ */
 class User extends Account {
+  //The year of the user in college.
   String _year;
+
+  //The major of the user in college.
   String _major;
+
   DataServices dataServices;
+
+  //Unique user id
   String _id;
+
   int membershipNum;
 
   /**
    * Email associated with the account, used for login and selling to the highest bidder;
    * private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
    */
   String _email;
 
   /**
    * Password associated with the account, used for login;
    * private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
    */
   String _password;
 
+  /**
+   * Constructor used to create a user object
+   * 
+   * routine: User
+   * 
+   * return type: User
+   * 
+   * parameters:
+   *    email         [String]    the email associated with the user account
+   *    password      [String]    the password associated with the user account
+   *    name          [String]    the name associated with the user account
+   *    description   [String]    a desciption of the user account
+   *    grade         [String]    the year of the user in college
+   *    degree        [String]    the major of the user in college
+   * 
+   * @author
+   */
   User(String email, String password, String name, String description,
       String grade, String degree)
       : super(name, description) {
@@ -36,6 +69,18 @@ class User extends Account {
     _password = password;
   }
 
+  /**
+   * This constructor takes in the Firebase data to create a User object
+   * 
+   * routine: User.fromData
+   * 
+   * return type: User
+   * 
+   * parameters:
+   *    data  [Map]   The raw user account data from Firebase
+   * 
+   * @author Dylan Wichman
+   */
   User.fromData(Map<String, dynamic> data) : super.fromData(data) {
     _year = data["year"];
     _major = data["major"];
@@ -43,19 +88,61 @@ class User extends Account {
     _password = data["password"];
   }
 
+  /**
+   * This method gets the year in college of the user
+   * 
+   * routine: getYear
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getYear() {
     return _year;
   }
 
-  changeYear(String grade) {
+  /**
+   * This method changes the year in college of the user
+   * 
+   * routine: changeYear
+   * 
+   * return type: void
+   * 
+   * parameters:
+   *    grade   [String]    the new year in college of the user
+   * 
+   * @author
+   */
+  void changeYear(String grade) {
     _year = grade;
   }
 
+  /**
+   * This method gets the major of the user in college
+   * 
+   * routine: getMajor
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getMajor() {
     return _major;
   }
 
-  changeMajor(String degree) {
+  /**
+   * This method changes the major of the user in college
+   * 
+   * routine: changeMajor
+   * 
+   * return type: void
+   * 
+   * parameters:
+   *    degree    [String]    the new major of the user in college
+   * 
+   * @author
+   */
+  void changeMajor(String degree) {
     _major = degree;
   }
 
@@ -85,7 +172,6 @@ class User extends Account {
    * return type: String
    * 
    * @author
-   * commented by: George Adler Buras
    */
   String getEmail() {
     return _email;
@@ -102,7 +188,6 @@ class User extends Account {
    *    email   [String]    the new email to be associated with the account
    * 
    * @author
-   * commented by: George Adler Buras
    */
   void changeEmail(String email) {
     _email = email;
@@ -116,7 +201,6 @@ class User extends Account {
    * return type: String
    * 
    * @author
-   * commented by: George Adler Buras
    */
   String getPassword() {
     return _password;
