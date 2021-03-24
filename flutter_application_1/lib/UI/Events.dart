@@ -76,12 +76,16 @@ class _EventsPageState extends State<EventsPage> {
 }
 
 events() {
-  return Container(
-    height: SizeConfig.blockSizeVertical * 10,
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(15),
-    ),
+  return TextButton(
+    onPressed: () {
+      //eventToShow()
+      _navigationService.navigateTo(routes.SingleEventRoute);
+    },
+    //height: SizeConfig.blockSizeVertical * 10,
+    //decoration: BoxDecoration(
+    //  color: Colors.white,
+    //  borderRadius: BorderRadius.circular(15),
+    //),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -155,23 +159,6 @@ events() {
                     ),
                   ),
                 ]),
-            Container(
-              height: SizeConfig.blockSizeVertical * 10 / 3,
-              width: 100,
-              color: Colors.black,
-              padding:
-                  EdgeInsets.only(bottom: SizeConfig.blockSizeVertical * 0.5),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: TextButton(
-                  onPressed: () {
-                    //eventToShow()
-                    _navigationService.navigateTo(routes.SingleEventRoute);
-                  },
-                  child: null,
-                ),
-              ),
-            ),
           ]),
         )
       ],
