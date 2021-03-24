@@ -59,8 +59,8 @@ void eventToShow(Event _newEvent) {
 
 // Update the data that will be displayed
 void _fillData(Event _event) {
-  _title = Event.getTitle(_event);
-  _startTime = Event.getStart(_event);
-  _endTime = Event.getEnd(_event);
-  _about = Event.getAbout(_event);
+  //_title = Event.getTitle(_event);
+  //_startTime = Event.getStart(_event);
+  //_endTime = Event.getEnd(_event);
+  //_about = Event.getAbout(_event);
 }

@@ -3,7 +3,10 @@ import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/UI/SingleEvent.dart';
+
+import '../Event.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 
@@ -18,6 +21,7 @@ class _EventsPageState extends State<EventsPage> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     var name = new List(9);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -76,6 +80,9 @@ class _EventsPageState extends State<EventsPage> {
 }
 
 events() {
+  //Future<List<Event>> futureList = getEvent();
+  //List<Event> eventList = await futureList;
+
   return TextButton(
     onPressed: () {
       //eventToShow()
@@ -102,6 +109,7 @@ events() {
           child: Column(
             children: <Widget>[
               Text(
+                //eventList[0].getStart()
                 '7:00',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizaontal * 6,
