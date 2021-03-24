@@ -38,7 +38,7 @@ void genGroup(String name, String des) {
   var group = new Group(name, des);
 }
 
-Future<List<Event>> getEvent() {
+Future<List<Event>> getEvents() {
   return DataServices().getCurrentEvents();
 }
 
