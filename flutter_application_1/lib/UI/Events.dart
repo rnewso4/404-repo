@@ -81,11 +81,17 @@ events() {
       //eventToShow()
       _navigationService.navigateTo(routes.SingleEventRoute);
     },
-    //height: SizeConfig.blockSizeVertical * 10,
-    //decoration: BoxDecoration(
-    //  color: Colors.white,
-    //  borderRadius: BorderRadius.circular(15),
-    //),
+    style: ButtonStyle(
+        //padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            side: BorderSide(color: Colors.white)
+          )
+        )
+      ),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -95,10 +101,11 @@ events() {
           padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2.5),
           decoration: BoxDecoration(
               border: Border(
-            right: BorderSide(
+              right: BorderSide(
                 width: SizeConfig.blockSizeHorizaontal * .3,
                 color: Colors.black),
-          )),
+              )
+          ),
           child: Column(
             children: <Widget>[
               Text(
