@@ -122,7 +122,7 @@ class _SidebarPageState extends State<SidebarPage> with SingleTickerProviderStat
                         icon: Icons.add,
                         title: "Join Group",
                         onTap: (){
-                          Navigator.of(context).pushNamed(routes.register);
+                          Navigator.of(context).pushNamed(routes.NewGroup);
                         },
                       ),
                       dividers(),

@@ -10,6 +10,7 @@ import 'package:flutter_application_1/UI/newevent.dart';
 import 'package:flutter_application_1/UI/loading.dart';
 import 'package:flutter_application_1/UI/Events.dart';
 import 'package:flutter_application_1/UI/SingleEvent.dart';
+import 'package:flutter_application_1/UI/newGroup.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -28,12 +29,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => SeacrhPage());
       case routes.MapsRoute:
         return MaterialPageRoute(builder: (context) => MapsPage());
-      case routes.userAccountsRoute:
-        return MaterialPageRoute(builder: (context) => UserAccounts());
-      case routes.eventsRoute:
-        return MaterialPageRoute(builder: (context) => EventsPage());
       case routes.register:
         return MaterialPageRoute(builder: (context) => RegisterPage());
+      case routes.NewGroup:
+        return MaterialPageRoute(builder: (context) => NewGroup());
     }
   }
 }
