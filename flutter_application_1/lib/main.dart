@@ -9,6 +9,7 @@ import 'package:flutter_application_1/UI/loading.dart';
 
 import 'Account.dart';
 import 'User.dart';
+import 'Group.dart';
 import 'AuthenticationServices.dart';
 
 // Import the firebase_core plugin
@@ -31,6 +32,10 @@ void genEvent(String name, String about, String start, String end, String date,
   var event = new Event(name, about, start, end, date, lat, log);
   event.createEvent();
   print("Event Created");
+}
+
+void genGroup(String name, String des) {
+  var group = new Group(name, des);
 }
 
 class App extends StatelessWidget {

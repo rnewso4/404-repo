@@ -8,10 +8,6 @@ import 'package:flutter_application_1/services/route_paths.dart' as routes;
 final NavigationService _navigationService = locator<NavigationService>();
 final myController1 = TextEditingController();
 final myController2 = TextEditingController();
-final myController3 = TextEditingController();
-final myController4 = TextEditingController();
-final myController5 = TextEditingController();
-final myController6 = TextEditingController();
 
 class NewGroup extends StatefulWidget {
   @override
@@ -36,9 +32,9 @@ class _NewGroupState extends State<NewGroup> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            textfields("Name", myController3),
+            textfields("Name", myController1),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            textfields("Description", myController4),
+            textfields("Description", myController2),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
             Container(
               height: SizeConfig.blockSizeVertical * 25,
@@ -53,11 +49,8 @@ class _NewGroupState extends State<NewGroup> {
                     onTap: () {
                       String input1 = myController1.text;
                       String input2 = myController2.text;
-                      String input3 = myController3.text;
-                      String input4 = myController4.text;
-                      String input5 = myController5.text;
-                      String input6 = myController6.text;
-                      genUser(input1, input2, input3, input4, input5, input5);
+
+                      genGroup(input1, input2);
 
                       Navigator.of(context).pushNamed(routes.HomeRoute);
                     },
