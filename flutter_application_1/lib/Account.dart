@@ -43,6 +43,19 @@ abstract class Account {
     _description = description;
   }
 
+  /**
+   * This constructor takes in the Firebase data to create an Account object
+   * 
+   * routine: Account.fromData
+   * 
+   * return type: Account
+   * 
+   * parameters:
+   *    data  [Map]   The raw account data from Firebase
+   * 
+   * @author Dylan Wichman
+   * commented by: George Adler Buras
+   */
   Account.fromData(Map<String, dynamic> data) {
     _name = data["name"];
     _description = data["description"];

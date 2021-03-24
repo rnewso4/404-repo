@@ -8,7 +8,23 @@ class User extends Account {
   DataServices dataServices;
   String _id;
   int membershipNum;
+
+  /**
+   * Email associated with the account, used for login and selling to the highest bidder;
+   * private, as indicated by the underscore in front
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   String _email;
+
+  /**
+   * Password associated with the account, used for login;
+   * private, as indicated by the underscore in front
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   String _password;
 
   User(String email, String password, String name, String description,
@@ -61,18 +77,64 @@ class User extends Account {
     return _id;
   }
 
+  /**
+   * This method gets the email associated with the account
+   * 
+   * routine: getEmail
+   * 
+   * return type: String
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   String getEmail() {
     return _email;
   }
 
+  /**
+   * This method changes the email associated with the graph
+   * 
+   * routine: changeEmail
+   * 
+   * return type: void
+   * 
+   * parameters: 
+   *    email   [String]    the new email to be associated with the account
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   void changeEmail(String email) {
     _email = email;
   }
 
+  /**
+   * This method gets the password associated with the account
+   * 
+   * routine: getPassword
+   * 
+   * return type: String
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   String getPassword() {
     return _password;
   }
 
+  /**
+   * This method changes the password associated with the account to a new one
+   * 
+   * routine: changePassword
+   * 
+   * return type: void
+   * 
+   * parameters:
+   *    password    [String]    The new password to be associated with the account
+   * 
+   * @author
+   * commented by: George Adler Buras
+   */
   void changePassword(String password) {
     _password = password;
   }
@@ -92,68 +154,3 @@ class User extends Account {
     };
   }
 }
-/**
-   * Email associated with the account, used for login and selling to the highest bidder;
-   * private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
-
-/**
-   * Password associated with the account, used for login;
-   * private, as indicated by the underscore in front
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
-
-/**
-   * This method gets the email associated with the account
-   * 
-   * routine: getEmail
-   * 
-   * return type: String
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
-
-/**
-   * This method changes the email associated with the graph
-   * 
-   * routine: changeEmail
-   * 
-   * return type: void
-   * 
-   * parameters: 
-   *    email   [String]    the new email to be associated with the account
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
-
-/**
-   * This method gets the password associated with the account
-   * 
-   * routine: getPassword
-   * 
-   * return type: String
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
-
-/**
-   * This method changes the password associated with the account to a new one
-   * 
-   * routine: changePassword
-   * 
-   * return type: void
-   * 
-   * parameters:
-   *    password    [String]    The new password to be associated with the account
-   * 
-   * @author
-   * commented by: George Adler Buras
-   */
