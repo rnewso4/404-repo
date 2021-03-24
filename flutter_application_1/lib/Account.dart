@@ -1,4 +1,4 @@
-/**
+/** 
  * This class is used to represent accounts, which is extended by both the User class
  * and the Group class.
  * 

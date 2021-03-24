@@ -7,10 +7,11 @@ import 'package:flutter_application_1/services/route_generator.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/loading.dart';
 
-import 'Account.dart';
 import 'User.dart';
 import 'Group.dart';
 import 'AuthenticationServices.dart';
+import 'Event.dart';
+import 'DataServices.dart';
 
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
@@ -31,11 +32,18 @@ void genEvent(String name, String about, String start, String end, String date,
     double lat, double log) {
   var event = new Event(name, about, start, end, date, lat, log);
   event.createEvent();
-  print("Event Created");
 }
 
 void genGroup(String name, String des) {
   var group = new Group(name, des);
+}
+
+Future<List<Event>> getEvents() {
+  return DataServices().getCurrentEvents();
+}
+
+User getAccount() {
+  //return DataServices().getUser();
 }
 
 class App extends StatelessWidget {

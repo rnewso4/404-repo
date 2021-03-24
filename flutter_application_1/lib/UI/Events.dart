@@ -3,9 +3,13 @@ import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/UI/SingleEvent.dart';
 
+import '../Event.dart';
+
 final NavigationService _navigationService = locator<NavigationService>();
+List<Event> eventList;
 
 class EventsPage extends StatefulWidget {
   @override
@@ -18,6 +22,7 @@ class _EventsPageState extends State<EventsPage> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     var name = new List(9);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -75,7 +80,13 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
+void _updateList() async {
+  Future<List<Event>> futureList = getEvents();
+  eventList = await futureList;
+}
+
 events() {
+  _updateList();
   return TextButton(
     onPressed: () {
       //eventToShow()
@@ -86,12 +97,9 @@ events() {
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
         backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            side: BorderSide(color: Colors.white)
-          )
-        )
-      ),
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                side: BorderSide(color: Colors.white)))),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -101,14 +109,14 @@ events() {
           padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2.5),
           decoration: BoxDecoration(
               border: Border(
-              right: BorderSide(
+            right: BorderSide(
                 width: SizeConfig.blockSizeHorizaontal * .3,
                 color: Colors.black),
-              )
-          ),
+          )),
           child: Column(
             children: <Widget>[
               Text(
+                //eventList[0].getStart()
                 '7:00',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizaontal * 6,

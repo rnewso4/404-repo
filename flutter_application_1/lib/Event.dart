@@ -65,44 +65,44 @@ class Event {
     this._participants.remove(user);
   }
 
-  static Account getOrganizer(Event _event) {
-    return _event._organizer;
+  Account getOrganizer() {
+    return _organizer;
   }
 
-  static List<User> getParticipants(Event _event) {
-    return _event._participants;
+  List<User> getParticipants() {
+    return _participants;
   }
 
-  static String getAbout(Event _event) {
-    return _event._about;
+  String getAbout() {
+    return _about;
   }
 
-  static String getStart(Event _event) {
-    return _event._start;
+  String getStart() {
+    return _start;
   }
 
-  static String getEnd(Event _event) {
-    return _event._end;
+  String getEnd() {
+    return _end;
   }
 
-  static String getDate(Event _event) {
-    return _event._date;
+  String getDate() {
+    return _date;
   }
 
-  static String getID(Event _event) {
-    return _event._id;
+  String getID() {
+    return _id;
   }
 
-  static double getLat(Event _event) {
-    return _event._lat;
+  double getLat() {
+    return _lat;
   }
 
-  static double getLng(Event _event) {
-    return _event._lng;
+  double getLng() {
+    return _lng;
   }
 
-  static String getTitle(Event _event) {
-    return _event._title;
+  String getTitle() {
+    return _title;
   }
 
   Future<void> createEvent() {
