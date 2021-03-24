@@ -3,7 +3,6 @@ import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_application_1/UI/maps.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
@@ -67,6 +66,7 @@ class _NewEventState extends State<NewEvent> {
                   width: SizeConfig.blockSizeHorizaontal * 20,
                   child: GestureDetector(
                     onTap: () {
+                      newEvFalse();
                       var title = myController1.text;
                       var des = myController5.text;
                       var stTime = myController2.text;

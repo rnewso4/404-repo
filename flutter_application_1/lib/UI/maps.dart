@@ -7,6 +7,7 @@ import 'package:flutter_application_1/UI/newevent.dart';
 import './size_config.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
+bool _newEv = false;
 
 class MapsPage extends StatefulWidget {
   @override
@@ -16,7 +17,6 @@ class MapsPage extends StatefulWidget {
 class _MapsPageState extends State<MapsPage> {
   List<Marker> myMarker = [];
   List<Marker> evMarkers = [];
-  bool newEv = false;
 
   @override
   Widget build(BuildContext context) {
@@ -102,13 +102,8 @@ class _MapsPageState extends State<MapsPage> {
   }
 
   // change the marker for if a new event is being made
-  void newEvFalse() {
-    newEv = false;
-  }
-
-  // change the marker for if a new event is being made
   void _newEvTrue() {
-    newEv = true;
+    _newEv = true;
   }
 
   // load in markers on map
@@ -127,7 +122,7 @@ class _MapsPageState extends State<MapsPage> {
   // what to do when the map is tapped
   _handleTap(LatLng tappedPoint) {
     setState(() {
-      if (newEv) {
+      if (_newEv) {
         myMarker = [];
         myMarker.add(Marker(
           markerId: MarkerId(tappedPoint.toString()),
@@ -137,4 +132,9 @@ class _MapsPageState extends State<MapsPage> {
       }
     });
   }
+}
+
+// change the marker for if a new event is being made
+void newEvFalse() {
+  _newEv = false;
 }
