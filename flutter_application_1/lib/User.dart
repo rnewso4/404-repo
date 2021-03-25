@@ -223,11 +223,28 @@ class User extends Account {
     _password = password;
   }
 
-  //Will save user in firebase database and firebase authentication
+  /**
+   * This method saves the user in Firebase database and Firebase authentication
+   * 
+   * routine: createUser
+   * 
+   * return type: Future<void>
+   * 
+   * @author
+   */
   Future<void> createUser() {
     return DataServices().saveUser(this);
   }
 
+  /**
+   * This method gets the map of raw user data from Firebase
+   * 
+   * routine: getMap
+   * 
+   * return type: Map
+   * 
+   * @author
+   */
   Map<String, dynamic> getMap() {
     return {
       "name": super.getName(),
