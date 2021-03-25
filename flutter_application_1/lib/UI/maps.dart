@@ -5,18 +5,26 @@ import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/newevent.dart';
 import './size_config.dart';
+import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/Event.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 bool _newEv = false;
+List<Event> eventList;
+List<Marker> evMarkers = [];
 
 class MapsPage extends StatefulWidget {
   @override
   _MapsPageState createState() => new _MapsPageState();
 }
 
+void _updateList() async {
+  Future<List<Event>> futureList = getEvents();
+  eventList = await futureList;
+}
+
 class _MapsPageState extends State<MapsPage> {
   List<Marker> myMarker = [];
-  List<Marker> evMarkers = [];
 
   @override
   Widget build(BuildContext context) {
@@ -106,19 +114,6 @@ class _MapsPageState extends State<MapsPage> {
     _newEv = true;
   }
 
-  // load in markers on map
-  @override
-  void initState() {
-    super.initState();
-    // for every event to load in
-    //Event event;
-    //markers.add(Marker(
-    //markerId: MarkerId(event.getID()),
-    //onTap: () {}, //maybe giving the option to see some info about the event
-    //position: LatLng(event.getLat(), event.getLng()),
-    //));
-  }
-
   // what to do when the map is tapped
   _handleTap(LatLng tappedPoint) {
     setState(() {
@@ -132,6 +127,19 @@ class _MapsPageState extends State<MapsPage> {
       }
     });
   }
+}
+
+// load in markers on map
+void loadMarkers() {
+  _updateList();
+  // for every event to load in
+  eventList.forEach((event) {
+    evMarkers.add(Marker(
+      markerId: MarkerId(event.getID()),
+      onTap: () {}, //maybe giving the option to see some info about the event
+      position: LatLng(event.getLat(), event.getLng()),
+    ));
+  });
 }
 
 // change the marker for if a new event is being made
