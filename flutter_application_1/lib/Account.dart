@@ -6,16 +6,10 @@
  * commented by: George Adler Buras
  */
 abstract class Account {
-  /**
-   * Name associated with the account (User name or Group name); 
-   * private, as indicated by the underscore in front
-   */
+  //Name associated with the account (User name or Group name)
   String _name;
 
-  /**
-   * Description of the account: Any additional information a user or group wants
-   * to include to make them unique; private, as indicated by the underscore in front
-   */
+  //Description of the account: Any additional information a user or group wants to include to make them unique
   String _description;
 
   /**

@@ -31,16 +31,10 @@ class User extends Account {
 
   int membershipNum;
 
-  /**
-   * Email associated with the account, used for login and selling to the highest bidder;
-   * private, as indicated by the underscore in front
-   */
+  //Email associated with the account; used for login and selling to the highest bidder
   String _email;
 
-  /**
-   * Password associated with the account, used for login;
-   * private, as indicated by the underscore in front
-   */
+  //Password associated with the account, used for login;
   String _password;
 
   /**
@@ -77,7 +71,7 @@ class User extends Account {
    * return type: User
    * 
    * parameters:
-   *    data  [Map]   The raw user account data from Firebase
+   *    data  [Map<String, dynamic>]   the raw user account data from Firebase
    * 
    * @author Dylan Wichman
    */
@@ -241,7 +235,7 @@ class User extends Account {
    * 
    * routine: getMap
    * 
-   * return type: Map
+   * return type: Map<String, dynamic>
    * 
    * @author
    */

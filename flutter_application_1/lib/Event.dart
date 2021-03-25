@@ -3,30 +3,61 @@ import 'Group.dart';
 import 'Account.dart';
 import 'User.dart';
 
+/**
+ * This class is used to represent events
+ * 
+ * @author
+ * commented by: George Adler Buras
+ */
 class Event {
+  //The unique ID assocated with the event
   String _id;
+
+  //The account responsible for creating the event
   Account _organizer;
+
+  //A description of the event
   String _about;
+
+  //The start time of the event
   String _start;
+
+  //The end time of the event
   String _end;
+
+  //The date of the event
   String _date;
+
+  //The title of the event
   String _title;
+
+  //The latitude of the location of the event
   double _lat;
+
+  //The longitude of the location of the event
   double _lng;
+
+  //A list of users who are participating in the event
   List<User> _participants;
 
-  Event.fromData(Map<String, dynamic> data, String id) {
-    this._id = id;
-    this._organizer = data["organizer"];
-    this._about = data["about"];
-    this._lat = data["lat"];
-    this._lng = data["lng"];
-    this._start = data["start"];
-    this._end = data["end"];
-    this._date = data["date"];
-    //this._participants ; //need to turn users id number into user obj and then add to participants (prehaps a loop)
-  }
-
+  /**
+   * Constructor used to create an event object
+   * 
+   * routine: Event
+   * 
+   * return type: Event
+   * 
+   * parameters:
+   *    title   [String]    the title of the event
+   *    about   [String]    a description of the event
+   *    start   [String]    the start time of the event
+   *    end     [String]    the end time of the event
+   *    date    [String]    the date of the event
+   *    lat     [double]    the latitude of the event location
+   *    lng     [double]    the longitude of the event location
+   * 
+   * @author
+   */
   //Need to add Account orgranizer;
   Event(String title, String about, String start, String end, String date,
       double lat, double lng) {
@@ -44,6 +75,31 @@ class Event {
     //createEvent();
   }
 
+  /**
+   * This constructor takes in the Firebase data to create a User object
+   * 
+   * routine: Event.fromData
+   * 
+   * return type: Event
+   * 
+   * parameters
+   *    data    [Map<String, dynamic>]       the raw event data from Firebase
+   *    id      [String]    the unique id associated with the event
+   * 
+   * @author
+   */
+  Event.fromData(Map<String, dynamic> data, String id) {
+    this._id = id;
+    this._organizer = data["organizer"];
+    this._about = data["about"];
+    this._lat = data["lat"];
+    this._lng = data["lng"];
+    this._start = data["start"];
+    this._end = data["end"];
+    this._date = data["date"];
+    //this._participants ; //need to turn users id number into user obj and then add to participants (prehaps a loop)
+  }
+
   //test event
   Event.test(
       String title, String about, String start, String end, String date) {
@@ -57,58 +113,190 @@ class Event {
     createEvent();
   }
 
-  addParticipitant(User user) {
+  /**
+   * This method adds a user to the list of participants who are attending an event
+   * 
+   * routine: addParticipitant
+   * 
+   * return type: void
+   * 
+   * parameters:
+   *    user    [User]    the user who is attending the event
+   * 
+   * @author
+   */
+  void addParticipitant(User user) {
     this._participants.add(user);
   }
 
-  removeParticipant(User user) {
+  /**
+   * This mehtod removes a user from the list of participants who are attending an event
+   * 
+   * routine: removeParticipant
+   * 
+   * return type: void
+   * 
+   * parameters:
+   *    user    [User]    the user who is no longer attending the event
+   * 
+   * @author
+   */
+  void removeParticipant(User user) {
     this._participants.remove(user);
   }
 
+  /**
+   * This method gets the creator of the event
+   * 
+   * routine: getOrganizer
+   * 
+   * return type: Account
+   * 
+   * @author
+   */
   Account getOrganizer() {
     return _organizer;
   }
 
+  /**
+   * This method gets the list of users attending the event
+   * 
+   * routine: getParticipants
+   * 
+   * return type: List<User>
+   * 
+   * @author
+   */
   List<User> getParticipants() {
     return _participants;
   }
 
+  /**
+   * This method gets the description of the event
+   * 
+   * routine: getAbout
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getAbout() {
     return _about;
   }
 
+  /**
+   * This method gets the start time of the event
+   * 
+   * routine: getStart
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getStart() {
     return _start;
   }
 
+  /**
+   * This mehtod gets the end time of the event
+   * 
+   * routine: getEnd
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getEnd() {
     return _end;
   }
 
+  /**
+   * This method gets the date of the event
+   * 
+   * routine: getDate
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getDate() {
     return _date;
   }
 
+  /**
+   * This method gets the unique ID of the event
+   * 
+   * routine: getID
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getID() {
     return _id;
   }
 
+  /**
+   * This method gets the latitude of the event location
+   * 
+   * routine: getLat
+   * 
+   * return type: double
+   * 
+   * @author
+   */
   double getLat() {
     return _lat;
   }
 
+  /**
+   * This method gets the longitude of the event location
+   * 
+   * routine: getLng
+   * 
+   * return type: double
+   * 
+   * @author
+   */
   double getLng() {
     return _lng;
   }
 
+  /**
+   * This method gets the title of the event
+   * 
+   * routine: getTitle
+   * 
+   * return type: String
+   * 
+   * @author
+   */
   String getTitle() {
     return _title;
   }
 
+  /**
+   * This method saves the event in Firebase database and Firebase authentication
+   * 
+   * routine: createEvent
+   * 
+   * return type: Future<void>
+   * 
+   * @author
+   */
   Future<void> createEvent() {
     return DataServices().saveEvent(this).then((doc) => {this._id = doc.id});
   }
 
+  /**
+   * This method gets the map of raw event data from Firebase
+   * 
+   * routine: getMap
+   * 
+   * return type: Map<String, dynamic>
+   * 
+   * @author
+   */
   Map<String, dynamic> getMap() {
     return {
       "organizer": _organizer,
