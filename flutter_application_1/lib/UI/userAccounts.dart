@@ -67,7 +67,7 @@ class _UserAccountsState extends State<UserAccounts> {
               child: Text(
                 'Mike The Tiger',
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 6.7,
+                    fontSize: SizeConfig.blockSizeHorizontal * 6.7,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -79,49 +79,49 @@ class _UserAccountsState extends State<UserAccounts> {
                   Text('Year',
                       style: TextStyle(
                           color: Color(0xff7B7B7B),
-                          fontSize: SizeConfig.blockSizeHorizaontal * 4)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 4)),
                   Text('Major',
                       style: TextStyle(
                           color: Color(0xff7B7B7B),
-                          fontSize: SizeConfig.blockSizeHorizaontal * 4)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 4)),
                   Text('Points',
                       style: TextStyle(
                           color: Color(0xff7B7B7B),
-                          fontSize: SizeConfig.blockSizeHorizaontal * 4)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 4)),
                 ],
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical),
             Container(
               padding: EdgeInsets.only(
-                  left: SizeConfig.blockSizeHorizaontal * 10,
-                  right: SizeConfig.blockSizeHorizaontal * 10),
+                  left: SizeConfig.blockSizeHorizontal * 10,
+                  right: SizeConfig.blockSizeHorizontal * 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('Senior',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: SizeConfig.blockSizeHorizaontal * 3.8)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 3.8)),
                   Text('Kineisiology',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: SizeConfig.blockSizeHorizaontal * 3.8)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 3.8)),
                   Text('10,000',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: SizeConfig.blockSizeHorizaontal * 3.8)),
+                          fontSize: SizeConfig.blockSizeHorizontal * 3.8)),
                 ],
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical * 11),
             Container(
               padding:
-                  EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal * 5),
+                  EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 5),
               child: Text('Group Activities',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.blockSizeHorizaontal * 4)),
+                      fontSize: SizeConfig.blockSizeHorizontal * 4)),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical * 5),
             Container(
@@ -130,7 +130,7 @@ class _UserAccountsState extends State<UserAccounts> {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   boxes(),
-                  SizedBox(width: SizeConfig.blockSizeHorizaontal * 5),
+                  SizedBox(width: SizeConfig.blockSizeHorizontal * 5),
                   boxes(),
                 ],
               ),
@@ -146,8 +146,8 @@ class _UserAccountsState extends State<UserAccounts> {
 boxes() {
   return Container(
     height: SizeConfig.blockSizeVertical * 54,
-    width: SizeConfig.blockSizeHorizaontal * 48,
-    margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal * 6),
+    width: SizeConfig.blockSizeHorizontal * 48,
+    margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 6),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
         gradient: LinearGradient(
@@ -159,33 +159,33 @@ boxes() {
         Row(
           children: <Widget>[
             Container(
-              height: SizeConfig.blockSizeHorizaontal * 12,
-              width: SizeConfig.blockSizeHorizaontal * 13,
+              height: SizeConfig.blockSizeHorizontal * 12,
+              width: SizeConfig.blockSizeHorizontal * 13,
               margin: EdgeInsets.only(
                   top: SizeConfig.blockSizeVertical,
-                  left: SizeConfig.blockSizeHorizaontal * 2),
+                  left: SizeConfig.blockSizeHorizontal * 2),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.white)),
             ),
-            SizedBox(width: SizeConfig.blockSizeHorizaontal * 2),
+            SizedBox(width: SizeConfig.blockSizeHorizontal * 2),
             Text(
               'Athletics Team',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: SizeConfig.blockSizeHorizaontal * 3.5),
+                  fontSize: SizeConfig.blockSizeHorizontal * 3.5),
             )
           ],
         ),
-        SizedBox(height: SizeConfig.blockSizeHorizaontal * 6),
+        SizedBox(height: SizeConfig.blockSizeHorizontal * 6),
         Center(
             child: Text(
           '5 new notifications',
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: SizeConfig.blockSizeHorizaontal * 3.5),
+              fontSize: SizeConfig.blockSizeHorizontal * 3.5),
         ))
       ],
     ),

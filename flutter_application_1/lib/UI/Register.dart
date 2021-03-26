@@ -50,12 +50,12 @@ class _RegisterPageState extends State<RegisterPage> {
             Container(
               height: SizeConfig.blockSizeVertical * 25,
               padding:
-                  EdgeInsets.only(right: SizeConfig.blockSizeHorizaontal * 4),
+                  EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 4),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
                   height: SizeConfig.blockSizeVertical * 6,
-                  width: SizeConfig.blockSizeHorizaontal * 20,
+                  width: SizeConfig.blockSizeHorizontal * 20,
                   child: GestureDetector(
                     onTap: () {
                       String input1 = myController1.text;
@@ -77,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: Text(
                             'ADD',
                             style: TextStyle(
-                                fontSize: SizeConfig.blockSizeHorizaontal * 5,
+                                fontSize: SizeConfig.blockSizeHorizontal * 5,
                                 color: Color(0xFFEBEBEB),
                                 fontWeight: FontWeight.bold),
                           ),
@@ -98,8 +98,8 @@ textfields(String name, var conc) {
     height: SizeConfig.blockSizeVertical * 7,
     child: Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizaontal * 4.5,
-          right: SizeConfig.blockSizeHorizaontal * 4.5),
+          left: SizeConfig.blockSizeHorizontal * 4.5,
+          right: SizeConfig.blockSizeHorizontal * 4.5),
       child: TextField(
           controller: conc,
           decoration: InputDecoration(
@@ -107,7 +107,7 @@ textfields(String name, var conc) {
               labelStyle: TextStyle(
                   color: Color(0xff404040),
                   fontWeight: FontWeight.bold,
-                  fontSize: SizeConfig.blockSizeHorizaontal * 4),
+                  fontSize: SizeConfig.blockSizeHorizontal * 4),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Color(0xff404040))))),
     ),

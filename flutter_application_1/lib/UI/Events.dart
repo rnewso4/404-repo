@@ -44,13 +44,13 @@ class _EventsPageState extends State<EventsPage> {
               children: <Widget>[
                 Container(
                     padding: EdgeInsets.only(
-                        top: SizeConfig.blockSizeHorizaontal * 10,
-                        left: SizeConfig.blockSizeHorizaontal * 5),
+                        top: SizeConfig.blockSizeHorizontal * 10,
+                        left: SizeConfig.blockSizeHorizontal * 5),
                     child: Text(
                       'Local Events',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: SizeConfig.blockSizeHorizaontal * 7,
+                          fontSize: SizeConfig.blockSizeHorizontal * 7,
                           fontWeight: FontWeight.bold),
                     )),
               ],
@@ -67,8 +67,8 @@ class _EventsPageState extends State<EventsPage> {
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
                         margin: EdgeInsets.only(
-                            left: SizeConfig.blockSizeHorizaontal * 4,
-                            right: SizeConfig.blockSizeHorizaontal * 4,
+                            left: SizeConfig.blockSizeHorizontal * 4,
+                            right: SizeConfig.blockSizeHorizontal * 4,
                             bottom: SizeConfig.blockSizeVertical * 3),
                         child: events());
                   }),
@@ -105,12 +105,12 @@ events() {
       children: <Widget>[
         Container(
           height: SizeConfig.blockSizeVertical * 10,
-          width: SizeConfig.blockSizeHorizaontal * 20,
+          width: SizeConfig.blockSizeHorizontal * 20,
           padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2.5),
           decoration: BoxDecoration(
               border: Border(
             right: BorderSide(
-                width: SizeConfig.blockSizeHorizaontal * .3,
+                width: SizeConfig.blockSizeHorizontal * .3,
                 color: Colors.black),
           )),
           child: Column(
@@ -119,14 +119,14 @@ events() {
                 //eventList[0].getStart()
                 '7:00',
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 6,
+                    fontSize: SizeConfig.blockSizeHorizontal * 6,
                     color: Color(0xff404040)),
               ),
               //SizedBox(height: SizeConfig.blockSizeVertical),
               Text(
                 'AM',
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 4,
+                    fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),
               ),
             ],
@@ -134,8 +134,8 @@ events() {
         ),
         Container(
           height: SizeConfig.blockSizeVertical * 10,
-          width: SizeConfig.blockSizeHorizaontal * 58,
-          margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizaontal * 2),
+          width: SizeConfig.blockSizeHorizontal * 58,
+          margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 2),
           child: Row(children: <Widget>[
             Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,7 +146,7 @@ events() {
                         EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
                     child: Text('Title',
                         style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizaontal * 6,
+                            fontSize: SizeConfig.blockSizeHorizontal * 6,
                             color: Color(0xff404040))),
                   ),
                   Align(
@@ -157,7 +157,7 @@ events() {
                           top: SizeConfig.blockSizeVertical * 1.9),
                       child: Text('Location',
                           style: TextStyle(
-                              fontSize: SizeConfig.blockSizeHorizaontal * 3,
+                              fontSize: SizeConfig.blockSizeHorizontal * 3,
                               color: Color(0xff404040))),
                     ),
                   ),
@@ -169,7 +169,7 @@ events() {
                       alignment: Alignment.bottomLeft,
                       child: Text('User name',
                           style: TextStyle(
-                              fontSize: SizeConfig.blockSizeHorizaontal * 3,
+                              fontSize: SizeConfig.blockSizeHorizontal * 3,
                               color: Color(0xff404040))),
                     ),
                   ),
