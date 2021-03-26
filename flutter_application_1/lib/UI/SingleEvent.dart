@@ -53,7 +53,7 @@ class _SingleEventPageState extends State<SingleEventPage> {
 }
 
 // Update what event will be showen when the page is displayed
-void eventToShow(Event _newEvent) {
+eventToShow(Event _newEvent) {
   _event = _newEvent;
 }
 
