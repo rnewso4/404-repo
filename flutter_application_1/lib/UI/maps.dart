@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/DataServices.dart';
+import 'package:flutter_application_1/UI/SingleEvent.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
@@ -39,11 +40,10 @@ class _MapsPageState extends State<MapsPage> {
       body: Stack(
         children: <Widget>[
           GoogleMap(
-            //onMapCreated: _loadElements(),
             initialCameraPosition:
                 CameraPosition(target: LatLng(30.4126, -91.1771), zoom: 16),
-            markers: Set.from(evMarkers),
-            onTap: _handleTap,
+            markers: Set.from(_markersToDisplay(myMarker, evMarkers)),
+            onTap: _handleMapTap,
           ),
           SizedBox(
             height: SizeConfig.blockSizeVertical * 9,
@@ -116,24 +116,13 @@ class _MapsPageState extends State<MapsPage> {
     );
   }
 
-  _loadElements() {
-    _loadEvents();
-    loadMarkers(eventList, evMarkers);
-  }
-
-  _loadEvents() async {
-    //eventList = [];
-    //Future<List<Event>> futureList = getEvents();
-    //eventList = await futureList;
-  }
-
   // change the marker for if a new event is being made
   void _newEvTrue() {
     _newEv = true;
   }
 
   // what to do when the map is tapped
-  _handleTap(LatLng tappedPoint) {
+  _handleMapTap(LatLng tappedPoint) {
     setState(() {
       if (_newEv) {
         myMarker = [];
@@ -147,15 +136,35 @@ class _MapsPageState extends State<MapsPage> {
   }
 }
 
+Iterable _markersToDisplay(List<Marker> myMarker, List<Marker> evMarkers) {
+  List<Marker> returnList = [];
+  if (_newEv) {
+    returnList = myMarker;
+  } else {
+    returnList = evMarkers;
+  }
+  return returnList;
+}
+
 // load in markers on map
 loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
   eventList.forEach((event) {
     evMarkers.add(Marker(
       markerId: MarkerId(event.getID()),
-      onTap: () {}, //maybe giving the option to see some info about the event
       position: LatLng(event.getLat(), event.getLng()),
+      infoWindow: InfoWindow(
+          title: event.getTitle(),
+          snippet: event.getAbout(),
+          onTap: () {
+            _handleInfoTap(event);
+          }),
     ));
   });
+}
+
+_handleInfoTap(Event _event) {
+  eventToShow(_event);
+  _navigationService.navigateTo(routes.SingleEventRoute);
 }
 
 // change the marker for if a new event is being made

@@ -26,7 +26,7 @@ class RouteGenerator {
       case routes.LoadingRoute:
         return MaterialPageRoute(builder: (context) => LoadingPage());
       case routes.SearchRoute:
-        return MaterialPageRoute(builder: (context) => SeacrhPage());
+        return MaterialPageRoute(builder: (context) => SearchPage());
       case routes.MapsRoute:
         return MaterialPageRoute(builder: (context) => MapsPage());
       case routes.register:
