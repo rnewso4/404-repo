@@ -137,7 +137,7 @@ events() {
               Text(
                 time,
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 8,
+                    fontSize: SizeConfig.blockSizeHorizaontal * 6,
                     color: Color(0xff404040)),
               ),
               //SizedBox(height: SizeConfig.blockSizeVertical),
