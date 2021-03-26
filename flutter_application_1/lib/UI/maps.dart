@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/DataServices.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
@@ -10,32 +13,36 @@ import 'package:flutter_application_1/Event.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 bool _newEv = false;
-List<Event> eventList;
-List<Marker> evMarkers = [];
 
 class MapsPage extends StatefulWidget {
   @override
   _MapsPageState createState() => new _MapsPageState();
 }
 
-void _updateList() async {
-  Future<List<Event>> futureList = getEvents();
-  eventList = await futureList;
-}
-
 class _MapsPageState extends State<MapsPage> {
   List<Marker> myMarker = [];
+  List<Event> eventList = [];
+  List<Marker> evMarkers = [];
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    Timer.run(() async {
+      List<Event> loadingList = List<Event>.empty(growable: true);
+      loadingList = await DataServices().getCurrentEvents();
+      setState(() {
+        eventList = loadingList;
+        loadMarkers(eventList, evMarkers);
+      });
+    });
     return Scaffold(
       body: Stack(
         children: <Widget>[
           GoogleMap(
+            //onMapCreated: _loadElements(),
             initialCameraPosition:
                 CameraPosition(target: LatLng(30.4126, -91.1771), zoom: 16),
-            markers: Set.from(myMarker),
+            markers: Set.from(evMarkers),
             onTap: _handleTap,
           ),
           SizedBox(
@@ -109,6 +116,17 @@ class _MapsPageState extends State<MapsPage> {
     );
   }
 
+  _loadElements() {
+    _loadEvents();
+    loadMarkers(eventList, evMarkers);
+  }
+
+  _loadEvents() async {
+    //eventList = [];
+    //Future<List<Event>> futureList = getEvents();
+    //eventList = await futureList;
+  }
+
   // change the marker for if a new event is being made
   void _newEvTrue() {
     _newEv = true;
@@ -130,9 +148,7 @@ class _MapsPageState extends State<MapsPage> {
 }
 
 // load in markers on map
-void loadMarkers() {
-  _updateList();
-  // for every event to load in
+loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
   eventList.forEach((event) {
     evMarkers.add(Marker(
       markerId: MarkerId(event.getID()),
