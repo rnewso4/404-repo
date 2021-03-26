@@ -42,8 +42,8 @@ Future<List<Event>> getEvents() {
   return DataServices().getCurrentEvents();
 }
 
-User getAccount() {
-  //return DataServices().getUser();
+Future<User> getAccount(String id) {
+  return DataServices().getUser(id);
 }
 
 class App extends StatelessWidget {

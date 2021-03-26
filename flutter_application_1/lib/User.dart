@@ -14,8 +14,8 @@ enum SchoolYear { freshman, sophomore, junior, senior, graduate, other }
 /**
  * This class is used to represent users; it extends accounts
  * 
- * @author
- * commented by: George Adler Buras
+ * @author Kyle McCraine
+ * 
  */
 class User extends Account {
   //The year of the user in college.
@@ -52,7 +52,7 @@ class User extends Account {
    *    grade         [String]    the year of the user in college
    *    degree        [String]    the major of the user in college
    * 
-   * @author
+   * @author Kyle McCraine
    */
   User(String email, String password, String name, String description,
       String grade, String degree)
@@ -89,7 +89,7 @@ class User extends Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getYear() {
     return _year;
@@ -105,7 +105,7 @@ class User extends Account {
    * parameters:
    *    grade   [String]    the new year in college of the user
    * 
-   * @author
+   * @author Kyle McCraine
    */
   void changeYear(String grade) {
     _year = grade;
@@ -118,7 +118,7 @@ class User extends Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getMajor() {
     return _major;
@@ -134,7 +134,7 @@ class User extends Account {
    * parameters:
    *    degree    [String]    the new major of the user in college
    * 
-   * @author
+   * @author Kyle McCraine
    */
   void changeMajor(String degree) {
     _major = degree;
@@ -165,7 +165,7 @@ class User extends Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getEmail() {
     return _email;
@@ -181,7 +181,7 @@ class User extends Account {
    * parameters: 
    *    email   [String]    the new email to be associated with the account
    * 
-   * @author
+   * @author Kyle McCraine
    */
   void changeEmail(String email) {
     _email = email;
@@ -194,7 +194,7 @@ class User extends Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getPassword() {
     return _password;
@@ -210,8 +210,8 @@ class User extends Account {
    * parameters:
    *    password    [String]    The new password to be associated with the account
    * 
-   * @author
-   * commented by: George Adler Buras
+   * @author Kyle McCraine
+   * 
    */
   void changePassword(String password) {
     _password = password;
@@ -224,7 +224,7 @@ class User extends Account {
    * 
    * return type: Future<void>
    * 
-   * @author
+   * @author Dylan Wichman
    */
   Future<void> createUser() {
     return DataServices().saveUser(this);
@@ -237,7 +237,7 @@ class User extends Account {
    * 
    * return type: Map<String, dynamic>
    * 
-   * @author
+   * @author Dylan Wichman
    */
   Map<String, dynamic> getMap() {
     return {

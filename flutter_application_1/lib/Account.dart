@@ -2,8 +2,8 @@
  * This class is used to represent accounts, which is extended by both the User class
  * and the Group class.
  * 
- * @author
- * commented by: George Adler Buras
+ * @author Kyle McCraine
+ * 
  */
 abstract class Account {
   //Name associated with the account (User name or Group name)
@@ -23,7 +23,7 @@ abstract class Account {
    *    name          [String]  the name associated with the account
    *    description   [String]  a description of the account
    * 
-   * @author 
+   * @author Kyle McCraine
    */
   Account(String name, String description) {
     _name = name;
@@ -54,7 +54,7 @@ abstract class Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getName() {
     return _name;
@@ -70,7 +70,7 @@ abstract class Account {
    * parameters:
    *    name  [String]  the new name that will be associated with the account
    * 
-   * @author
+   * @author Kyle McCraine
    */
   void changeName(String name) {
     _name = name;
@@ -83,7 +83,7 @@ abstract class Account {
    * 
    * return type: String
    * 
-   * @author
+   * @author Kyle McCraine
    */
   String getDescription() {
     return _description;
@@ -99,7 +99,7 @@ abstract class Account {
    * parameters:
    *    description   [String]    the new description of the account
    * 
-   * @author
+   * @author Kyle McCraine
    */
   void changeDescription(String description) {
     _description = description;

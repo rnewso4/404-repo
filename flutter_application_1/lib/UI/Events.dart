@@ -87,6 +87,25 @@ void _updateList() async {
 
 events() {
   _updateList();
+  String time = '7:00';
+  String name = 'Title';
+  //eventList.length
+  if (eventList != null) {
+    if (eventList.first != null) {
+      if (eventList.first.getStart() != null) {
+        time = eventList.first.getStart();
+      } else {
+        time = '7:00';
+      }
+      if (eventList.first.getTitle() != null) {
+        name = eventList.first.getTitle();
+      } else {
+        name = 'Title';
+      }
+    }
+    eventList.removeAt(0);
+  }
+
   return TextButton(
     onPressed: () {
       //eventToShow()
@@ -116,15 +135,14 @@ events() {
           child: Column(
             children: <Widget>[
               Text(
-                //eventList[0].getStart()
-                '7:00',
+                time,
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 6,
+                    fontSize: SizeConfig.blockSizeHorizaontal * 8,
                     color: Color(0xff404040)),
               ),
               //SizedBox(height: SizeConfig.blockSizeVertical),
               Text(
-                'AM',
+                '',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizaontal * 4,
                     color: Color(0xff404040)),
@@ -144,7 +162,7 @@ events() {
                     height: SizeConfig.blockSizeVertical * 10 / 3,
                     padding:
                         EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
-                    child: Text('Title',
+                    child: Text(name,
                         style: TextStyle(
                             fontSize: SizeConfig.blockSizeHorizaontal * 6,
                             color: Color(0xff404040))),
