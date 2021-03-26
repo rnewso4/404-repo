@@ -59,8 +59,24 @@ eventToShow(Event _newEvent) {
 
 // Update the data that will be displayed
 void _fillData(Event _event) {
-  //_title = Event.getTitle(_event);
-  //_startTime = Event.getStart(_event);
-  //_endTime = Event.getEnd(_event);
-  //_about = Event.getAbout(_event);
+  if (_event.getTitle() != null) {
+    _title = _event.getTitle();
+  } else {
+    _title = 'default title';
+  }
+  if (_event.getStart() != null) {
+    _startTime = _event.getStart();
+  } else {
+    _startTime = 'default start';
+  }
+  if (_event.getEnd() != null) {
+    _startTime = _event.getEnd();
+  } else {
+    _startTime = 'default end';
+  }
+  if (_event.getAbout() != null) {
+    _startTime = _event.getAbout();
+  } else {
+    _startTime = 'default about';
+  }
 }
