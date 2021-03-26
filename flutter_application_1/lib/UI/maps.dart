@@ -55,8 +55,8 @@ class _MapsPageState extends State<MapsPage> {
                 child: Container(
                   height: SizeConfig.blockSizeVertical * 9,
                   margin: EdgeInsets.only(
-                      left: SizeConfig.blockSizeHorizaontal * 14,
-                      right: SizeConfig.blockSizeHorizaontal * 8,
+                      left: SizeConfig.blockSizeHorizontal * 14,
+                      right: SizeConfig.blockSizeHorizontal * 8,
                       top: SizeConfig.blockSizeVertical * 5.3),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -69,20 +69,20 @@ class _MapsPageState extends State<MapsPage> {
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.only(
-                            left: SizeConfig.blockSizeHorizaontal * 2.3,
+                            left: SizeConfig.blockSizeHorizontal * 2.3,
                             top: SizeConfig.blockSizeVertical * 1.5),
                         child: Text(
                           'Q',
                           style: TextStyle(
                               fontFamily: 'bts',
                               color: Color(0xff853DD9),
-                              fontSize: SizeConfig.blockSizeHorizaontal * 2.7),
+                              fontSize: SizeConfig.blockSizeHorizontal * 2.7),
                         ),
                       ),
                       Text(
                         '   Search here',
                         style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizaontal * 3.5),
+                            fontSize: SizeConfig.blockSizeHorizontal * 3.5),
                       )
                     ],
                   ),
@@ -93,13 +93,13 @@ class _MapsPageState extends State<MapsPage> {
             child: Container(
               height: SizeConfig.blockSizeVertical * 50,
               padding: EdgeInsets.only(
-                  right: SizeConfig.blockSizeHorizaontal * 2.3,
+                  right: SizeConfig.blockSizeHorizontal * 2.3,
                   bottom: SizeConfig.blockSizeVertical * 12),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: FloatingActionButton(
                   child: Icon(Icons.add,
-                      size: SizeConfig.blockSizeHorizaontal * 12),
+                      size: SizeConfig.blockSizeHorizontal * 12),
                   elevation: 2.5,
                   backgroundColor: Colors.white,
                   foregroundColor: Color(0xff853DD9),

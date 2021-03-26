@@ -28,7 +28,7 @@ class _Login2State extends State<Login2> {
                 child: Text(
                   'THE',
                   style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizaontal * 10,
+                    fontSize: SizeConfig.blockSizeHorizontal * 10,
                     fontFamily: 'bts',
                     color: Color(0xff853DD9),
                   ),
@@ -42,7 +42,7 @@ class _Login2State extends State<Login2> {
                 child: Text(
                   'QUAD',
                   style: TextStyle(
-                      fontSize: SizeConfig.blockSizeHorizaontal * 10,
+                      fontSize: SizeConfig.blockSizeHorizontal * 10,
                       fontFamily: 'bts',
                       color: Color(0xff853DD9)),
                 ),
@@ -51,9 +51,9 @@ class _Login2State extends State<Login2> {
           ])),
           Container(
               padding: EdgeInsets.fromLTRB(
-                  SizeConfig.blockSizeHorizaontal * 7,
+                  SizeConfig.blockSizeHorizontal * 7,
                   SizeConfig.safeBlockVertical * 5,
-                  SizeConfig.blockSizeHorizaontal * 7,
+                  SizeConfig.blockSizeHorizontal * 7,
                   0),
               child: Column(
                 children: <Widget>[
@@ -64,7 +64,7 @@ class _Login2State extends State<Login2> {
                           labelStyle: TextStyle(
                               color: Color(0xff404040),
                               fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig.blockSizeHorizaontal * 4),
+                              fontSize: SizeConfig.blockSizeHorizontal * 4),
                           focusedBorder: UnderlineInputBorder(
                               borderSide:
                                   BorderSide(color: Color(0xff404040))))),
@@ -76,7 +76,7 @@ class _Login2State extends State<Login2> {
                           labelStyle: TextStyle(
                               color: Color(0xff404040),
                               fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig.blockSizeHorizaontal * 4),
+                              fontSize: SizeConfig.blockSizeHorizontal * 4),
                           focusedBorder: UnderlineInputBorder(
                               borderSide:
                                   BorderSide(color: Color(0xff404040))))),
@@ -90,8 +90,7 @@ class _Login2State extends State<Login2> {
                                 color: Color(0xff853DD9),
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline,
-                                fontSize:
-                                    SizeConfig.blockSizeHorizaontal * 3))),
+                                fontSize: SizeConfig.blockSizeHorizontal * 3))),
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical * 4),
                   Container(
@@ -114,7 +113,7 @@ class _Login2State extends State<Login2> {
                                     color: Color(0xFFEBEBEB),
                                     fontWeight: FontWeight.bold,
                                     fontSize:
-                                        SizeConfig.blockSizeHorizaontal * 5),
+                                        SizeConfig.blockSizeHorizontal * 5),
                               ),
                             ))),
                   ),
@@ -131,7 +130,7 @@ class _Login2State extends State<Login2> {
                       Text(
                         'Don\'t have an accont? ',
                         style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizaontal * 3.5),
+                            fontSize: SizeConfig.blockSizeHorizontal * 3.5),
                       ),
                       InkWell(
                         onTap: () {
@@ -143,7 +142,7 @@ class _Login2State extends State<Login2> {
                               color: Color(0xff853DD9),
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
-                              fontSize: SizeConfig.blockSizeHorizaontal * 3.5),
+                              fontSize: SizeConfig.blockSizeHorizontal * 3.5),
                         ),
                       )
                     ]),
