@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/UI/Sidebar/sidebar.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
@@ -9,6 +10,7 @@ import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import '../User.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
+User user;
 
 class UserAccounts extends StatefulWidget {
   @override
@@ -20,8 +22,27 @@ class _UserAccountsState extends State<UserAccounts> {
   String valuechoose;
   List listitem = ["item 1", "item 2"];
 */
+
   @override
   Widget build(BuildContext context) {
+    _updateAccount();
+    //Default Values
+    String name = 'Mike The Tiger';
+    String year = 'Senior';
+    String major = 'Kineisiology';
+
+    if (user != null) {
+      if (user.getName() != null) {
+        name = user.getName();
+      } else {}
+      if (user.getYear() != null) {
+        year = user.getYear();
+      } else {}
+      if (user.getMajor() != null) {
+        major = user.getMajor();
+      } else {}
+    }
+
     SizeConfig().init(context);
     return Scaffold(
         body: Container(
@@ -65,7 +86,7 @@ class _UserAccountsState extends State<UserAccounts> {
             Container(
               alignment: Alignment.center,
               child: Text(
-                'Mike The Tiger',
+                name,
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 6.7,
                     fontWeight: FontWeight.bold),
@@ -99,11 +120,11 @@ class _UserAccountsState extends State<UserAccounts> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Senior',
+                  Text(year,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: SizeConfig.blockSizeHorizontal * 3.8)),
-                  Text('Kineisiology',
+                  Text(major,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: SizeConfig.blockSizeHorizontal * 3.8)),
@@ -141,6 +162,11 @@ class _UserAccountsState extends State<UserAccounts> {
       ]),
     ));
   }
+}
+
+void _updateAccount() async {
+  Future<User> futureUser = getAccount();
+  user = await futureUser;
 }
 
 boxes() {
