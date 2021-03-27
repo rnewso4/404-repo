@@ -51,4 +51,12 @@ class AuthenticationServices {
       }
     }
   }
+
+  String getCurrentUser() {
+    if (authentication.currentUser != null) {
+      return authentication.currentUser.uid;
+    } else {
+      return null;
+    }
+  }
 }
