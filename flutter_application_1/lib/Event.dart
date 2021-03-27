@@ -89,6 +89,7 @@ class Event {
    * @author
    */
   Event.fromData(Map<String, dynamic> data, String id) {
+    this._title = data["title"];
     this._id = id;
     this._organizer = data["organizer"];
     this._about = data["about"];
