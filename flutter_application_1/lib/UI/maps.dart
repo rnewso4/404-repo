@@ -151,15 +151,59 @@ loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
   eventList.forEach((event) {
     evMarkers.add(Marker(
       markerId: MarkerId(event.getID()),
-      position: LatLng(event.getLat(), event.getLng()),
+      position: LatLng(_getMarkerLat(event), _getMarkerLng(event)),
       infoWindow: InfoWindow(
-          title: event.getTitle(),
-          snippet: event.getAbout(),
+          title: _getMarkerTitle(event),
+          snippet: _getMarkerAbout(event),
           onTap: () {
             _handleInfoTap(event);
           }),
     ));
   });
+}
+
+//return lat of event or 0 if the lat was not assigned
+double _getMarkerLat(Event _event) {
+  double retVal;
+  if (_event.getLat() != null) {
+    retVal = _event.getLat();
+  } else {
+    retVal = 0;
+  }
+  return retVal;
+}
+
+//return lng of event or 0 if the lat was not assigned
+double _getMarkerLng(Event _event) {
+  double retVal;
+  if (_event.getLng() != null) {
+    retVal = _event.getLng();
+  } else {
+    retVal = 0;
+  }
+  return retVal;
+}
+
+//return Title of event or default title if the title was not assigned
+String _getMarkerTitle(Event _event) {
+  String retVal;
+  if (_event.getTitle() != null) {
+    retVal = _event.getTitle();
+  } else {
+    retVal = "Default Title";
+  }
+  return retVal;
+}
+
+//return Title of event or default title if the title was not assigned
+String _getMarkerAbout(Event _event) {
+  String retVal;
+  if (_event.getAbout() != null) {
+    retVal = _event.getAbout();
+  } else {
+    retVal = "Default About";
+  }
+  return retVal;
 }
 
 _handleInfoTap(Event _event) {
