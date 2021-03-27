@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_1/DataServices.dart';
 
 import 'User.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
@@ -52,9 +53,10 @@ class AuthenticationServices {
     }
   }
 
-  String getCurrentUser() {
+  Future<User> getCurrentUser() {
     if (authentication.currentUser != null) {
-      return authentication.currentUser.uid;
+      String uid = authentication.currentUser.uid;
+      return DataServices().getUser(uid);
     } else {
       return null;
     }
