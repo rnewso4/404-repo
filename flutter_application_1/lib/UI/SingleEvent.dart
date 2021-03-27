@@ -22,7 +22,6 @@ class SingleEventPage extends StatefulWidget {
 class _SingleEventPageState extends State<SingleEventPage> {
   @override
   Widget build(BuildContext context) {
-    _fillData(_event);
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Color(0xFFCECECE),
@@ -35,17 +34,19 @@ class _SingleEventPageState extends State<SingleEventPage> {
               onPressed: () {
                 _navigationService.goBack();
               })),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text('Title: \n'),
-            Text(_title + '\n'),
-            Text('Time: \n'),
-            Text(_startTime + ' - ' + _endTime + '\n'),
-            Text('About: \n'),
-            Text(_about + '\n'),
-            Text('Participants: \n')
-          ],
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text('Title: \n'),
+              Text(_title + '\n'),
+              Text('Time: \n'),
+              Text(_startTime + ' - ' + _endTime + '\n'),
+              Text('About: \n'),
+              Text(_about + '\n'),
+              Text('Participants: \n')
+            ],
+          ),
         ),
       ),
     );
@@ -55,28 +56,21 @@ class _SingleEventPageState extends State<SingleEventPage> {
 // Update what event will be showen when the page is displayed
 eventToShow(Event _newEvent) {
   _event = _newEvent;
+  _fillData(_event);
 }
 
 // Update the data that will be displayed
 void _fillData(Event _event) {
   if (_event.getTitle() != null) {
     _title = _event.getTitle();
-  } else {
-    _title = 'default title';
   }
   if (_event.getStart() != null) {
     _startTime = _event.getStart();
-  } else {
-    _startTime = 'default start';
   }
   if (_event.getEnd() != null) {
-    _startTime = _event.getEnd();
-  } else {
-    _startTime = 'default end';
+    _endTime = _event.getEnd();
   }
   if (_event.getAbout() != null) {
-    _startTime = _event.getAbout();
-  } else {
-    _startTime = 'default about';
+    _about = _event.getAbout();
   }
 }
