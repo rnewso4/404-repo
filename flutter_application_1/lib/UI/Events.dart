@@ -4,7 +4,6 @@ import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/main.dart';
-import 'package:flutter_application_1/UI/SingleEvent.dart';
 
 import '../Event.dart';
 
@@ -85,6 +84,16 @@ void _updateList() async {
   eventList = await futureList;
 }
 
+String _checkTitle(String name) {
+  if (name.length > 17) {
+    return name.substring(0, 16) + "...";
+  }
+  else if (name.length == 0) 
+    return "Title";
+  else
+    return name;
+}
+
 events() {
   _updateList();
   String time = '7:00';
@@ -99,6 +108,7 @@ events() {
       }
       if (eventList.first.getTitle() != null) {
         name = eventList.first.getTitle();
+        name = _checkTitle(name);
       } else {
         name = 'Title';
       }
