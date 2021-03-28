@@ -43,60 +43,58 @@ class _NewEventState extends State<NewEvent> {
                 //newEvFalse();
                 _navigationService.goBack();
               })),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Textfields('Title', myController1),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Start Time', myController2),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('End Time', myController3),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Date', myController4),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Description', myController5),
-            Container(
-              height: SizeConfig.blockSizeVertical * 45,
-              padding:
-                  EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  height: SizeConfig.blockSizeVertical * 5.5,
-                  width: SizeConfig.blockSizeHorizontal * 20,
-                  child: GestureDetector(
-                    onTap: () {
-                      newEvFalse();
-                      var title = myController1.text;
-                      var des = myController5.text;
-                      var stTime = myController2.text;
-                      var enTime = myController3.text;
-                      var date = myController4.text;
+      body: Column(
+        children: <Widget>[
+          Textfields('Title', myController1),
+          SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+          Textfields('Start Time', myController2),
+          SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+          Textfields('End Time', myController3),
+          SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+          Textfields('Date', myController4),
+          SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+          Textfields('Description', myController5),
+          Container(
+            height: SizeConfig.blockSizeVertical * 35,
+            padding:
+                EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                height: SizeConfig.blockSizeVertical * 5.5,
+                width: SizeConfig.blockSizeHorizontal * 20,
+                child: GestureDetector(
+                  onTap: () {
+                    newEvFalse();
+                    var title = myController1.text;
+                    var des = myController5.text;
+                    var stTime = myController2.text;
+                    var enTime = myController3.text;
+                    var date = myController4.text;
 
-                      genEvent(title, des, stTime, enTime, date, _lat, _lng);
+                    genEvent(title, des, stTime, enTime, date, _lat, _lng);
 
-                      _navigationService.goBack();
-                    },
-                    child: Material(
-                        borderRadius: BorderRadius.circular(30),
-                        shadowColor: Color(0xff853DD9),
-                        color: Color(0xff853DD9),
-                        elevation: 4.0,
-                        child: Center(
-                          child: Text(
-                            'ADD',
-                            style: TextStyle(
-                                fontSize: SizeConfig.blockSizeHorizontal * 5,
-                                color: Color(0xFFEBEBEB),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        )),
-                  ),
+                    _navigationService.goBack();
+                  },
+                  child: Material(
+                      borderRadius: BorderRadius.circular(30),
+                      shadowColor: Color(0xff853DD9),
+                      color: Color(0xff853DD9),
+                      elevation: 4.0,
+                      child: Center(
+                        child: Text(
+                          'ADD',
+                          style: TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal * 5,
+                              color: Color(0xFFEBEBEB),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
