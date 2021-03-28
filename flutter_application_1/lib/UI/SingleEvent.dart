@@ -11,8 +11,8 @@ String _title = 'default title';
 String _startTime = 'default start time';
 String _endTime = 'default end time';
 String _about = 'default about';
-List<User> _participants = [];
 Event _event;
+//List<User> _participants = [];      // would be needed to show participants
 
 class SingleEventPage extends StatefulWidget {
   @override
