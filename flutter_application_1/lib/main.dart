@@ -44,10 +44,10 @@ void main() {
      * @author: 
      */
 
-void genUser(String email, String ps, String name, String des, String year,
-    String major) {
+Future<void> genUser(String email, String ps, String name, String des,
+    String year, String major) {
   var user = new User(email, ps, name, des, year, major);
-  AuthenticationServices().createAccount(user);
+  return AuthenticationServices().createAccount(user);
 }
 
 /**

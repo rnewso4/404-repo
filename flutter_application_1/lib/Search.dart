@@ -4,7 +4,7 @@ import 'Event.dart';
 /**
  * This class is used for searching  
  * 
- * @author: 
+ * @author: Dylan Wichman
  * commented by: Daniel Ahmed
  */
 
@@ -38,7 +38,7 @@ class Search {
    * parameters:
    *    term   [String]    term for account
    * 
-   * @author: 
+   * @author: Dylan Wichman
    */
   List<Account> searchAccounts(String term) {
     return new List<Account>();
@@ -54,7 +54,7 @@ class Search {
    * parameters:
    *    term    [String]    term for event
    * 
-   * @author: 
+   * @author: Dylan Wichman
    */
   List<Event> searchEvents(String term) {
     return new List<Event>();
