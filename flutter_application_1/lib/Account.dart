@@ -3,7 +3,7 @@
  * and the Group class.
  * 
  * @author Kyle McCraine
- * 
+ * comment by George Adler Buras
  */
 abstract class Account {
   //Name associated with the account (User name or Group name)

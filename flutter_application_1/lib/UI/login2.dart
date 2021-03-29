@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/AuthenticationServices.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import './size_config.dart';
 import './maps.dart';
@@ -99,6 +100,9 @@ class _Login2State extends State<Login2> {
                         onTap: () {
                           String email = myController1.text;
                           String ps = myController2.text;
+
+                          AuthenticationServices().loginAccount(email, ps);
+
                           Navigator.of(context).pushNamed(routes.HomeRoute);
                         },
                         child: Material(

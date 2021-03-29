@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/main.dart';
 
+import '../DataServices.dart';
 import '../Event.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
@@ -20,7 +23,15 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    _updateList();
+
+    Timer.run(() async {
+      List<Event> loadingList = List<Event>.empty(growable: true);
+      loadingList = await DataServices().getCurrentEvents();
+      setState(() {
+        eventList = loadingList;
+      });
+    });
+
     var name;
     int size;
     if (eventList != null) {
@@ -86,11 +97,6 @@ class _EventsPageState extends State<EventsPage> {
       ),
     );
   }
-}
-
-void _updateList() async {
-  Future<List<Event>> futureList = getEvents();
-  eventList = await futureList;
 }
 
 String _checkTitle(String name) {

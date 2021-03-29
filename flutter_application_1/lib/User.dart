@@ -15,7 +15,7 @@ enum SchoolYear { freshman, sophomore, junior, senior, graduate, other }
  * This class is used to represent users; it extends accounts
  * 
  * @author Kyle McCraine
- * 
+ * commented by George Adler Buras
  */
 class User extends Account {
   //The year of the user in college.
