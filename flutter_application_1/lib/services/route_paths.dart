@@ -1,3 +1,6 @@
+///list of routepaths so they can't be changed anywhere in the code
+///
+///@author Bobby Newsome
 const String HomeRoute = 'Home';
 const String LoginRoute = 'Login';
 const String NewEventRoute = 'NewEvent';

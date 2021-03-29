@@ -4,7 +4,10 @@ import 'package:flutter_application_1/UI/maps.dart';
 import 'package:flutter_application_1/UI/userAccounts.dart';
 
 
-/// This is the stateful widget that the main application instantiates.
+/// This is the home screen of the app. Based on the integer number, the state of the app changes between the three main home pages
+/// Also includes the bottom navigation bar
+/// 
+/// @author Bobby Newsome
 class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget({Key key}) : super(key: key);
 

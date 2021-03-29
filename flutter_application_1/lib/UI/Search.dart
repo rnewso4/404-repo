@@ -5,6 +5,9 @@ import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 final NavigationService _navigationService = locator<NavigationService>();
 
+///Stub page for the search feature
+///
+///@author Bobby Newsome
 class SearchPage extends StatefulWidget {
   @override
   _SearchPageState createState() => new _SearchPageState();

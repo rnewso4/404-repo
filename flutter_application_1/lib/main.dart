@@ -21,7 +21,7 @@ import 'package:firebase_core/firebase_core.dart';
    * 
    * @author
    * commented by: Daniel Ahmed
-   */
+   */ ///
 
 void main() {
   setupLocator();
@@ -41,8 +41,8 @@ void main() {
      *    name [String] used in creation of user/acc
      *    des [String] used in creation of user/acc
      *    year [String] used in creation of user/acc
-     * @author: 
-     */
+     * @author: Kyle McCraine
+     */ ///
 
 Future<void> genUser(String email, String ps, String name, String des,
     String year, String major) {
@@ -63,8 +63,8 @@ Future<void> genUser(String email, String ps, String name, String des,
      *    start [String] used in creation of event
      *    end [String] used in creation of event
      *    date [String] used in creation of event
-     * @author: 
-     */
+     * @author: Kyle McCraine
+     */ ///
 
 void genEvent(String name, String about, String start, String end, String date,
     double lat, double log) {
@@ -82,8 +82,8 @@ void genEvent(String name, String about, String start, String end, String date,
      * parameters
      *    name [String] used in creation of event
      *    des [String] used in creation of event
-     * @author: 
-     */
+     * @author: Kyle McCraine
+     */ ///
 
 void genGroup(String name, String des) {
   var group = new Group(name, des);
@@ -95,8 +95,8 @@ void genGroup(String name, String des) {
      * 
      * return type: List<Event>
      * 
-     * @author: 
-     */
+     * @author: Kyle McCraine
+     */ ///
 
 Future<List<Event>> getEvents() {
   return DataServices().getCurrentEvents();
@@ -109,8 +109,8 @@ Future<List<Event>> getEvents() {
      * 
      * return type: User
      * 
-     * @author: 
-     */
+     * @author: Kyle McCraine
+     */ ///
 Future<User> getAccount() {
   return AuthenticationServices().getCurrentUser();
 }
@@ -123,8 +123,8 @@ Future<User> getAccount() {
      * 
      * return type: N/A
      * 
-     * @author: 
-     */
+     * @author: Bobby Newsome
+     */ ///
 class App extends StatelessWidget {
   // Create the initialization Future outside of `build`:
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();

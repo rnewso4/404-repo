@@ -8,7 +8,7 @@ import 'User.dart';
  * 
  * @author: 
  * commented by: Daniel Ahmed
- */
+ */ ///
 
 class Group extends Account {
   User _owner;
@@ -27,7 +27,7 @@ class Group extends Account {
    *    owner   [String]   Owner of group
    * 
    * @author: 
-   */
+   */ ///
   Group(String name, String description) : super(name, description) {
     //_owner = owner;
   }
@@ -43,7 +43,7 @@ class Group extends Account {
    *    user [User]  user account
    * 
    * @author: 
-   */
+   */ ///
 
   addMember(User user) {
     _members.add(user);
@@ -60,7 +60,7 @@ class Group extends Account {
    *    user [User]  user account
    * 
    * @author: 
-   */
+   */ ///
   removeMember(User user) {
     _members.remove(user);
   }
@@ -73,7 +73,7 @@ class Group extends Account {
    * return type: List
    * 
    * @author: 
-   */
+   */ ///
   List<User> getMembers() {
     return _members.toList();
   }
@@ -86,6 +86,6 @@ class Group extends Account {
    * return type: Void
    * 
    * @author: 
-   */
+   */ ///
   saveGroup() {}
 }

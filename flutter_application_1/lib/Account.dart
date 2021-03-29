@@ -3,8 +3,8 @@
  * and the Group class.
  * 
  * @author Kyle McCraine
- * 
- */
+ * comment by George Adler Buras
+ */ ///
 abstract class Account {
   //Name associated with the account (User name or Group name)
   String _name;
@@ -24,7 +24,7 @@ abstract class Account {
    *    description   [String]  a description of the account
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   Account(String name, String description) {
     _name = name;
     _description = description;
@@ -41,7 +41,7 @@ abstract class Account {
    *    data  [Map]   The raw account data from Firebase
    * 
    * @author Dylan Wichman
-   */
+   */ ///
   Account.fromData(Map<String, dynamic> data) {
     _name = data["name"];
     _description = data["description"];
@@ -55,7 +55,7 @@ abstract class Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getName() {
     return _name;
   }
@@ -71,7 +71,7 @@ abstract class Account {
    *    name  [String]  the new name that will be associated with the account
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   void changeName(String name) {
     _name = name;
   }
@@ -84,7 +84,7 @@ abstract class Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getDescription() {
     return _description;
   }
@@ -100,7 +100,7 @@ abstract class Account {
    *    description   [String]    the new description of the account
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   void changeDescription(String description) {
     _description = description;
   }

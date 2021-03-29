@@ -6,7 +6,7 @@ import 'Event.dart';
  * 
  * @author: Dylan Wichman
  * commented by: Daniel Ahmed
- */
+ */ ///
 
 class Search {
   /**
@@ -17,7 +17,7 @@ class Search {
    * return type: Search
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
 
   static final Search _search = Search._internal();
 

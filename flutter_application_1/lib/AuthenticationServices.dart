@@ -10,7 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
  * 
  * @author
  * commented by: Daniel Ahmed
- */
+ */ ///
 
 class AuthenticationServices {
   //
@@ -25,7 +25,7 @@ class AuthenticationServices {
    * return type: authentication
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
 
   auth.FirebaseAuth authentication = auth.FirebaseAuth.instance;
 
@@ -46,7 +46,7 @@ class AuthenticationServices {
    * parameters
    *    account [User]   user details passed in to create account
    * @author: Dylan Wichman
-   */
+   */ ///
 
   Future<dynamic> createAccount(User account) async {
     try {
@@ -85,7 +85,7 @@ class AuthenticationServices {
      *    password   [String]   password used for logging in
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
 
   Future<dynamic> loginAccount(String email, String password) async {
     try {
@@ -112,7 +112,7 @@ class AuthenticationServices {
    * return type: null
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
 
   Future<User> getCurrentUser() {
     if (authentication.currentUser != null) {

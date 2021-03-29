@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
+///Creates the sidebar for future use if we expand on group accounts.
+///Also used to log users out
+///@author Bobby Newsome
 class SidebarPage extends StatefulWidget {
   @override
   _SidebarPageState createState() => new _SidebarPageState();
@@ -20,6 +23,7 @@ class _SidebarPageState extends State<SidebarPage>
   var _color;
   var _iconColor;
 
+  //Animation controller
   @override
   void initState() {
     super.initState();
@@ -30,6 +34,7 @@ class _SidebarPageState extends State<SidebarPage>
     isSidebarOpenedSink = isSidebarOpenedStreamController.sink;
   }
 
+  //disposes the animation
   @override
   void dispose() {
     _animationController.dispose();
@@ -38,6 +43,7 @@ class _SidebarPageState extends State<SidebarPage>
     super.dispose();
   }
 
+  //when the button is pressed the animation start
   void iconPressed() {
     final animationStatus = _animationController.status;
     final isAnimationCompleted = animationStatus == AnimationStatus.completed;
@@ -147,6 +153,7 @@ class _SidebarPageState extends State<SidebarPage>
   }
 }
 
+//creates a divider between the main tiles and log out
 dividers() {
   return Divider(
     height: SizeConfig.blockSizeVertical * 4,
@@ -157,6 +164,7 @@ dividers() {
   );
 }
 
+//this is the first tile that is meant for the user account
 firstTile(String name, String email) {
   return ListTile(
     title: Text(

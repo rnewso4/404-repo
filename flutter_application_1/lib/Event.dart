@@ -8,7 +8,7 @@ import 'User.dart';
  * 
  * @author: Daniel W
  * commented by: George Adler Buras
- */
+ */ ///
 class Event {
   //The unique ID assocated with the event
   String _id;
@@ -57,7 +57,7 @@ class Event {
    *    lng     [double]    the longitude of the event location
    * 
    * @author: Daniel W
-   */
+   */ ///
   Event(String title, String about, String start, String end, String date,
       double lat, double lng) {
     //this._organizer = organizer;
@@ -86,7 +86,7 @@ class Event {
    *    id      [String]    the unique id associated with the event
    * 
    * @author: Daniel W, Dylan W
-   */
+   */ ///
   Event.fromData(Map<String, dynamic> data, String id) {
     this._title = data["title"];
     this._id = id;
@@ -124,7 +124,7 @@ class Event {
    *    user    [User]    the user who is attending the event
    * 
    * @author: Daniel W
-   */
+   */ ///
   void addParticipitant(User user) {
     this._participants.add(user);
   }
@@ -140,7 +140,7 @@ class Event {
    *    user    [User]    the user who is no longer attending the event
    * 
    * @author: Daniel W
-   */
+   */ ///
   void removeParticipant(User user) {
     this._participants.remove(user);
   }
@@ -153,7 +153,7 @@ class Event {
    * return type: Account
    * 
    * @author: Daniel W
-   */
+   */ ///
   Account getOrganizer() {
     return _organizer;
   }
@@ -166,7 +166,7 @@ class Event {
    * return type: List<User>
    * 
    * @author: Daniel W
-   */
+   */ ///
   List<User> getParticipants() {
     return _participants;
   }
@@ -179,7 +179,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getAbout() {
     return _about;
   }
@@ -192,7 +192,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getStart() {
     return _start;
   }
@@ -205,7 +205,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getEnd() {
     return _end;
   }
@@ -218,7 +218,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getDate() {
     return _date;
   }
@@ -231,7 +231,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getID() {
     return _id;
   }
@@ -244,7 +244,7 @@ class Event {
    * return type: double
    * 
    * @author: Daniel W
-   */
+   */ ///
   double getLat() {
     return _lat;
   }
@@ -257,7 +257,7 @@ class Event {
    * return type: double
    * 
    * @author: Daniel W
-   */
+   */ ///
   double getLng() {
     return _lng;
   }
@@ -270,7 +270,7 @@ class Event {
    * return type: String
    * 
    * @author: Daniel W
-   */
+   */ ///
   String getTitle() {
     return _title;
   }
@@ -283,7 +283,7 @@ class Event {
    * return type: Future<void>
    * 
    * @author: Dylan W
-   */
+   */ ///
   Future<void> createEvent() {
     return DataServices().saveEvent(this).then((doc) => {this._id = doc.id});
   }
@@ -296,7 +296,7 @@ class Event {
    * return type: Map<String, dynamic>
    * 
    * @author: Dylan W
-   */
+   */ ///
   Map<String, dynamic> getMap() {
     return {
       "organizer": _organizer,

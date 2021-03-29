@@ -13,6 +13,9 @@ final myController4 = TextEditingController();
 final myController5 = TextEditingController();
 final myController6 = TextEditingController();
 
+///UI creates a column of TextField widgets for users to enter information about a new account
+///
+///@author Bobby Newsome
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => new _RegisterPageState();
@@ -94,6 +97,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 }
 
+//creates the textfields to reuse for the different information
+//@author Bobby Newsome
 textfields(String name, var conc) {
   return Container(
     height: SizeConfig.blockSizeVertical * 7,

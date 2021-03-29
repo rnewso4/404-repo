@@ -18,18 +18,15 @@ final myController6 = TextEditingController();
 double _lat; //these can be moved if needed
 double _lng; //these can be moved if needed
 
+///UI creates a column of TextField widgets for users to enter information about an event
+///
+///@author Bobby Newsome
 class NewEvent extends StatefulWidget {
   @override
   _NewEventState createState() => new _NewEventState();
 }
 
 class _NewEventState extends State<NewEvent> {
-  //@override
-  //void dispose() {
-  // Clean up the controller when the widget is disposed.
-  //myController.dispose();
-  //super.dispose();
-  // }
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -82,7 +79,7 @@ class _NewEventState extends State<NewEvent> {
                         )),
                   )),
               Container(
-                height: SizeConfig.blockSizeVertical * 45,
+                height: SizeConfig.blockSizeVertical * 20,
                 padding:
                     EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
                 child: Align(
@@ -189,6 +186,8 @@ updateLatLng(double newLat, double newLng) {
   _lng = newLng;
 }
 
+//creates the textfields to reuse for the different information
+//@author Bobby Newsome
 Textfields(String name, var conc) {
   return Container(
     height: SizeConfig.blockSizeVertical * 7,

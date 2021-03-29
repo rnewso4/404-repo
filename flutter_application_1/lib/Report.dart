@@ -4,7 +4,7 @@ import 'User.dart';
  * Specifies types of possible reports, organized from most important to least
  * 
  * @author George Adler Buras
- */
+ */ ///
 enum Category {
   criminalActivity,
   suspiciousActivity,
@@ -18,7 +18,7 @@ enum Category {
  * 
  * @author George Adler Buras
  * commented by: George Adler Buras
- */
+ */ ///
 class Report {
   //The title of the report
   String _title;
@@ -45,7 +45,7 @@ class Report {
    *    category  [var]       the category of the report
    * 
    * @author
-   */
+   */ ///
   Report(String title, String issue, var category) {
     this._title = title;
     this._issue = issue;
@@ -61,7 +61,7 @@ class Report {
    * return type: String
    * 
    * @author
-   */
+   */ ///
 
   String getTitle() {
     return _title;
@@ -75,7 +75,7 @@ class Report {
    * return type: String
    * 
    * @author
-   */
+   */ ///
 
   String getIssue() {
     return _issue;
@@ -90,7 +90,7 @@ class Report {
    * return type: String
    * 
    * @author George Adler Buras
-   */
+   */ ///
   String getCategory() {
     if (_category == Category.criminalActivity) {
       return "Criminal Activity";
@@ -116,6 +116,6 @@ class Report {
    * return type: Void
    * 
    * @author 
-   */
+   */ ///
   saveReport() {}
 }
