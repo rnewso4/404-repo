@@ -67,9 +67,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       String input4 = myController4.text;
                       String input5 = myController5.text;
                       String input6 = myController6.text;
-                      genUser(input1, input2, input3, input4, input5, input6);
-
-                      Navigator.of(context).pushNamed(routes.HomeRoute);
+                      genUser(input1, input2, input3, input4, input5, input6)
+                          .then((value) {
+                        Navigator.of(context).pushNamed(routes.HomeRoute);
+                      });
                     },
                     child: Material(
                         borderRadius: BorderRadius.circular(30),

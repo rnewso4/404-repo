@@ -54,8 +54,7 @@ class AuthenticationServices {
           await authentication.createUserWithEmailAndPassword(
               email: account.getEmail(), password: account.getPassword());
       account.setId(userCredential.user.uid);
-      account.createUser();
-      return userCredential;
+      return account.createUser();
     } on auth.FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The account already exists for that email.';
@@ -101,6 +100,7 @@ class AuthenticationServices {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
+      return null;
     }
   }
 

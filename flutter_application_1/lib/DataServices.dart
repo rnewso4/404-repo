@@ -77,7 +77,7 @@ class DataServices {
      */ ///
   Future<Void> _addDataAtDocPath(
       DocumentReference path, Map<String, dynamic> data) {
-    return path.update(data);
+    return path.set(data);
   }
 
   /**
@@ -134,6 +134,7 @@ class DataServices {
      */ ///
   Future<void> saveUser(User user) {
     DocumentReference path = firestore.collection("users").doc(user.getId());
+    print(user.getMap());
     return _addDataAtDocPath(path, user.getMap());
   }
 
