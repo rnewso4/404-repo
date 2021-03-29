@@ -87,8 +87,7 @@ void _updateList() async {
 String _checkTitle(String name) {
   if (name.length > 17) {
     return name.substring(0, 16) + "...";
-  }
-  else if (name.length == 0) 
+  } else if (name.length == 0)
     return "Title";
   else
     return name;
@@ -116,9 +115,7 @@ events() {
     eventList.removeAt(0);
   }
 
-
-
-   return TextButton(
+  return TextButton(
     onPressed: () {
       _navigationService.navigateTo(routes.SingleEventRoute);
     },
@@ -146,7 +143,7 @@ events() {
           child: Column(
             children: <Widget>[
               Text(
-                "7:00",
+                time,
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 6,
                     color: Color(0xff404040)),
@@ -155,7 +152,7 @@ events() {
               Text(
                 'AM',
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizontal* 4,
+                    fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),
               ),
             ],
@@ -173,13 +170,15 @@ events() {
                     //color: Colors.amber,
                     height: SizeConfig.blockSizeVertical * 11.6 / 3,
                     //padding:
-                       // EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
+                    // EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
                     child: Text(name,
                         style: TextStyle(
                             fontSize: SizeConfig.blockSizeHorizontal * 5.5,
                             color: Color(0xff404040))),
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical,),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical,
+                  ),
                   Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
@@ -199,7 +198,7 @@ events() {
                     height: SizeConfig.blockSizeVertical * 8 / 3,
                     padding: EdgeInsets.only(
                         //bottom: SizeConfig.blockSizeVertical * 0.5
-                    ),
+                        ),
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('User name',
