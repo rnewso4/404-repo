@@ -2,6 +2,7 @@ import 'User.dart';
 
 /**
  * Specifies types of possible reports, organized from most important to least
+ * 
  * @author George Adler Buras
  */
 enum Category {
@@ -15,7 +16,7 @@ enum Category {
 /**
  * This class is used to represent reports
  * 
- * @author
+ * @author George Adler Buras
  * commented by: George Adler Buras
  */
 class Report {

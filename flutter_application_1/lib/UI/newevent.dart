@@ -56,8 +56,7 @@ class _NewEventState extends State<NewEvent> {
           Textfields('Description', myController5),
           Container(
             height: SizeConfig.blockSizeVertical * 35,
-            padding:
-                EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
+            padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
             child: Align(
               alignment: Alignment.bottomRight,
               child: Container(
@@ -65,16 +64,15 @@ class _NewEventState extends State<NewEvent> {
                 width: SizeConfig.blockSizeHorizontal * 20,
                 child: GestureDetector(
                   onTap: () {
-                    newEvFalse();
-                    var title = myController1.text;
-                    var des = myController5.text;
-                    var stTime = myController2.text;
-                    var enTime = myController3.text;
-                    var date = myController4.text;
-
-                    genEvent(title, des, stTime, enTime, date, _lat, _lng);
-
-                    _navigationService.goBack();
+                    genEventCheck(
+                        myController1.text,
+                        myController5.text,
+                        myController2.text,
+                        myController3.text,
+                        myController4.text,
+                        _lat,
+                        _lng,
+                        context);
                   },
                   child: Material(
                       borderRadius: BorderRadius.circular(30),
@@ -98,6 +96,64 @@ class _NewEventState extends State<NewEvent> {
       ),
     );
   }
+}
+
+/**
+ * This method checks that all the feilds of the event have been properly filled out
+ * and creates a pop-up error message if they have not been.
+ * 
+ * routine: genEventCheck
+ * 
+ * return type: void
+ * 
+ * parameters:
+ *    title     [var]           the title of the event
+ *    des       [var]           the description of the event
+ *    stTime    [var]           the start time of the event
+ *    enTime    [var]           the end time of the event
+ *    date      [var]           the date of the event
+ *    lat       [var]           the latitude of the event
+ *    lng       [var]           the longitude of the event
+ *    context   [BuildContext]  the context from the state in which this method is called
+ * 
+ * @author George Adler Buras
+ */
+void genEventCheck(var title, var des, var stTime, var enTime, var date,
+    var lat, var lng, BuildContext context) {
+  if (title == "" || des == "" || stTime == "" || enTime == "" || date == "") {
+    showEventError(context);
+  } else {
+    newEvFalse();
+    genEvent(title, des, stTime, enTime, date, lat, lng);
+    _navigationService.goBack();
+  }
+}
+
+showEventError(BuildContext context) {
+  //the button at the bottom of the pop-up
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  //The message in the pop-up
+  AlertDialog alert = AlertDialog(
+    title: Text("ERROR"),
+    content: Text("Please fill out all the fields for your new event."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  //Show the pop-up
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
 
 updateLatLng(double newLat, double newLng) {
