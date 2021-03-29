@@ -4,6 +4,11 @@ import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
+import 'package:flutter_application_1/main.dart';
+
+import '../../User.dart';
+
+User user;
 
 ///Creates the sidebar for future use if we expand on group accounts.
 ///Also used to log users out
@@ -58,9 +63,28 @@ class _SidebarPageState extends State<SidebarPage>
     }
   }
 
+  void _updateAccount() async {
+    Future<User> futureUser = getAccount();
+    user = await futureUser;
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+
+    _updateAccount();
+    String name = "Mike the Tiger";
+    String email = "mtig1@lsu.edu";
+
+    if (user != null) {
+      if (user.getName() != null) {
+        name = user.getName();
+      } else {}
+      if (user.getEmail() != null) {
+        email = user.getEmail();
+      } else {}
+    }
+
     return StreamBuilder<bool>(
       initialData: false,
       stream: isSidebarOpenedStream,
@@ -104,7 +128,7 @@ class _SidebarPageState extends State<SidebarPage>
                 child: Column(
                   children: <Widget>[
                     SizedBox(height: SizeConfig.blockSizeHorizontal * 10),
-                    firstTile("Mike the Tiger", "mtig1@lsu.edu"),
+                    firstTile(name, email),
                     dividers(),
                     MenuItemsPage(
                       icon: Icons.home,
