@@ -111,6 +111,8 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
+//method to check the title length and make sure it doesnt cause pixel overflow
+//@author Bobby Newsome
 String _checkTitle(String name) {
   if (name.length > 17) {
     return name.substring(0, 16) + "...";
@@ -119,6 +121,7 @@ String _checkTitle(String name) {
   else
     return name;
 }
+
 
 events() {
   String time = '7:00';
@@ -140,6 +143,8 @@ events() {
     eventList.removeAt(0);
   }
 
+  //makes the text button for the events. Once clicked, it will bring user to the single event week
+  //@author Bobby Newsome
   return TextButton(
     onPressed: () {
       _navigationService.navigateTo(routes.SingleEventRoute);
@@ -176,7 +181,7 @@ events() {
                     color: Color(0xff404040)),
               ),
               Text(
-                '',
+                'PM',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),

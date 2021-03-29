@@ -14,7 +14,9 @@ import 'package:flutter_application_1/Event.dart';
 final NavigationService _navigationService = locator<NavigationService>();
 bool _newEv = false;
 
-///uses google maps api key to get the google maps where users can place pins
+///uses google maps api key to get the google maps where users can place pins and see events in a location based interface
+///
+///@author Bobby Newsome
 class MapsPage extends StatefulWidget {
   @override
   _MapsPageState createState() => new _MapsPageState();

@@ -1,17 +1,15 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/UI/Sidebar/sidebar.dart';
 import 'package:flutter_application_1/main.dart';
-import 'package:flutter_application_1/services/locator.dart';
-import 'package:flutter_application_1/services/navigation_service.dart';
-import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 import '../User.dart';
 
-final NavigationService _navigationService = locator<NavigationService>();
 User user;
 
+///this is the page where users can see their own account information, see the group notifications, and reach the aditional sidebar page
+///
+///@author Bobby Newsome
 class UserAccounts extends StatefulWidget {
   @override
   _UserAccountsState createState() => _UserAccountsState();
@@ -50,27 +48,6 @@ class _UserAccountsState extends State<UserAccounts> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            /*DropdownButton(
-                  value: valuechoose,
-                  onChanged: (newValue) {
-                    setState(() {
-                      valuechoose = newValue;
-                    }
-                    );
-                      if (newValue.contains("item 1")) {
-                        Navigator.of(context).pushNamed(routes.register);
-                      }
-                      if (newValue.contains("item 2")) {
-                        Navigator.of(context).pushNamed(routes.HomeRoute);
-                      }
-                  },
-                  items: listitem.map((valueItem) {
-                    return DropdownMenuItem(
-                      value: valueItem,
-                      child: Text(valueItem),
-                    );
-                  }).toList(),
-                ), */
             Center(
               child: Container(
                 height: SizeConfig.blockSizeVertical * 20,
@@ -169,6 +146,8 @@ void _updateAccount() async {
   user = await futureUser;
 }
 
+//makes one generic box for the group notifications to reuse
+//@author Bobby Newsome
 boxes() {
   return Container(
     height: SizeConfig.blockSizeVertical * 54,
