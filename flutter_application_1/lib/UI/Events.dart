@@ -4,7 +4,6 @@ import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/main.dart';
-import 'package:flutter_application_1/UI/SingleEvent.dart';
 
 import '../Event.dart';
 
@@ -85,6 +84,15 @@ void _updateList() async {
   eventList = await futureList;
 }
 
+String _checkTitle(String name) {
+  if (name.length > 17) {
+    return name.substring(0, 16) + "...";
+  } else if (name.length == 0)
+    return "Title";
+  else
+    return name;
+}
+
 events() {
   _updateList();
   String time = '7:00';
@@ -99,6 +107,7 @@ events() {
       }
       if (eventList.first.getTitle() != null) {
         name = eventList.first.getTitle();
+        name = _checkTitle(name);
       } else {
         name = 'Title';
       }
@@ -108,7 +117,6 @@ events() {
 
   return TextButton(
     onPressed: () {
-      //eventToShow()
       _navigationService.navigateTo(routes.SingleEventRoute);
     },
     style: ButtonStyle(
@@ -125,7 +133,7 @@ events() {
         Container(
           height: SizeConfig.blockSizeVertical * 10,
           width: SizeConfig.blockSizeHorizontal * 20,
-          padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2.5),
+          padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2),
           decoration: BoxDecoration(
               border: Border(
             right: BorderSide(
@@ -142,7 +150,7 @@ events() {
               ),
               //SizedBox(height: SizeConfig.blockSizeVertical),
               Text(
-                '',
+                'AM',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),
@@ -159,20 +167,26 @@ events() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: SizeConfig.blockSizeVertical * 10 / 3,
-                    padding:
-                        EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
+                    //color: Colors.amber,
+                    height: SizeConfig.blockSizeVertical * 11.6 / 3,
+                    //padding:
+                    // EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
                     child: Text(name,
                         style: TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal * 6,
+                            fontSize: SizeConfig.blockSizeHorizontal * 5.5,
                             color: Color(0xff404040))),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical,
                   ),
                   Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
-                      height: SizeConfig.blockSizeVertical * 10 / 3,
+                      //color: Colors.green,
+                      height: SizeConfig.blockSizeVertical * 7 / 3,
                       padding: EdgeInsets.only(
-                          top: SizeConfig.blockSizeVertical * 1.9),
+                          //top: SizeConfig.blockSizeVertical * 1.9
+                          ),
                       child: Text('Location',
                           style: TextStyle(
                               fontSize: SizeConfig.blockSizeHorizontal * 3,
@@ -180,9 +194,11 @@ events() {
                     ),
                   ),
                   Container(
-                    height: SizeConfig.blockSizeVertical * 10 / 3,
+                    //color: Colors.blue,
+                    height: SizeConfig.blockSizeVertical * 8 / 3,
                     padding: EdgeInsets.only(
-                        bottom: SizeConfig.blockSizeVertical * 0.5),
+                        //bottom: SizeConfig.blockSizeVertical * 0.5
+                        ),
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('User name',

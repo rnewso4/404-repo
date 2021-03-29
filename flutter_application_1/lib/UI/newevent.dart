@@ -34,97 +34,96 @@ class _NewEventState extends State<NewEvent> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Color(0xFFCECECE),
-      appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                newEvFalse();
-                _navigationService.goBack();
-              })),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Textfields('Title', myController1),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Start Time', myController2),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('End Time', myController3),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Date', myController4),
-            SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-            Textfields('Description', myController5),
-            SizedBox(height: SizeConfig.safeBlockVertical * 4),
-            Container(
-                height: SizeConfig.blockSizeVertical * 5,
-                width: SizeConfig.blockSizeHorizontal * 80,
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
-                    _navigationService.goBack();
-                  },
-                  child: Material(
-                      borderRadius: BorderRadius.circular(20),
-                      shadowColor: Color(0xff853DD9),
-                      color: Color(0xff853DD9),
-                      elevation: 4.0,
-                      child: Center(
-                        child: Text(
-                          'Location',
-                          style: TextStyle(
-                              fontSize: SizeConfig.blockSizeHorizontal * 5,
-                              color: Color(0xFFEBEBEB),
-                              fontWeight: FontWeight.bold),
-                        ),
-                      )),
-                )),
-            Container(
-              height: SizeConfig.blockSizeVertical * 45,
-              padding:
-                  EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  height: SizeConfig.blockSizeVertical * 5.5,
-                  width: SizeConfig.blockSizeHorizontal * 20,
+        backgroundColor: Color(0xFFCECECE),
+        appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.black),
+            elevation: 0.0,
+            backgroundColor: Colors.transparent,
+            leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  newEvFalse();
+                  _navigationService.goBack();
+                })),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Textfields('Title', myController1),
+              SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+              Textfields('Start Time', myController2),
+              SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+              Textfields('End Time', myController3),
+              SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+              Textfields('Date', myController4),
+              SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
+              Textfields('Description', myController5),
+              SizedBox(height: SizeConfig.safeBlockVertical * 4),
+              Container(
+                  height: SizeConfig.blockSizeVertical * 5,
+                  width: SizeConfig.blockSizeHorizontal * 80,
+                  alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-                      newEvFalse();
-                      var title = myController1.text;
-                      var des = myController5.text;
-                      var stTime = myController2.text;
-                      var enTime = myController3.text;
-                      var date = myController4.text;
-
-                      genEvent(title, des, stTime, enTime, date, _lat, _lng);
-
                       _navigationService.goBack();
                     },
                     child: Material(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(20),
                         shadowColor: Color(0xff853DD9),
                         color: Color(0xff853DD9),
                         elevation: 4.0,
                         child: Center(
                           child: Text(
-                            'ADD',
+                            'Location',
                             style: TextStyle(
                                 fontSize: SizeConfig.blockSizeHorizontal * 5,
                                 color: Color(0xFFEBEBEB),
                                 fontWeight: FontWeight.bold),
                           ),
                         )),
+                  )),
+              Container(
+                height: SizeConfig.blockSizeVertical * 45,
+                padding:
+                    EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                    height: SizeConfig.blockSizeVertical * 5.5,
+                    width: SizeConfig.blockSizeHorizontal * 20,
+                    child: GestureDetector(
+                      onTap: () {
+                        newEvFalse();
+                        var title = myController1.text;
+                        var des = myController5.text;
+                        var stTime = myController2.text;
+                        var enTime = myController3.text;
+                        var date = myController4.text;
+
+                        genEvent(title, des, stTime, enTime, date, _lat, _lng);
+
+                        _navigationService.goBack();
+                      },
+                      child: Material(
+                          borderRadius: BorderRadius.circular(30),
+                          shadowColor: Color(0xff853DD9),
+                          color: Color(0xff853DD9),
+                          elevation: 4.0,
+                          child: Center(
+                            child: Text(
+                              'ADD',
+                              style: TextStyle(
+                                  fontSize: SizeConfig.blockSizeHorizontal * 5,
+                                  color: Color(0xFFEBEBEB),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            ],
+          ),
+        ));
   }
 }
 

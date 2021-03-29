@@ -136,6 +136,7 @@ class _MapsPageState extends State<MapsPage> {
   }
 }
 
+//determins which set of markers will be displayed
 Iterable _markersToDisplay(List<Marker> myMarker, List<Marker> evMarkers) {
   List<Marker> returnList = [];
   if (_newEv) {
@@ -146,7 +147,7 @@ Iterable _markersToDisplay(List<Marker> myMarker, List<Marker> evMarkers) {
   return returnList;
 }
 
-// load in markers on map
+// fill marker list and give them required info
 loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
   eventList.forEach((event) {
     evMarkers.add(Marker(
@@ -206,12 +207,13 @@ String _getMarkerAbout(Event _event) {
   return retVal;
 }
 
+//when info window is tapped go to single event page to showmore info about that event
 _handleInfoTap(Event _event) {
   eventToShow(_event);
   _navigationService.navigateTo(routes.SingleEventRoute);
 }
 
-// change the marker for if a new event is being made
+// change the marker for if a new event is not being made
 void newEvFalse() {
   _newEv = false;
 }

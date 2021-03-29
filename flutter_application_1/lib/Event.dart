@@ -6,7 +6,7 @@ import 'User.dart';
 /**
  * This class is used to represent events
  * 
- * @author
+ * @author: Daniel W
  * commented by: George Adler Buras
  */
 class Event {
@@ -56,9 +56,8 @@ class Event {
    *    lat     [double]    the latitude of the event location
    *    lng     [double]    the longitude of the event location
    * 
-   * @author
+   * @author: Daniel W
    */
-  //Need to add Account orgranizer;
   Event(String title, String about, String start, String end, String date,
       double lat, double lng) {
     //this._organizer = organizer;
@@ -69,10 +68,10 @@ class Event {
     this._start = start;
     this._end = end;
     this._date = date;
-    this._id; //get next id from firebase
+    this._id = "ID"; //get next id from firebase
     //this._participants = [];
     //_participants.add(organizer);
-    //createEvent();
+    createEvent();
   }
 
   /**
@@ -86,9 +85,10 @@ class Event {
    *    data    [Map<String, dynamic>]       the raw event data from Firebase
    *    id      [String]    the unique id associated with the event
    * 
-   * @author
+   * @author: Daniel W, Dylan W
    */
   Event.fromData(Map<String, dynamic> data, String id) {
+    this._title = data["title"];
     this._id = id;
     this._organizer = data["organizer"];
     this._about = data["about"];
@@ -123,7 +123,7 @@ class Event {
    * parameters:
    *    user    [User]    the user who is attending the event
    * 
-   * @author
+   * @author: Daniel W
    */
   void addParticipitant(User user) {
     this._participants.add(user);
@@ -139,7 +139,7 @@ class Event {
    * parameters:
    *    user    [User]    the user who is no longer attending the event
    * 
-   * @author
+   * @author: Daniel W
    */
   void removeParticipant(User user) {
     this._participants.remove(user);
@@ -152,7 +152,7 @@ class Event {
    * 
    * return type: Account
    * 
-   * @author
+   * @author: Daniel W
    */
   Account getOrganizer() {
     return _organizer;
@@ -165,7 +165,7 @@ class Event {
    * 
    * return type: List<User>
    * 
-   * @author
+   * @author: Daniel W
    */
   List<User> getParticipants() {
     return _participants;
@@ -178,7 +178,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getAbout() {
     return _about;
@@ -191,7 +191,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getStart() {
     return _start;
@@ -204,7 +204,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getEnd() {
     return _end;
@@ -217,7 +217,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getDate() {
     return _date;
@@ -230,7 +230,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getID() {
     return _id;
@@ -243,7 +243,7 @@ class Event {
    * 
    * return type: double
    * 
-   * @author
+   * @author: Daniel W
    */
   double getLat() {
     return _lat;
@@ -256,7 +256,7 @@ class Event {
    * 
    * return type: double
    * 
-   * @author
+   * @author: Daniel W
    */
   double getLng() {
     return _lng;
@@ -269,7 +269,7 @@ class Event {
    * 
    * return type: String
    * 
-   * @author
+   * @author: Daniel W
    */
   String getTitle() {
     return _title;
@@ -282,7 +282,7 @@ class Event {
    * 
    * return type: Future<void>
    * 
-   * @author
+   * @author: Dylan W
    */
   Future<void> createEvent() {
     return DataServices().saveEvent(this).then((doc) => {this._id = doc.id});
@@ -295,7 +295,7 @@ class Event {
    * 
    * return type: Map<String, dynamic>
    * 
-   * @author
+   * @author: Dylan W
    */
   Map<String, dynamic> getMap() {
     return {

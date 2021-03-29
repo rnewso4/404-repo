@@ -38,7 +38,7 @@ class _Login2State extends State<Login2> {
             Center(
               child: Container(
                 padding:
-                    EdgeInsets.only(top: SizeConfig.safeBlockVertical * 30),
+                    EdgeInsets.only(top: SizeConfig.safeBlockVertical * 32),
                 child: Text(
                   'QUAD',
                   style: TextStyle(
