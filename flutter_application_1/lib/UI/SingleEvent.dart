@@ -11,6 +11,7 @@ String _title = 'default title';
 String _startTime = 'default start time';
 String _endTime = 'default end time';
 String _about = 'default about';
+String _date = 'default date';
 Event _event;
 //List<User> _participants = [];      // would be needed to show participants
 
@@ -19,6 +20,9 @@ class SingleEventPage extends StatefulWidget {
   _SingleEventPageState createState() => new _SingleEventPageState();
 }
 
+//UI for single events page
+//
+//@author: Daniel W
 class _SingleEventPageState extends State<SingleEventPage> {
   @override
   Widget build(BuildContext context) {
@@ -42,9 +46,12 @@ class _SingleEventPageState extends State<SingleEventPage> {
               Text(_title + '\n'),
               Text('Time: \n'),
               Text(_startTime + ' - ' + _endTime + '\n'),
+              Text('Date: \n'),
+              Text(_date + '\n'),
               Text('About: \n'),
               Text(_about + '\n'),
-              Text('Participants: \n')
+              Text('Participants: \n'),
+              TextButton(onPressed: () {}, child: Text("Report"))
             ],
           ),
         ),
@@ -54,12 +61,16 @@ class _SingleEventPageState extends State<SingleEventPage> {
 }
 
 // Update what event will be showen when the page is displayed
+//
+//@author: Daniel W
 eventToShow(Event _newEvent) {
   _event = _newEvent;
   _fillData(_event);
 }
 
 // Update the data that will be displayed
+//
+//@author: Daniel W
 void _fillData(Event _event) {
   if (_event.getTitle() != null) {
     _title = _event.getTitle();
@@ -72,5 +83,8 @@ void _fillData(Event _event) {
   }
   if (_event.getAbout() != null) {
     _about = _event.getAbout();
+  }
+  if (_event.getDate() != null) {
+    _date = _event.getDate();
   }
 }

@@ -10,7 +10,7 @@ import 'User.dart';
  * 
  * @author
  * commented by: Daniel Ahmed
- */
+ */ ///
 
 class DataServices {
   static final DataServices _dataServices = DataServices._internal();
@@ -34,7 +34,7 @@ class DataServices {
    *    path    [DocumentReference]   path to document
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
   Future<Map<String, dynamic>> _getDataAtPath(DocumentReference path) {
     return path.get().then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
@@ -54,7 +54,7 @@ class DataServices {
      * return type: DocumentReference
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<DocumentReference> _addDataAtPath(
       CollectionReference path, Map<String, dynamic> data) {
     return path.add(data).then((value) {
@@ -74,7 +74,7 @@ class DataServices {
      *    data    [Map<String, dynamic>] data from doc
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<Void> _addDataAtDocPath(
       DocumentReference path, Map<String, dynamic> data) {
     return path.update(data);
@@ -92,7 +92,7 @@ class DataServices {
      *    data    [Map<String, dynamic>]  data from doc
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<void> _updateDataAtPath(
       DocumentReference path, Map<String, dynamic> data) {
     return path
@@ -112,7 +112,7 @@ class DataServices {
      *    path    [DocumentReference]  path to doc
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<void> _deleteDataAtPath(DocumentReference path) {
     return path
         .delete()
@@ -131,7 +131,7 @@ class DataServices {
      *    user    [User]  path to doc
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<void> saveUser(User user) {
     DocumentReference path = firestore.collection("users").doc(user.getId());
     return _addDataAtDocPath(path, user.getMap());
@@ -148,7 +148,7 @@ class DataServices {
      *    event    [Event]  event used in reference for save
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<DocumentReference> saveEvent(Event event) {
     CollectionReference path = firestore.collection("events");
     return _addDataAtPath(path, event.getMap());
@@ -162,7 +162,7 @@ class DataServices {
      * return type: List<Event>
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<List<Event>> getCurrentEvents() {
     CollectionReference path = firestore.collection("events");
     List<Event> events = [];
@@ -187,7 +187,7 @@ class DataServices {
      *    id    [String] id used to find doc
      * 
      * @author: Dylan Wichman
-     */
+     */ ///
   Future<User> getUser(String id) {
     DocumentReference path = firestore.collection("users").doc(id);
     return _getDataAtPath(path).then((data) {

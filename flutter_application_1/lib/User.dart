@@ -8,7 +8,7 @@ import 'Group.dart';
  * break anything
  * 
  * @author George Adler Buras
- */
+ */ ///
 enum SchoolYear { freshman, sophomore, junior, senior, graduate, other }
 
 /**
@@ -16,7 +16,7 @@ enum SchoolYear { freshman, sophomore, junior, senior, graduate, other }
  * 
  * @author Kyle McCraine
  * commented by George Adler Buras
- */
+ */ ///
 class User extends Account {
   //The year of the user in college.
   String _year;
@@ -53,7 +53,7 @@ class User extends Account {
    *    degree        [String]    the major of the user in college
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   User(String email, String password, String name, String description,
       String grade, String degree)
       : super(name, description) {
@@ -74,7 +74,7 @@ class User extends Account {
    *    data  [Map<String, dynamic>]   the raw user account data from Firebase
    * 
    * @author Dylan Wichman
-   */
+   */ ///
   User.fromData(Map<String, dynamic> data) : super.fromData(data) {
     _year = data["year"];
     _major = data["major"];
@@ -90,7 +90,7 @@ class User extends Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getYear() {
     return _year;
   }
@@ -106,7 +106,7 @@ class User extends Account {
    *    grade   [String]    the new year in college of the user
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   void changeYear(String grade) {
     _year = grade;
   }
@@ -119,7 +119,7 @@ class User extends Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getMajor() {
     return _major;
   }
@@ -135,7 +135,7 @@ class User extends Account {
    *    degree    [String]    the new major of the user in college
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   void changeMajor(String degree) {
     _major = degree;
   }
@@ -166,7 +166,7 @@ class User extends Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getEmail() {
     return _email;
   }
@@ -182,7 +182,7 @@ class User extends Account {
    *    email   [String]    the new email to be associated with the account
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   void changeEmail(String email) {
     _email = email;
   }
@@ -195,7 +195,7 @@ class User extends Account {
    * return type: String
    * 
    * @author Kyle McCraine
-   */
+   */ ///
   String getPassword() {
     return _password;
   }
@@ -212,7 +212,7 @@ class User extends Account {
    * 
    * @author Kyle McCraine
    * 
-   */
+   */ ///
   void changePassword(String password) {
     _password = password;
   }
@@ -225,7 +225,7 @@ class User extends Account {
    * return type: Future<void>
    * 
    * @author Dylan Wichman
-   */
+   */ ///
   Future<void> createUser() {
     return DataServices().saveUser(this);
   }
@@ -238,7 +238,7 @@ class User extends Account {
    * return type: Map<String, dynamic>
    * 
    * @author Dylan Wichman
-   */
+   */ ///
   Map<String, dynamic> getMap() {
     return {
       "name": super.getName(),

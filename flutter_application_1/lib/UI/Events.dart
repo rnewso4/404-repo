@@ -113,8 +113,11 @@ String _checkTitle(String name) {
     return name;
 }
 
+<<<<<<< HEAD
 //Method to check the time length, to make sure it doesnt cause pixel overflow
 //@author Kyle McCraine
+=======
+>>>>>>> 726f6573975c2b8f04c3bf589fda1726e5f84cde
 String _checkTime(String time) {
   if (time.length > 6) {
     return time.substring(0, 5);
