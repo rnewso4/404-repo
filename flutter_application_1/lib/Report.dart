@@ -39,7 +39,7 @@ class Report {
    * 
    * return type: Report
    * 
-   * parameteres:
+   * parameters:
    *    title     [String]    the title of the report
    *    issue     [String]    the description of the issue the report is about
    *    category  [var]       the category of the report
@@ -62,6 +62,7 @@ class Report {
    * 
    * @author
    */
+
   String getTitle() {
     return _title;
   }
@@ -75,6 +76,7 @@ class Report {
    * 
    * @author
    */
+
   String getIssue() {
     return _issue;
   }
@@ -106,5 +108,14 @@ class Report {
   }
 
   //saves report in firebase
+  /**
+   * saves report in firebase
+   * 
+   * routine: saveReport
+   * 
+   * return type: Void
+   * 
+   * @author 
+   */
   saveReport() {}
 }

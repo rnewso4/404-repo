@@ -4,9 +4,28 @@ import 'package:flutter_application_1/DataServices.dart';
 import 'User.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
+/**
+ * This class is used for Authentication Services 
+ * that verify and identify user logins/passwords
+ * 
+ * @author
+ * commented by: Daniel Ahmed
+ */
+
 class AuthenticationServices {
+  //
   static final AuthenticationServices _authenticationServices =
       AuthenticationServices._internal();
+
+  /**
+   * creates an instance of the object that allows us to use the firebase authentication framework
+   * 
+   * routine: authentication
+   * 
+   * return type: authentication
+   * 
+   * @author: Dylan Wichman
+   */
 
   auth.FirebaseAuth authentication = auth.FirebaseAuth.instance;
 
@@ -17,6 +36,18 @@ class AuthenticationServices {
   AuthenticationServices._internal();
 
   // these functions will be asyncronous once we get firebase implemented
+  /**
+   * This method is for the establishment of creating an account and storing it
+   * 
+   * routine: createAccount
+   * 
+   * return type: String
+   * 
+   * parameters
+   *    account [User]   user details passed in to create account
+   * @author: Dylan Wichman
+   */
+
   Future<dynamic> createAccount(User account) async {
     try {
       auth.UserCredential userCredential =
@@ -37,6 +68,26 @@ class AuthenticationServices {
   }
 
   //login user in firebase
+  /**
+     * This method is for login via app startup
+     * 
+     * if user doesnt have account created/types in info incorrectly
+     *  they get user-not=found
+     * 
+     * if user enters correct username/has an account 
+     * but enters wrong pw they will get "wrong password provided for that user"
+     * 
+     * routine: loginAccount
+     * 
+     * return type: String
+     * 
+     * parameters:
+     *    email   [String]    email used for logging in
+     *    password   [String]   password used for logging in
+     * 
+     * @author: Dylan Wichman
+     */
+
   Future<dynamic> loginAccount(String email, String password) async {
     try {
       auth.UserCredential userCredential = await auth.FirebaseAuth.instance
@@ -52,6 +103,16 @@ class AuthenticationServices {
       }
     }
   }
+
+  /**
+   * This method is for retrieving the current user
+   * 
+   * routine: getCurrentUser
+   * 
+   * return type: null
+   * 
+   * @author: Dylan Wichman
+   */
 
   Future<User> getCurrentUser() {
     if (authentication.currentUser != null) {
