@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
 
+///a class that gets the screen sizes of the devices so the app looks relatively the same on all devices
+///
+///@author Bobby Newsome
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
   static double screenWidth;

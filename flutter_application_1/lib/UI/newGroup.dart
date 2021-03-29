@@ -9,6 +9,9 @@ final NavigationService _navigationService = locator<NavigationService>();
 final myController1 = TextEditingController();
 final myController2 = TextEditingController();
 
+///UI creates a column of TextField widgets for users to enter information about a new group
+///
+///@author Bobby Newsome
 class NewGroup extends StatefulWidget {
   @override
   _NewGroupState createState() => new _NewGroupState();
@@ -49,9 +52,7 @@ class _NewGroupState extends State<NewGroup> {
                     onTap: () {
                       String input1 = myController1.text;
                       String input2 = myController2.text;
-
                       genGroup(input1, input2);
-
                       Navigator.of(context).pushNamed(routes.HomeRoute);
                     },
                     child: Material(
@@ -79,6 +80,8 @@ class _NewGroupState extends State<NewGroup> {
   }
 }
 
+//creates the textfields to reuse for the different information
+//@author Bobby Newsome
 textfields(String name, var conc) {
   return Container(
     height: SizeConfig.blockSizeVertical * 7,

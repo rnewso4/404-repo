@@ -102,6 +102,11 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
+<<<<<<< HEAD
+=======
+//method to check the title length and make sure it doesnt cause pixel overflow
+//@author Bobby Newsome
+>>>>>>> 07572a20d1ac31764aeabbfd62d8e3d53c81bcf1
 String _checkTitle(String name) {
   if (name.length > 17) {
     return name.substring(0, 16) + "...";
@@ -111,6 +116,7 @@ String _checkTitle(String name) {
     return name;
 }
 
+<<<<<<< HEAD
 String _checkTime(String time) {
   if (time.length > 6) {
     return time.substring(0, 5);
@@ -119,6 +125,8 @@ String _checkTime(String time) {
   else
     return time;
 }
+=======
+>>>>>>> 07572a20d1ac31764aeabbfd62d8e3d53c81bcf1
 
 events() {
   String time = '7:00';
@@ -141,6 +149,8 @@ events() {
     eventList.removeAt(0);
   }
 
+  //makes the text button for the events. Once clicked, it will bring user to the single event week
+  //@author Bobby Newsome
   return TextButton(
     onPressed: () {
       _navigationService.navigateTo(routes.SingleEventRoute);
@@ -174,7 +184,7 @@ events() {
                     color: Color(0xff404040)),
               ),
               Text(
-                '',
+                'PM',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),
