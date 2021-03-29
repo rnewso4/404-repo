@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/AuthenticationServices.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import './size_config.dart';
 import './maps.dart';
@@ -21,26 +22,28 @@ class _Login2State extends State<Login2> {
     SizeConfig().init(context);
     return Scaffold(
         backgroundColor: Color(0xFFCECECE),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
           Container(
-            child: Stack(children: <Widget>[
-              Center(
-                child: Container(
-                  padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical * 20),
-                  child: Text(
-                    'THE',
-                    style: TextStyle(
-                      fontSize: SizeConfig.blockSizeHorizontal * 10,
-                      fontFamily: 'bts',
-                      color: Color(0xff853DD9),
-                    ),
+              child: Stack(children: <Widget>[
+            Center(
+              child: Container(
+                padding:
+                    EdgeInsets.only(top: SizeConfig.safeBlockVertical * 20),
+                child: Text(
+                  'THE',
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal * 10,
+                    fontFamily: 'bts',
+                    color: Color(0xff853DD9),
                   ),
                 ),
               ),
-              Center(
+            ),
+            Center(
               child: Container(
-                padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical * 32),
+                padding:
+                    EdgeInsets.only(top: SizeConfig.safeBlockVertical * 32),
                 child: Text(
                   'QUAD',
                   style: TextStyle(
@@ -52,34 +55,36 @@ class _Login2State extends State<Login2> {
             ),
           ])),
           Container(
-            padding: EdgeInsets.fromLTRB(
-              SizeConfig.blockSizeHorizontal * 7,
-              SizeConfig.safeBlockVertical * 5,
-              SizeConfig.blockSizeHorizontal * 7,
-              0),
-            child: Column(
-              children: <Widget>[
-                TextField(
-                  controller: myController1,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle: TextStyle(
-                      color: Color(0xff404040),
-                      fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.blockSizeHorizontal * 4),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xff404040))))),
+              padding: EdgeInsets.fromLTRB(
+                  SizeConfig.blockSizeHorizontal * 7,
+                  SizeConfig.safeBlockVertical * 5,
+                  SizeConfig.blockSizeHorizontal * 7,
+                  0),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                      controller: myController1,
+                      decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                              color: Color(0xff404040),
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.blockSizeHorizontal * 4),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Color(0xff404040))))),
                   SizedBox(height: SizeConfig.safeBlockVertical * 3),
                   TextField(
-                    controller: myController2,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      labelStyle: TextStyle(
-                        color: Color(0xff404040),
-                        fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.blockSizeHorizontal * 4),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xff404040))))),
+                      controller: myController2,
+                      decoration: InputDecoration(
+                          labelText: 'Password',
+                          labelStyle: TextStyle(
+                              color: Color(0xff404040),
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.blockSizeHorizontal * 4),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Color(0xff404040))))),
                   SizedBox(height: SizeConfig.blockSizeVertical * 3),
                   Container(
                     alignment: Alignment(1.0, 0.0),
@@ -99,7 +104,11 @@ class _Login2State extends State<Login2> {
                         onTap: () {
                           String email = myController1.text;
                           String ps = myController2.text;
-                          Navigator.of(context).pushNamed(routes.HomeRoute);
+                          AuthenticationServices()
+                              .loginAccount(email, ps)
+                              .then((value) {
+                            Navigator.of(context).pushNamed(routes.HomeRoute);
+                          });
                         },
                         child: Material(
                             borderRadius: BorderRadius.circular(20),
