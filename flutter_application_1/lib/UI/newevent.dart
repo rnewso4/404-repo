@@ -82,7 +82,7 @@ class _NewEventState extends State<NewEvent> {
                         )),
                   )),
               Container(
-                height: SizeConfig.blockSizeVertical * 45,
+                height: SizeConfig.blockSizeVertical * 20,
                 padding:
                     EdgeInsets.only(right: SizeConfig.blockSizeHorizontal * 3),
                 child: Align(

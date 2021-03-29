@@ -123,7 +123,7 @@ Future<User> getAccount() {
      * 
      * return type: N/A
      * 
-     * @author: 
+     * @author: Bobby Newsome
      */
 class App extends StatelessWidget {
   // Create the initialization Future outside of `build`:
