@@ -4,6 +4,7 @@ import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/UI/maps.dart';
+import './size_config.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 
@@ -12,6 +13,7 @@ final myController2 = TextEditingController();
 final myController3 = TextEditingController();
 final myController4 = TextEditingController();
 final myController5 = TextEditingController();
+final myController6 = TextEditingController();
 
 double _lat; //these can be moved if needed
 double _lng; //these can be moved if needed
@@ -40,7 +42,7 @@ class _NewEventState extends State<NewEvent> {
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
-                //newEvFalse();
+                newEvFalse();
                 _navigationService.goBack();
               })),
       body: SingleChildScrollView(
@@ -55,6 +57,30 @@ class _NewEventState extends State<NewEvent> {
             Textfields('Date', myController4),
             SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
             Textfields('Description', myController5),
+            SizedBox(height: SizeConfig.safeBlockVertical * 4),
+            Container(
+                height: SizeConfig.blockSizeVertical * 5,
+                width: SizeConfig.blockSizeHorizontal * 80,
+                alignment: Alignment.center,
+                child: GestureDetector(
+                  onTap: () {
+                    _navigationService.goBack();
+                  },
+                  child: Material(
+                      borderRadius: BorderRadius.circular(20),
+                      shadowColor: Color(0xff853DD9),
+                      color: Color(0xff853DD9),
+                      elevation: 4.0,
+                      child: Center(
+                        child: Text(
+                          'Location',
+                          style: TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal * 5,
+                              color: Color(0xFFEBEBEB),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                )),
             Container(
               height: SizeConfig.blockSizeVertical * 45,
               padding:
