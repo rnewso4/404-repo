@@ -119,11 +119,15 @@ class _MapsPageState extends State<MapsPage> {
   }
 
   // change the marker for if a new event is being made
+  //
+//@author: Daniel W
   void _newEvTrue() {
     _newEv = true;
   }
 
   // what to do when the map is tapped
+  //
+//@author: Daniel W
   _handleMapTap(LatLng tappedPoint) {
     setState(() {
       if (_newEv) {
@@ -139,6 +143,8 @@ class _MapsPageState extends State<MapsPage> {
 }
 
 //determins which set of markers will be displayed
+//
+//@author: Daniel W
 Iterable _markersToDisplay(List<Marker> myMarker, List<Marker> evMarkers) {
   List<Marker> returnList = [];
   if (_newEv) {
@@ -150,6 +156,8 @@ Iterable _markersToDisplay(List<Marker> myMarker, List<Marker> evMarkers) {
 }
 
 // fill marker list and give them required info
+//
+//@author: Daniel W
 loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
   eventList.forEach((event) {
     evMarkers.add(Marker(
@@ -166,6 +174,8 @@ loadMarkers(List<Event> eventList, List<Marker> evMarkers) {
 }
 
 //return lat of event or 0 if the lat was not assigned
+//
+//@author: Daniel W
 double _getMarkerLat(Event _event) {
   double retVal;
   if (_event.getLat() != null) {
@@ -177,6 +187,8 @@ double _getMarkerLat(Event _event) {
 }
 
 //return lng of event or 0 if the lat was not assigned
+//
+//@author: Daniel W
 double _getMarkerLng(Event _event) {
   double retVal;
   if (_event.getLng() != null) {
@@ -188,6 +200,8 @@ double _getMarkerLng(Event _event) {
 }
 
 //return Title of event or default title if the title was not assigned
+//
+//@author: Daniel W
 String _getMarkerTitle(Event _event) {
   String retVal;
   if (_event.getTitle() != null) {
@@ -199,6 +213,8 @@ String _getMarkerTitle(Event _event) {
 }
 
 //return Title of event or default title if the title was not assigned
+//
+//@author: Daniel W
 String _getMarkerAbout(Event _event) {
   String retVal;
   if (_event.getAbout() != null) {
@@ -210,12 +226,16 @@ String _getMarkerAbout(Event _event) {
 }
 
 //when info window is tapped go to single event page to showmore info about that event
+//
+//@author: Daniel W
 _handleInfoTap(Event _event) {
   eventToShow(_event);
   _navigationService.navigateTo(routes.SingleEventRoute);
 }
 
 // change the marker for if a new event is not being made
+//
+//@author: Daniel W
 void newEvFalse() {
   _newEv = false;
 }

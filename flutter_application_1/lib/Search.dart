@@ -6,7 +6,7 @@ import 'Event.dart';
  * 
  * @author: 
  * commented by: Daniel Ahmed
- */
+ */ ///
 
 class Search {
   /**
@@ -17,7 +17,7 @@ class Search {
    * return type: Search
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
 
   static final Search _search = Search._internal();
 
@@ -39,7 +39,7 @@ class Search {
    *    term   [String]    term for account
    * 
    * @author: 
-   */
+   */ ///
   List<Account> searchAccounts(String term) {
     return new List<Account>();
   }
@@ -55,7 +55,7 @@ class Search {
    *    term    [String]    term for event
    * 
    * @author: 
-   */
+   */ ///
   List<Event> searchEvents(String term) {
     return new List<Event>();
   }
