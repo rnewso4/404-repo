@@ -6,10 +6,16 @@ import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/main.dart';
+<<<<<<< HEAD
 
 import '../DataServices.dart';
+=======
+>>>>>>> 6098bd9f83ec93b7e93794d4c90946553fe0e029
 import '../Event.dart';
 
+///this page allows users to see events happenning around them
+///
+///@author Bobby Newsome
 final NavigationService _navigationService = locator<NavigationService>();
 List<Event> eventList;
 
@@ -39,6 +45,7 @@ class _EventsPageState extends State<EventsPage> {
       if (size > 9) {
         size = 9;
       }
+      // ignore: deprecated_member_use
       name = new List(size);
     }
 
@@ -49,14 +56,17 @@ class _EventsPageState extends State<EventsPage> {
         margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 10),
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment(-1.0, -2.0),
-                end: Alignment(1.0, 2.0),
-                colors: [
-                  Color(0xffF7E8FF),
-                  Color(0xff5410A3),
-                ]),
+              begin: Alignment(-1.0, -2.0),
+              end: Alignment(1.0, 2.0),
+              colors: [
+                Color(0xffF7E8FF),
+                Color(0xff5410A3),
+              ]
+            ),
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(60), topRight: Radius.circular(60))),
+              topLeft: Radius.circular(60), topRight: Radius.circular(60)
+            )
+        ),
         child: Column(
           children: <Widget>[
             Row(
@@ -64,33 +74,38 @@ class _EventsPageState extends State<EventsPage> {
                 Container(
                     padding: EdgeInsets.only(
                         top: SizeConfig.blockSizeHorizontal * 10,
-                        left: SizeConfig.blockSizeHorizontal * 5),
+                        left: SizeConfig.blockSizeHorizontal * 5
+                    ),
                     child: Text(
                       'Local Events',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: SizeConfig.blockSizeHorizontal * 7,
                           fontWeight: FontWeight.bold),
-                    )),
+                    )
+                ),
               ],
             ),
             SizedBox(height: SizeConfig.blockSizeVertical * 2),
             Expanded(
               child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: name.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                        //elevation: 0.0,
-                        shape: BeveledRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0)),
-                        margin: EdgeInsets.only(
-                            left: SizeConfig.blockSizeHorizontal * 4,
-                            right: SizeConfig.blockSizeHorizontal * 4,
-                            bottom: SizeConfig.blockSizeVertical * 3),
-                        child: events());
-                  }),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: name.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)
+                      ),
+                      margin: EdgeInsets.only(
+                          left: SizeConfig.blockSizeHorizontal * 4,
+                          right: SizeConfig.blockSizeHorizontal * 4,
+                          bottom: SizeConfig.blockSizeVertical * 3
+                      ),
+                      child: events()
+                  );
+                }
+              ),
             ),
           ],
         ),
@@ -99,6 +114,16 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
+<<<<<<< HEAD
+=======
+void _updateList() async {
+  Future<List<Event>> futureList = getEvents();
+  eventList = await futureList;
+}
+
+//checks the title to make sure there isn't a render overflow in UI
+//@author Bobby Newsome
+>>>>>>> 6098bd9f83ec93b7e93794d4c90946553fe0e029
 String _checkTitle(String name) {
   if (name.length > 17) {
     return name.substring(0, 16) + "...";
@@ -111,7 +136,6 @@ String _checkTitle(String name) {
 events() {
   String time = '7:00';
   String name = 'Title';
-  //eventList.length
   if (eventList != null) {
     if (eventList.first != null) {
       if (eventList.first.getStart() != null) {
@@ -134,13 +158,15 @@ events() {
       _navigationService.navigateTo(routes.SingleEventRoute);
     },
     style: ButtonStyle(
-        //padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                side: BorderSide(color: Colors.white)))),
+      foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+      backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          side: BorderSide(color: Colors.white)
+        )
+      )
+    ),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -150,7 +176,7 @@ events() {
           padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2),
           decoration: BoxDecoration(
               border: Border(
-            right: BorderSide(
+                right: BorderSide(
                 width: SizeConfig.blockSizeHorizontal * .3,
                 color: Colors.black),
           )),
@@ -162,7 +188,6 @@ events() {
                     fontSize: SizeConfig.blockSizeHorizontal * 6,
                     color: Color(0xff404040)),
               ),
-              //SizedBox(height: SizeConfig.blockSizeVertical),
               Text(
                 '',
                 style: TextStyle(
@@ -181,10 +206,7 @@ events() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    //color: Colors.amber,
                     height: SizeConfig.blockSizeVertical * 11.6 / 3,
-                    //padding:
-                    // EdgeInsets.only(top: SizeConfig.blockSizeVertical * .5),
                     child: Text(name,
                         style: TextStyle(
                             fontSize: SizeConfig.blockSizeHorizontal * 5.5,
@@ -196,10 +218,8 @@ events() {
                   Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
-                      //color: Colors.green,
                       height: SizeConfig.blockSizeVertical * 7 / 3,
                       padding: EdgeInsets.only(
-                          //top: SizeConfig.blockSizeVertical * 1.9
                           ),
                       child: Text('Location',
                           style: TextStyle(
@@ -208,11 +228,7 @@ events() {
                     ),
                   ),
                   Container(
-                    //color: Colors.blue,
                     height: SizeConfig.blockSizeVertical * 8 / 3,
-                    padding: EdgeInsets.only(
-                        //bottom: SizeConfig.blockSizeVertical * 0.5
-                        ),
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('User name',
