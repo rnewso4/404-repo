@@ -6,11 +6,8 @@ import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/main.dart';
-<<<<<<< HEAD
 
 import '../DataServices.dart';
-=======
->>>>>>> 6098bd9f83ec93b7e93794d4c90946553fe0e029
 import '../Event.dart';
 
 ///this page allows users to see events happenning around them
@@ -114,16 +111,6 @@ class _EventsPageState extends State<EventsPage> {
   }
 }
 
-<<<<<<< HEAD
-=======
-void _updateList() async {
-  Future<List<Event>> futureList = getEvents();
-  eventList = await futureList;
-}
-
-//checks the title to make sure there isn't a render overflow in UI
-//@author Bobby Newsome
->>>>>>> 6098bd9f83ec93b7e93794d4c90946553fe0e029
 String _checkTitle(String name) {
   if (name.length > 17) {
     return name.substring(0, 16) + "...";

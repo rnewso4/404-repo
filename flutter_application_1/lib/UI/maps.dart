@@ -9,12 +9,12 @@ import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/newevent.dart';
 import './size_config.dart';
-import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/Event.dart';
 
 final NavigationService _navigationService = locator<NavigationService>();
 bool _newEv = false;
 
+///uses google maps api key to get the google maps where users can place pins
 class MapsPage extends StatefulWidget {
   @override
   _MapsPageState createState() => new _MapsPageState();
