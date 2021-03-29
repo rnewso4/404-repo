@@ -20,7 +20,16 @@ class _EventsPageState extends State<EventsPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    var name = new List(9);
+    _updateList();
+    var name;
+    int size;
+    if (eventList != null) {
+      size = eventList.length;
+      if (size > 9) {
+        size = 9;
+      }
+      name = new List(size);
+    }
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -94,7 +103,6 @@ String _checkTitle(String name) {
 }
 
 events() {
-  _updateList();
   String time = '7:00';
   String name = 'Title';
   //eventList.length
@@ -150,7 +158,7 @@ events() {
               ),
               //SizedBox(height: SizeConfig.blockSizeVertical),
               Text(
-                'AM',
+                '',
                 style: TextStyle(
                     fontSize: SizeConfig.blockSizeHorizontal * 4,
                     color: Color(0xff404040)),
