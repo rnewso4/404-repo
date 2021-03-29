@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-///what the 
+///what some of the buttons use to navigate if there is no context variable
 ///
-///author: Bobby Newsome
+///@author Bobby Newsome
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

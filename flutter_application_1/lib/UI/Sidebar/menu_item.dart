@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/services/locator.dart';
-import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 
 List listitem = [routes.register, routes.register, routes.register, routes.register, routes.LoginRoute];
 
-final NavigationService _navigationService = locator<NavigationService>();
+///builds the different widgets for the sidebar
+///
+///@author Bobby Newsome
 
 class MenuItemsPage extends StatelessWidget {
   
@@ -39,7 +39,6 @@ class MenuItemsPage extends StatelessWidget {
             )
           ],
         ),
-
       ),
     );
   }

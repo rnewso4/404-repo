@@ -5,13 +5,14 @@ import 'package:flutter_application_1/UI/Search.dart';
 import 'package:flutter_application_1/UI/login2.dart';
 import 'package:flutter_application_1/UI/maps.dart';
 import 'route_paths.dart' as routes;
-import 'package:flutter_application_1/UI/userAccounts.dart';
 import 'package:flutter_application_1/UI/newevent.dart';
 import 'package:flutter_application_1/UI/loading.dart';
-import 'package:flutter_application_1/UI/Events.dart';
 import 'package:flutter_application_1/UI/SingleEvent.dart';
 import 'package:flutter_application_1/UI/newGroup.dart';
 
+///used to easily find the right routes to pages to navigate
+///
+///@author Bobby Newsome
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
