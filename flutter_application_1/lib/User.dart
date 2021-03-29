@@ -147,7 +147,7 @@ class User extends Account {
 
   //will return the groups the user has membership to
   List<Group> getMembership() {
-    //return new List<Group>();
+    return new List<Group>();
   }
 
   void setId(String id) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/AuthenticationServices.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import './size_config.dart';
-import './maps.dart';
 
 final myController1 = TextEditingController();
 final myController2 = TextEditingController();

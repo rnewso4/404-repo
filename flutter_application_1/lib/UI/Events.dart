@@ -5,7 +5,6 @@ import 'package:flutter_application_1/UI/size_config.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_paths.dart' as routes;
-import 'package:flutter_application_1/main.dart';
 
 import '../DataServices.dart';
 import '../Event.dart';

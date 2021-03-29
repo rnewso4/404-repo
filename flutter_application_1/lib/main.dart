@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Event.dart';
-import 'package:flutter_application_1/UI/Register.dart';
 import 'package:flutter_application_1/services/locator.dart';
 import 'package:flutter_application_1/services/navigation_service.dart';
 import 'package:flutter_application_1/services/route_generator.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_application_1/services/route_paths.dart' as routes;
 import 'package:flutter_application_1/UI/loading.dart';
 
 import 'User.dart';
-import 'Group.dart';
 import 'AuthenticationServices.dart';
 import 'Event.dart';
 import 'DataServices.dart';
@@ -86,7 +84,7 @@ void genEvent(String name, String about, String start, String end, String date,
      */ ///
 
 void genGroup(String name, String des) {
-  var group = new Group(name, des);
+  //var group = new Group(name, des);
 }
 /**
      * This method is for creation of events from users
@@ -150,7 +148,6 @@ class App extends StatelessWidget {
           );
         }
 
-        // TODO: create a loading screen while the app waits to connect to firebase
         return MaterialApp(
           title: "title",
           home: LoadingPage(),

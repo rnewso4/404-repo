@@ -1,5 +1,4 @@
 import 'DataServices.dart';
-import 'Group.dart';
 import 'Account.dart';
 import 'User.dart';
 
@@ -108,7 +107,6 @@ class Event {
     this._start = start;
     this._end = end;
     this._date = date;
-    this._id; //get next id from firebase
     this._participants = [];
     createEvent();
   }

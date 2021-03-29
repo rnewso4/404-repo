@@ -1,5 +1,3 @@
-import 'User.dart';
-
 /**
  * Specifies types of possible reports, organized from most important to least
  * 
@@ -27,7 +25,7 @@ class Report {
   String _issue;
 
   //The user who created the report
-  User _reporter;
+  //User _reporter;
 
   //Specific catagory of report, used to sort by in Firebase
   var _category;

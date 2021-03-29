@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'Account.dart';
 import 'User.dart';
 
@@ -11,7 +10,7 @@ import 'User.dart';
  */ ///
 
 class Group extends Account {
-  User _owner;
+  //User _owner;
   List<User> _members;
 
   /**

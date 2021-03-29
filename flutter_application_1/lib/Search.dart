@@ -39,7 +39,7 @@ class Search {
    *    term   [String]    term for account
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
   List<Account> searchAccounts(String term) {
     return new List<Account>();
   }
@@ -55,7 +55,7 @@ class Search {
    *    term    [String]    term for event
    * 
    * @author: Dylan Wichman
-   */
+   */ ///
   List<Event> searchEvents(String term) {
     return new List<Event>();
   }

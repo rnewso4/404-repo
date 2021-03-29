@@ -45,15 +45,15 @@ class _NewEventState extends State<NewEvent> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Textfields('Title', myController1),
+              textFields('Title', myController1),
               SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-              Textfields('Start Time', myController2),
+              textFields('Start Time', myController2),
               SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-              Textfields('End Time', myController3),
+              textFields('End Time', myController3),
               SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-              Textfields('Date', myController4),
+              textFields('Date', myController4),
               SizedBox(height: SizeConfig.blockSizeVertical * 2.5),
-              Textfields('Description', myController5),
+              textFields('Description', myController5),
               SizedBox(height: SizeConfig.safeBlockVertical * 4),
               Container(
                   height: SizeConfig.blockSizeVertical * 5,
@@ -142,7 +142,7 @@ class _NewEventState extends State<NewEvent> {
  *    context   [BuildContext]  the context from the state in which this method is called
  * 
  * @author George Adler Buras
- */
+ */ ///
 void genEventCheck(var title, var des, var stTime, var enTime, var date,
     var lat, var lng, BuildContext context) {
   if (title == "" || des == "" || stTime == "" || enTime == "" || date == "") {
@@ -188,7 +188,7 @@ updateLatLng(double newLat, double newLng) {
 
 //creates the textfields to reuse for the different information
 //@author Bobby Newsome
-Textfields(String name, var conc) {
+textFields(String name, var conc) {
   return Container(
     height: SizeConfig.blockSizeVertical * 7,
     child: Padding(
